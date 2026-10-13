@@ -10,4 +10,4 @@ Module aus dem 1. & 2. Semester der THM sowie 1 Semester Python an der Universit
 
 ## Das erwarte ich von der Veranstaltung
 
-Relevanz in der späteren Praxis und Verständnis
+Relevanz in der späteren Praxis sowie ein tiefes Verständnis für die Thematik "Softwaretechnik"
