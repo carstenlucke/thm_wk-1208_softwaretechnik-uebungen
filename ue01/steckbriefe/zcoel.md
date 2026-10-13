@@ -7,3 +7,4 @@ Wirtschaftsinformatik 3.Semester
 Leider Keine 
 
 ## Das erwarte ich von der Veranstaltung
+Interaktives und spannende Vorlesungen mit Integration von Studierenden
