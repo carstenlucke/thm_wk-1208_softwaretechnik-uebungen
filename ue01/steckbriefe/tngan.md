@@ -9,4 +9,4 @@ Am Anfang meines Studiums habe ich das Modul „Einführung in die Programmierun
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+Ich möchte lernen, wie Software im Team geplant und entwickelt wird, und sicher mit Git und GitHub arbeiten 
