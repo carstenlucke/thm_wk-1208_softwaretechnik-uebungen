@@ -4,6 +4,6 @@
 Wirtschaftsinformatik 3.Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
-
+Leider Keine 
 
 ## Das erwarte ich von der Veranstaltung
