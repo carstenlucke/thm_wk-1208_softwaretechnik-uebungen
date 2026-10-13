@@ -1,4 +1,4 @@
-# Steckbrief Amra
+# Steckbrief Af
 
 ## Studiengang und Semester
 
@@ -6,7 +6,7 @@ Wirtschaftsinformatik B.Sc., 3. Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-Selbst bisher nicht wirklich programmiert. Arbeite akutell als CS Mangerin bei einem FinTech und betreue zwei Softwarelösungen für den öffentlichen Sektor.
+Selbst bisher nicht wirklich programmiert. Arbeite aktuell als CS Managerin bei einem FinTech und betreue zwei Softwarelösungen für den öffentlichen Sektor.
 
 ## Das erwarte ich von der Veranstaltung
 
