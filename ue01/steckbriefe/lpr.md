@@ -3,11 +3,11 @@
 ## Studiengang und Semester
 
 Wirtschaftsinformatik B.Sc 
-3. Semester
+9. Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-Entwichlungsabteilungsleiter bei der NASA
+Erfahrungen in der Cross-Platform-App-Entwicklung mit Flutter & Dart, Backend-Anbindungen (z. B. Firebase) sowie ABAP-Programmierung. Zudem fundierte Praxis im E-Commerce/Web-Bereich und Erstellung von Automatisierungs-Workflows. Erste Handgriffe mit Git und GitHub.
 
 ## Das erwarte ich von der Veranstaltung
 
