@@ -7,7 +7,7 @@ Wirtschaftsinformatik B.Sc
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-Entwichlungsabteilungsleiter bei der NASA
+Entwichlungsabteilungsleiter bei der NASA.
 
 ## Das erwarte ich von der Veranstaltung
 
