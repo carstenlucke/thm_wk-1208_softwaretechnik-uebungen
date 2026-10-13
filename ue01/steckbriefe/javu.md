@@ -6,7 +6,7 @@ Wirtschaftsinformatik (M.Sc.) 1. Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-Meine bisherige Erfahrungen sind eher im konzeptionellen und kommerziellen Bereich
+Meine bisherige Erfahrungen sind eher im konzeptionellen und kommerziellen Bereich.
 
 ## Das erwarte ich von der Veranstaltung
 
