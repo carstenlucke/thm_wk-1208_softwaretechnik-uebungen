@@ -1,4 +1,4 @@
-# Steckbrief Lorenz
+# Steckbrief leroghost
 
 ## Studiengang und Semester
 
