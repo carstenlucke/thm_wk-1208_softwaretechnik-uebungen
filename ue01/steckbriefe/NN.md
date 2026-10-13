@@ -1,7 +1,7 @@
 # Steckbrief <kürzel>
 
 ## Studiengang und Semester
-
+Wirtschaftsinformatik B.sc. 3. Semester
 …
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
