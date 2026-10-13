@@ -7,5 +7,4 @@ Wirtschaftsinformatik 3.Semester
 Java
 
 ## Das erwarte ich von der Veranstaltung
-
-…
+Danach ein besseres Designverständnis von Software haben
