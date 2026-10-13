@@ -10,4 +10,4 @@ Objektorientierte Programmierung in Java, Web-Entwicklung mit html, javascript u
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+Ich möchte lernen, Software strukturiert zu entwickeln und meine bisherigen Programmier- und Git-Kenntnisse zu vertiefen.
