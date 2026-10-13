@@ -10,4 +10,4 @@ Module aus dem 1. & 2. Semester sowie 1 Semester Python an der Universität Fran
 
 ## Das erwarte ich von der Veranstaltung
 
-Relevanz in der späteren Praxis
+Relevanz in der späteren Praxis und Verständnis
