@@ -1,4 +1,4 @@
-# Steckbrief Af
+# Steckbrief AF
 
 ## Studiengang und Semester
 
