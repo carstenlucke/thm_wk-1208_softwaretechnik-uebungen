@@ -1,7 +1,7 @@
 # Steckbrief sngu
 
 ## Studiengang und Semester 
-Wirtschaftsinformatik 5. Semester
+Wirtschaftsinformatik! 5. Semester
 
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
