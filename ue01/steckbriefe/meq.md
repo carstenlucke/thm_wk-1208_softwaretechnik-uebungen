@@ -13,5 +13,5 @@ Ich interessiere mich besonders für Cybersecurity, insbesondere SOC und Cloud S
 
 ## Das erwarte ich von der Veranstaltung
 
-Ich möchte lernen, wie man Softwareprojekte strukturiert bearbeitet, Änderungen mit Git verwaltet und gemeinsam mit anderen entwickelt.
+Ich möchte lernen, wie man Softwareprojekte strukturiert bearbeitet. Ich möchte außerdem lernen, wie man Git in Softwareprojekten einsetzt.
 …
