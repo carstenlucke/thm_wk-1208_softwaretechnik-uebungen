@@ -10,4 +10,4 @@ Ich habe bereits erste Erfahrungen mit der Programmierung und Softwareentwicklun
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+Ich möchte in dieser Veranstaltung meine Kenntnisse in der Softwareentwicklung vertiefen und neue Methoden kennenlernen. Außerdem möchte ich lernen, wie Softwareprojekte strukturiert geplant und im Team umgesetzt werden.
