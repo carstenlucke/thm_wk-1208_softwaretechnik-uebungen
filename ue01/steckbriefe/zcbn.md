@@ -6,7 +6,7 @@ Ich studiere Wirtschaftsinformatik im 7. Semester.
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-…
+Ich habe bereits erste Erfahrungen mit der Programmierung und Softwareentwicklung im Studium gesammelt. Dabei habe ich grundlegende Kenntnisse erworben und möchte diese weiter vertiefen.
 
 ## Das erwarte ich von der Veranstaltung
 
