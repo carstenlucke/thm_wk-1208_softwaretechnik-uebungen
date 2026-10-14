@@ -10,4 +10,4 @@ Leider noch nicht viel Erfahrung gesammelt, aber das wird sich in Zukunft bestim
 
 ## Das erwarte ich von der Veranstaltung
 
-
+In die Welt der Softwaretechnik eizutauchen.
