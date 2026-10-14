@@ -2,7 +2,7 @@
 
 ## Studiengang und Semester
 
-wirtschaftsinformatik 3. Semester
+Wirtschaftsinformatik Bachelor 3. Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
