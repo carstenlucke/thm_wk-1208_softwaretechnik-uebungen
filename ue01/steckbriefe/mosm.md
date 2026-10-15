@@ -5,7 +5,7 @@ Wirtschaftsinformatik und ich bin im 5. Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-Backend Entwicklung mit Java-Spring
+Backend Entwicklung mit Java-Spring(Rest-Api und andere kleine Projekte)
 
 ## Das erwarte ich von der Veranstaltung
 
