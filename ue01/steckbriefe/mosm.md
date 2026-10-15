@@ -1,7 +1,7 @@
 # Steckbrief mosm
 
 ## Studiengang und Semester
-Wirtschaftsinformatik, 5. Semester
+Wirtschaftsinformatik und ich bin im 5. Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
