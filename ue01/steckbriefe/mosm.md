@@ -9,4 +9,5 @@ Backend Entwicklung mit Java-Spring(Rest-Api und andere kleine Projekte)
 
 ## Das erwarte ich von der Veranstaltung
 
-mein Horizont in Sachen SWT zu erweitern, lernen wie man effektiv im Team aufgaben delegiert und bewältigt. wie man ein Projekt von vorne bis hinten gestaltet.
+lernen wie man effektiv im Team aufgaben delegiert und bewältigt. wie man ein Projekt von vorne bis hinten gestaltet.
+Meine Kenntnisse in Github vertiefen und eine professionelle Arbeitsweise anlernen.
