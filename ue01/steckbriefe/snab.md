@@ -11,5 +11,5 @@ Einführung in die Programmierung und Algorithmen und Datenstrukturen als Module
 …
 
 ## Das erwarte ich von der Veranstaltung
-
+Ich erwarte, dass ich durch die Veranstaltung mich der Softwareentwicklung vertrauter mache und dass ich lerne, wie man in diesem Bereich vorgeht.
 …
