@@ -7,7 +7,7 @@ Wirtschaftsinformatik B.Sc
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-…
+"Hello World" schreiben
 
 ## Das erwarte ich von der Veranstaltung
 
