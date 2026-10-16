@@ -11,4 +11,4 @@ Wirtschaftsinformatik B.Sc
 
 ## Das erwarte ich von der Veranstaltung
 
-Dass man vielleicht auch ein paar praktische Einblicke bekommt
+Dass man vielleicht auch ein paar praktische Einblicke bekommt, die man im Studium verwenden kann.
