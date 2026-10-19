@@ -10,4 +10,4 @@ Wirtschaftsinformatik, 12. Semester
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+   Ich möchte Git und GitHub sicher und sauber im Team einsetzen können und die Methoden der Softwaretechnik von Anforderungen bis Test strukturiert kennenlernen.
