@@ -1,4 +1,4 @@
-# Steckbrief <lkrs>
+# Steckbrief lkrs
 
 ## Studiengang und Semester
 
