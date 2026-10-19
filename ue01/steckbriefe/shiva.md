@@ -1,4 +1,4 @@
-# Steckbrief <kürzel>
+# Steckbrief <shiva>
 
 ## Studiengang und Semester
 
