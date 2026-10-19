@@ -12,4 +12,6 @@ Besonders interessant finde ich die Entwicklung skalierbarer Softwaresysteme sow
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+Von der Veranstaltung Softwaretechnik erwarte ich, dass ich meine Kenntnisse über die systematische Planung, Entwicklung und Wartung komplexer Softwaresysteme vertiefen kann.
+
+Besonders interessieren mich moderne Softwarearchitekturen, agile Entwicklungsmethoden sowie die Qualitätssicherung durch automatisierte Tests. Darüber hinaus möchte ich lernen, wie Softwareprojekte effizient organisiert und im Team erfolgreich umgesetzt werden können.
