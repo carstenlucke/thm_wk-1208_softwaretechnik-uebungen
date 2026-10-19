@@ -2,7 +2,8 @@
 
 ## Studiengang und Semester
 
-Wirtschaftsinformatik 3.semester
+Wirtschaftsinformatik B.sc
+3.semester
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 Ich habe bisher kleinere Projekte in Python und Java umgesetzt und arbeite gerade an meiner ersten App mit Flutter.
 ## Das erwarte ich von der Veranstaltung
