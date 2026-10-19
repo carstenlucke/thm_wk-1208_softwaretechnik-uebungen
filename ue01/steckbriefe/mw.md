@@ -10,4 +10,4 @@ Ich habe bisher erste Erfahrungen mit der Programmierung im Studium gesammelt un
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+Ich erwarte von der Veranstaltung, dass ich lerne, wie Softwareprojekte geplant, entwickelt und organisiert werden. Außerdem möchte ich meine praktischen Kenntnisse verbessern und den Umgang mit Git und GitHub besser verstehen.
