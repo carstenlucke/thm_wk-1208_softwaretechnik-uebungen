@@ -5,6 +5,7 @@
 …
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
+keine Ahnung
 
 …
 
