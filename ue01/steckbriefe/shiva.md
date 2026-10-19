@@ -10,5 +10,6 @@ keine Ahnung
 …
 
 ## Das erwarte ich von der Veranstaltung
+ich will lernen
 
 …
