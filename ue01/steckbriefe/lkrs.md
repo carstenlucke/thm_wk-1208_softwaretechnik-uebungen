@@ -1,8 +1,8 @@
-# Steckbrief <kürzel>
+# Steckbrief <lkrs>
 
 ## Studiengang und Semester
 
-…
+Wirtschaftsinformatik 3.Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
