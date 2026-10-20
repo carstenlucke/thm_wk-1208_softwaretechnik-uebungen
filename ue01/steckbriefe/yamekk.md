@@ -7,4 +7,4 @@ B. Sc. Organisations und IT-Sicherheit, 3.Semester
 Ja
 
 ## Das erwarte ich von der Veranstaltung
-nicht hardwaretechnik
+nicht Hardwaretechnik :D
