@@ -10,4 +10,4 @@ mein Onkel hat mir programmieren beigebracht
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+das altaf mo sachen zeigt
