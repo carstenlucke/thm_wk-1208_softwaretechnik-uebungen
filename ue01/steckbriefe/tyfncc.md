@@ -8,5 +8,5 @@ Privat kaum
 Uni Java, Python und weitere Module
 
 ## Das erwarte ich von der Veranstaltung
-
-…
+Grundlagen der Softwaretechnik
+Erfahrung mit GitHUB
