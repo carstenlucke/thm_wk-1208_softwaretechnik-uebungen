@@ -3,6 +3,7 @@
 ## Studiengang und Semester
 
 Organisations und IT Sicherheit 3.Semester
+Beachlor
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
