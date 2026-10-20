@@ -10,4 +10,4 @@ ich habe github persönlich erfunden mit gerlach
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+wenig theorie mehr praxis, um sich mehr zu engagieren. mehr bonuspunkte für die Klausur ^^
