@@ -10,4 +10,4 @@ Programmieren 1 in Java. Mit Git habe ich bisher nicht gearbeitet.
 
 ## Das erwarte ich von der Veranstaltung
 
-…
+Ich möchte lernen, wie man im Team an Software arbeitet.
