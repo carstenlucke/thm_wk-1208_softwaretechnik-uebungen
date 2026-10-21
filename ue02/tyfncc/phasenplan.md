@@ -58,6 +58,6 @@ Kürzel: tyfncc
 
 ## Bei welchen Karten waren Sie unsicher — und was haben Sie abgewogen?
 
-Keine Karte markiert.
+Bei der Zuordnung der Tätigkeiten zu den einzelnen Phasen war ich mir sicher. Daher habe ich keine Karte als unsicher markiert.
 
 <!-- zuordnung ue02-phasenplan: k01=implementierung k02=studie k03=integration k04=spezifikation k05=wartung k22=spezifikation k06=konstruktion k07=studie k08=integration k09=konstruktion k10=spezifikation k11=wartung k12=implementierung k23=konstruktion k13=studie k14=spezifikation k15=konstruktion k16=integration k17=wartung k18=konstruktion k19=spezifikation k24=integration k20=integration k21=spezifikation | unsicher: – -->
