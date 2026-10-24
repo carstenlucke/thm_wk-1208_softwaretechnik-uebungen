@@ -4,7 +4,7 @@ Kürzel: fahm
 
 ## Studie
 
-**Ergebnis der Phase:** …
+**Ergebnis der Phase:**  Ein Überblick über die aktuelle Situation und ein Vorschlag für das weitere Vorgehen.
 
 - Eigenentwicklung, Anpassung einer Open-Source-Lösung und Kauf nebeneinanderstellen und nach Kosten und Nutzen bewerten
 - Die heutige Lage aufnehmen: wie Sprechstunden und Prüfungstermine bisher vereinbart werden und wo es hakt
@@ -15,7 +15,7 @@ Kürzel: fahm
 
 ## Systemspezifikation
 
-**Ergebnis der Phase:** …
+**Ergebnis der Phase:** Eine abgestimmte Beschreibung der Anforderungen an das Terminsystem.
 
 - Mit Lehrenden und Sekretariaten Schritt für Schritt beschreiben, wie ein Sprechstundentermin gebucht wird
 - Festlegen, welche Vorgänge ein KI-Agent über die API auslösen darf — z.B. freie Termine abfragen und buchen, aber keine Prüfungstermine absagen
@@ -25,7 +25,7 @@ Kürzel: fahm
 
 ## Systemkonstruktion
 
-**Ergebnis der Phase:** …
+**Ergebnis der Phase:** Ein technischer Entwurf, der zeigt, wie die Komponenten des Terminsystems zusammenarbeiten
 
 - Das System in Komponenten zerlegen — z.B. Terminverwaltung, Benachrichtigung, Anmeldung — und deren Schnittstellen festlegen
 - Datenbank, Programmiersprache und Web-Framework auswählen
@@ -35,14 +35,14 @@ Kürzel: fahm
 
 ## Implementierung
 
-**Ergebnis der Phase:** …
+**Ergebnis der Phase:** Die einzelnen Komponenten des Terminsystems sind programmiert und getestet.
 
 - Die Komponente „Benachrichtigung“ programmieren
 - Die fertige Komponente „Terminverwaltung“ für sich testen, ehe sie mit anderen zusammenkommt
 
 ## Integration & Einführung
 
-**Ergebnis der Phase:** …
+**Ergebnis der Phase:** Das Terminsystem ist eingeführt, die Komponenten arbeiten zusammen und der Probebetrieb ist durchgeführt.
 
 - Die THM installiert das System in ihrer eigenen Umgebung und prüft es in eigener Verantwortung
 - Terminverwaltung und Benachrichtigung zusammenführen und ihr Zusammenspiel gegen Testfälle prüfen
@@ -50,7 +50,7 @@ Kürzel: fahm
 
 ## Wartung
 
-**Ergebnis der Phase:** …
+**Ergebnis der Phase:** Fehler werden behoben und das Terminsystem wird an neue Anforderungen angepasst.
 
 - Einen Fehler bei der Zeitumstellung beheben, den ein Sekretariat gemeldet hat
 - Eine Hotline für Fragen der Anwenderinnen und Anwender besetzen
