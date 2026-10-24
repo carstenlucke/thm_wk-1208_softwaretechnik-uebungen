@@ -9,5 +9,5 @@
 …
 
 ## Das erwarte ich von der Veranstaltung
-
+    Ich möchte lernen, wie Software entsteht und wie man langfristig an die Software arbeitet.
 …
