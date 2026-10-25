@@ -4,7 +4,7 @@ Kürzel: sahmed
 
 ## Studie
 
-**Ergebnis der Phase:** Machbarkeitsstudie
+**Ergebnis der Phase:** Projektvorschlag
 
 - Eigenentwicklung, Anpassung einer Open-Source-Lösung und Kauf nebeneinanderstellen und nach Kosten und Nutzen bewerten
 - Die heutige Lage aufnehmen: wie Sprechstunden und Prüfungstermine bisher vereinbart werden und wo es hakt
@@ -33,7 +33,7 @@ Kürzel: sahmed
 
 ## Implementierung
 
-**Ergebnis der Phase:** Lauffähige Software
+**Ergebnis der Phase:** Lauffähige Software (Quellcode)
 
 - Die Komponente „Benachrichtigung“ programmieren
 - Die fertige Komponente „Terminverwaltung“ für sich testen, ehe sie mit anderen zusammenkommt
@@ -50,7 +50,7 @@ Kürzel: sahmed
 
 ## Wartung
 
-**Ergebnis der Phase:** Gewartetes System
+**Ergebnis der Phase:** Aktualisierte Software
 
 - Eine Warteliste für ausgebuchte Termine nachrüsten, die sich die Lehrenden nach einem Semester wünschen
 - Eine Hotline für Fragen der Anwenderinnen und Anwender besetzen
