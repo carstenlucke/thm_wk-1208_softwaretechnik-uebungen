@@ -1,6 +1,6 @@
 # Zugabe — Rollen besetzen
 
-Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @sadimadi22, @AnushkaKannan, @maxbarrosschauer, @quocdatbui
+Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @sadimadi22, @AnushkaKannan, @maxbarrosschauer
 
 ---
 
@@ -16,7 +16,7 @@ Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @sadimadi22, 
 - **Projektmanager & Projektleiter:** @sadimadi22 — Passt auf, dass der Zeitplan eingehalten wird, verteilt die Aufgaben und hält das Team zusammen.
 - **Chefdesigner & Entwickler:** @AnushkaKannan — Kümmert sich darum, wie die Seiten aussehen, und programmiert an der Webseite mit.
 - **Entwickler:** @maxbarrosschauer — Programmiert die Anbindung an die Datenbank und die Schnittstellen.
-- **Qualitätsbeauftragter & Entwickler:** @quocdatbui — Testet das System auf Fehler und prüft, ob alle geforderten Funktionen richtig klappen.
+- **Qualitätsbeauftragter & Entwickler:** @sadimadi22 — Testet das System auf Fehler und prüft, ob alle geforderten Funktionen richtig klappen.
 
 ---
 
