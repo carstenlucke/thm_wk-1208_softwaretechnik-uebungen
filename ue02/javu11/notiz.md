@@ -23,3 +23,4 @@ Wichtig: Noch ist nichts beauftragt, wir sollen zuerst einen Vorschlag machen.
 | Wer nimmt für die THM an den Gesprächen teil | Die THM | Bis zum nächsten Gespräch |
 | Bis wann soll die Software eingeführt sein | Die THM | Bis zum nächsten Gespräch |
 | Wer aus unserer Firma leitet das Projekt | Wir | In dieser Woche |
+
