@@ -13,3 +13,19 @@ Studierende können freie Termine sehen und buchen.
 
 Lehrer können Termine ändern und löschen.
 Studierende können gebuchte Termine ansehen und absagen.
+
+### Sprechstunden und Prüfungstermine
+
+Lehrende können Sprechstunden und Prüfungstermine anlegen.
+
+### Freie Termine anzeigen
+
+Studierende können sehen, welche Termine noch verfügbar sind.
+
+### Termine ändern und löschen
+
+Lehrende können bestehende Termine ändern oder löschen.
+
+### Buchungen verwalten
+
+Studierende können ihre gebuchten Termine ansehen und absagen.
