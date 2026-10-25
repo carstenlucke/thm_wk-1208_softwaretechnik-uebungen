@@ -28,4 +28,4 @@
 
 ## Verbindung mit anderen Systemen
 - Soll der Planer mit dem THM-Konto verbunden sein?
-- Soll man Termine in einen Kalender übernehmen können?
+- Soll man Termine in einen Kalender übernehmen können? 
