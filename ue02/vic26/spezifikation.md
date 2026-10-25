@@ -1,3 +1,5 @@
+GitHub-Benutzername: pet-girls-jpg
+
 # Terminplaner der THM
 
 ## Zweck
