@@ -26,3 +26,4 @@ Die THM sagte dazu wörtlich:
 |Wer nimmt für die THM an den Gesprächen teil? | Die THM| bis zum nächsten Gespräch. |
 |Bis wann soll die Software eingeführt sein? |Die THM| bis zum nächsten Gespräch.
 |Wer aus unserer Firma leitet das Projekt?| Wir|in dieser Woche.
+
