@@ -1,26 +1,38 @@
-<!-- Diese Notiz hat noch keine Form. Bringen Sie sie in Markdown, wie es
-     Aufgabe 1 des Übungsblatts beschreibt, ohne am Inhalt etwas zu ändern.
-     Löschen Sie diesen Kommentar, sobald Sie fertig sind. -->
+# Phasenplan: Terminplaner für die THM
 
-Gesprächsnotiz: Terminplaner für die THM
-Worum es geht
-Die THM möchte eine Software zur Planung und Vereinbarung von Terminen. Lehrende bieten Sprechstunden und Prüfungstermine an, Studierende buchen sie, Sekretariate behalten den Überblick.
-Die Software soll sich über das Hochschulkonto bedienen lassen. Zunächst soll sie Termine als iCal-Datei zum Herunterladen anbieten, später vielleicht direkt in die Kalender der Beteiligten eintragen.
-Außerdem soll sie eine API bekommen, über die KI-Agenten sie steuern können.
-Die THM sagte dazu wörtlich: Wir wollen nicht noch ein Werkzeug, das am Ende keiner benutzt.
-Wichtig: Noch ist nichts beauftragt, wir sollen zuerst einen Vorschlag machen.
-Was heute benutzt wird
-E-Mail
-Listen an der Bürotür
-Werkzeuge im Netz, nämlich
-DFN-Terminplaner, https://terminplaner6.dfn.de/de
-Doodle, https://doodle.com/de/
-Nächste Schritte
-Erstens diese Notiz mit der THM abstimmen.
-Zweitens einen Phasenplan vorlegen, Datei phasenplan.md.
-Drittens die Rollen klären, Datei rollen.md.
-Offene Punkte
-Punkt, wer klärt, bis wann
-Wer nimmt für die THM an den Gesprächen teil? Die THM, bis zum nächsten Gespräch.
-Bis wann soll die Software eingeführt sein? Die THM, bis zum nächsten Gespräch.
-Wer aus unserer Firma leitet das Projekt? Wir, in dieser Woche.
+## Phase 1: Vorbereitung & Anforderungsanalyse (Aktuelle Phase)
+* **Ziel:** Abstimmung der Gesprächsnotiz und Klärung der offenen Punkte mit der THM.
+* **Aktivitäten:**
+  * Finalisierung der Rollenverteilung (`rollen.md`).
+  * Definition der Kernanforderungen (Sprechstunden, Prüfungstermine, iCal-Export, API für KI-Agenten).
+  * Bestimmung des Zeitplans für die Einführung seitens der THM.
+* **Meilenstein:** Freigabe des Konzepts im nächsten Gespräch.
+
+## Phase 2: Konzept & Prototyping
+* **Ziel:** Entwicklung eines ersten Entwurfs mit Fokus auf hohe Usability („Kein Werkzeug, das am Ende keiner benutzt“).
+* **Aktivitäten:**
+  * Entwurf der Benutzeroberfläche für Lehrende, Studierende und Sekretariate.
+  * Technische Konzeption der Anbindung an das Hochschulkonto.
+  * Definition der iCal-Schnittstelle sowie der API für KI-Agenten.
+* **Meilenstein:** Vorstellung des Prototyps bei der THM.
+
+## Phase 3: Entwicklung (MVP)
+* **Ziel:** Technische Umsetzung der ersten funktionsfähigen Version.
+* **Aktivitäten:**
+  * Implementierung der Buchungs- und Übersichtsalgorithmen.
+  * Bereitstellung des iCal-Downloads.
+  * Integration der Authentifizierung über das Hochschulkonto.
+* **Meilenstein:** Interner Test (Alpha-Version).
+
+## Phase 4: Test- und Pilotphase
+* **Ziel:** Erprobung in ausgewählten Bereichen der THM.
+* **Aktivitäten:**
+  * Einsatz mit testenden Lehrenden und Studierenden.
+  * Feedback-Schleifen zur Optimierung der Benutzerfreundlichkeit.
+* **Meilenstein:** Auswertung des Piloten und finale Anpassungen.
+
+## Phase 5: Rollout & Ausblick
+* **Ziel:** Offizielle Einführung an der Hochschule.
+* **Aktivitäten:**
+  * Übergabe und Inbetriebnahme.
+  * Vorbereitung späterer Ausbaustufen (z. B. direktes Eintragen in die Kalender der Beteiligten).
