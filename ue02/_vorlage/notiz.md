@@ -1,9 +1,9 @@
- <!-- Diese Notiz hat noch keine Form. Bringen Sie sie in Markdown, wie es 
-      Aufgabe 1 des Übungsblatts beschreibt, ohne am Inhalt etwas zu ändern.
-      Löschen Sie diesen Kommentar, sobald sie fertig sind. -->
+<!-- Diese Notiz hat noch keine Form. Bringen Sie sie in Markdown, wie es
+     Aufgabe 1 des Übungsblatts beschreibt, ohne am Inhalt etwas zu ändern.
+     Löschen Sie diesen Kommentar, sobald Sie fertig sind. -->
 
+Gesprächsnotiz: Terminplaner für die THM
 Worum es geht
-
 Die THM möchte eine Software zur Planung und Vereinbarung von Terminen. Lehrende bieten Sprechstunden und Prüfungstermine an, Studierende buchen sie, Sekretariate behalten den Überblick.
 Die Software soll sich über das Hochschulkonto bedienen lassen. Zunächst soll sie Termine als iCal-Datei zum Herunterladen anbieten, später vielleicht direkt in die Kalender der Beteiligten eintragen.
 Außerdem soll sie eine API bekommen, über die KI-Agenten sie steuern können.
