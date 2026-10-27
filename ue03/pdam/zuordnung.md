@@ -36,5 +36,3 @@ Kürzel: pdam
 - **Vor jeder Buchung fragt die Komponente „Buchung“ bei der Komponente „Kalender“ an, ob der Termin noch frei ist.** (Keine Anforderung — Lösung (WIE)): Es ist eine Lösung, weil die technische Umsetzung beschrieben wird, könnte aber auch eine funktionale Anforderung sein, weil die Verfügbarkeit geprüft werden muss.
 - **Personenbezogene Daten werden nach den Vorgaben der EU-DSGVO verarbeitet.** (Randbedingung (RB)): Es ist eine Randbedingung, weil das Gesetz eingehalten werden muss, könnte aber auch eine Qualitätsanforderung sein, weil es um Datenschutz geht.
 - **Das System wird im Rechenzentrum der THM betrieben.** (Randbedingung (RB)): Es ist eine Randbedingung, wenn der Betriebsort vorgeschrieben ist, könnte aber auch eine Lösung sein, wenn man sich freiwillig dafür entschieden hat.
-
-<!-- zuordnung ue03-anforderung-oder-loesung: k01=fa k02=wie k03=rb k04=qa k05=fa k06=rb k07=wie k08=fa k09=rb k10=qa k11=wie k12=fa k13=qa k14=fa k15=rb k16=fa | unsicher: k03 k07 k09 k15 -->
