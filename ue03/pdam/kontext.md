@@ -1,31 +1,27 @@
 # Stakeholder und Systemkontext — Terminplaner für die THM
 
-<!-- Aufgabe 1 des Übungsblatts. Ersetzen Sie die Platzhalter … und fügen
-     Sie so viele Zeilen hinzu, wie Sie benötigen. Löschen Sie die
-     Kommentare, sobald Sie fertig sind. -->
-
 ## Stakeholder
-
-<!-- Mindestens sechs Stakeholder, je mit einem Satz dazu, worauf sie
-     Einfluss haben. -->
 
 | Stakeholder | Worauf hat er Einfluss? |
 |---|---|
-| … | … |
+| Studierende | Müssen freie Termine finden und Termine bei Lehrenden buchen können|
+| Lehrende | Müssen ihre verfügbaren Zeiten festlegen und gebuchte Termine einsehen können| 
+| Sekretariat | Muss bei der Organisation und Verwaltung von Terminen unterstützt werden|
+| Rechenzentrum der THM | Ist für den technischen Betrieb und die Bereitstellung der Hochschulkonten relevant |
+| Datenschutzbeauftragte der THM | Muss sicherstellen, dass personenbezogene Daten angemessen geschützt werden|
+| Hochschulleitung | Hat Interesse an einer funktionierenden und wirtschaftlichen Lösung für die Hochschule|
 
 ## Systemkontext
 
-<!-- Mindestens fünf Aspekte. Art: Person, System im Betrieb, Prozess,
-     Ereignis oder Dokument. -->
-
 | Aspekt | Art | Warum gehört er zum Kontext? |
 |---|---|---|
-| … | … | … |
+| Studierende | Person | Studierende nutzen den Terminplaner, um Termine bei Lehrenden zu buchen|
+| Lehrende | Person | Lehrende stellen ihre verfügbaren Termine bereit und bearbeiten Buchungen |
+| Hochschulkonto | System | Das Hochschulkonto dient der Anmeldung der Nutzer am Terminplaner |
+| Terminbestätigung | Dokument | Eine Terminbestätigung informiert die Beteiligten über eine erfolgte Buchung|
+| Sprechstunde | Prozess | Die Sprechstunde findet außerhalb des Terminplaners statt, wird aber durch ihn organisiert |
 
 ## Irrelevante Umgebung
 
-<!-- Zwei Dinge, welche es an der THM gibt, die für den Terminplaner jedoch
-     keine Rolle spielen, je mit einer kurzen Begründung. -->
-
-- … — …
-- … — …
+- Parkplatzverwaltung der THM — Die Verwaltung von Parkplätzen gehört nicht zu den Aufgaben des Terminplaners
+- Mensa der THM — Die Mensa gehört ebenfalls nicht zu den Vereinbarungen von Terminen
