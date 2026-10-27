@@ -1,7 +1,5 @@
 # Anforderungen — Terminplaner für die THM
 
-Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @sadimadi22, @AnushkaKannan, @maxbarrosschauer, @quocdatbui
-
 ---
 
 | Nr. | Anforderung | Stakeholder | Art |
