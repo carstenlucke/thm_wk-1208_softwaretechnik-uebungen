@@ -10,7 +10,7 @@
 |---|---|---|---|
 | A01 | Das System muss die gebuchten Termine in einer Kalenderübericht zeigen | Aktive Nutzer: *Lehrende, Schüler & Sekreteriat* | FA |
 | A02 | Das System  ermöglicht es eine Terminanfrage zu senden | Schüler | FA |
-| A03 | Das system benötigt eine 99% Ausfallsicherheit | Aktive Nutzer: *Lehrende, Schüler & Sekreteriat*  | QA |
+| A03 | Das System benötigt eine 99% Ausfallsicherheit | Aktive Nutzer: *Lehrende, Schüler & Sekreteriat*  | QA |
 | A03 | Das System darf keine Time Slots doppel buchen | Lehrende & Schüler | QA |
 | A05 | Das System muss das THM Design (Farbe, Schriftart) haben| Hochschulleitung | RB |
 | A06 | Das System muss datenschutzkonform sein | Hochschulleitung, Regierung | RB |
