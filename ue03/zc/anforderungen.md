@@ -9,6 +9,15 @@
 | Nr. | Anforderung | Stakeholder | Art |
 |---|---|---|---|
 | A01 | … | … | … |
+| A01| Studierende können Sprechstundentermine und Prüfungstermine buchen| Studierende | FA |
+| A02| Studierende erhalten eine E-mail nachdem der Lehrer den Termin bestätigt hat| Studierende | FA |
+| A03| Lehrende bieten Sprechstunde und Prüfungstermine an | Lehrer | FA |
+| A04| über 1000 melden sich für die Klausur in weniger von 2 Minuten | Studierende | QA |
+| A05| die Sekretariat hat ein Überblick auf jede gebüchte Termine |   Sekretariat | QA |
+| A06| das System musst MySQL als Datenbank verwenden | THM | RB |
+| A07| das System wird erst am 2027 gestartet | THM | RB | 
+| A08| vor jeder Buchung prüft die Komponente ,ob der Student schon ein Termin an diesem hat | Student | WIE | 
+| A09| Ein gebuchter Termin kann vom Studirenden wieder abgesagt werden| Studierende | FA|
 
 ## Eine Anforderung, die niemand ausgesprochen hat
 
@@ -16,4 +25,6 @@
      ausgesprochen hat, obwohl sie gilt, und in ein bis zwei Sätzen, warum
      sie niemand genannt hat. -->
 
+
+Die Anforderund A09 wurde im Gespräch von niemandem genannt,weil die Möglichkeit einen Termin abzusagen ,als Vertändlich vorausgesetzt wird.
 …
