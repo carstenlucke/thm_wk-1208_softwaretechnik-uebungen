@@ -1,7 +1,9 @@
-Stakeholder und Systemkontext – Terminplaner für die THM
+# Stakeholder und Systemkontext – Terminplaner für die THM
+
 ---
 
-Stakeholder
+# Stakeholder
+
 | Stakeholder | Worauf hat er Einfluss? |
 |---|---|
 | Studierende | Wollen unkompliziert freie Sprechstunden finden, buchen und eine Bestätigung bekommen. |
@@ -13,7 +15,8 @@ Stakeholder
 
 ---
 
-Systemkontext
+## Systemkontext
+
 | Aspekt | Art | Warum gehört er zum Kontext? |
 |---|---|---|
 | THM-Login-System (SSO) | System im Betrieb | Die Anwendung nutzt den THM-Login zur Authentifizierung, bleibt aber ein eigenständiges System. |
@@ -24,6 +27,7 @@ Systemkontext
 
 ---
 
-Irrelevante Umgebung
-Mensa-Speiseplan – Das kulinarische Angebot der THM steht in keinem Zusammenhang mit der Funktionalität der Terminvergabe.
-Bibliotheks-Katalog (OPAC) – Die Buchausleihe ist ein eigenständiger Prozess und benötigt keinen Datenaustausch mit dem Kalendersystem.
+## Irrelevante Umgebung
+
+- **Mensa-Speiseplan** – Das kulinarische Angebot der THM steht in keinem Zusammenhang mit der Funktionalität der Terminvergabe.
+- **Bibliotheks-Katalog (OPAC)** – Die Buchausleihe ist ein eigenständiger Prozess und benötigt keinen Datenaustausch mit dem Kalendersystem.
