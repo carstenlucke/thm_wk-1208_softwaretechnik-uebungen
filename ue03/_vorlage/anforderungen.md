@@ -8,12 +8,17 @@
 
 | Nr. | Anforderung | Stakeholder | Art |
 |---|---|---|---|
-| A01 | … | … | … |
+| A01 |Studeirende können verfpgbare Sprechstundentermine bei Lehrenden auswählen und verbindlich buchen | Studierende | FA |
+|A02|Lehrende können Zeitfenster für Psrechstunden flexibel anlegen, ändern oder stornieren| Lehrende |FA|
+|A03|DAs Prüfungsamt kann Übersichten püber gebuchte Termine zur Prüfungseinsicht einsehen|Prüfungsamt|FA|
+|A04|Studierende können keine sprechstundentermine buchen, deren Zeitpunkt bereits in der Vergangenheit liegt|Studierende|FA|
+|A05|Die Benutzeroberfläche  muss bei normalen Anfragwn in unter zwei SSekunden vollständig  geladen sein|Hochschulrechenzentrum|QA|
+|A06|Das System muss auch auf mobilen Endgeräten übersichtlich und ohne Einschränkung  en bedienbar sein|Studierende|QA|
+|A07|Alle personenbezogenen Daten mpssen streng nach den Vorgaben der EU-DSGVO gespeichert und verarbeitet werden|Dateschutzbeauftragte(r)|RB|
+|A08|Das System darf keine Auswertungen zur Verhaltens- oder Leistungskontrolle von Lehrenden bereitstellen|Personalrat|RB|
 
 ## Eine Anforderung, die niemand ausgesprochen hat
 
-<!-- Nummer der Anforderung aus der Tabelle, welche im Gespräch niemand
-     ausgesprochen hat, obwohl sie gilt, und in ein bis zwei Sätzen, warum
-     sie niemand genannt hat. -->
 
-…
+
+Dass Termine nicht rückwirkend in der Vergangenheit gebucht werden können, ist eine alltägliche Selbstverständlichkeit. Da dieses Verhalten von allen Beteiligten als logischer Standard vorausgesetzt wird, wird es im Anforderungsgespräch von niemandem explizit erwähnt.
