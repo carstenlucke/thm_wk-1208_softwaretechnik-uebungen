@@ -2,7 +2,6 @@
 
 | Nr. | Anforderung | Stakeholder | Art |
 |---|---|---|---|
-
 | A01 | Studierende haben die Möglichkeit, nach Professoren zu suchen und sowohl freie als auch belegte Termine zu sehen. | Studierende | FA |
 | A02 | Bei der Buchung haben Studierende die Möglichkeit, Push-Erinnerungen für zwei Tage und einen Tag vor dem Termin zu aktivieren. | Studierende | FA |
 | A03 | Studierende sollen die Möglichkeit haben, nach einem bestimmten Thema oder Anliegen zu suchen und bei den zuständigen Professoren einen Termin zu reservieren. | Studierende | FA |
