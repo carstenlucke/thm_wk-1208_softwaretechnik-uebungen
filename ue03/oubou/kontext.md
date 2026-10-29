@@ -1,31 +1,27 @@
 # Stakeholder und Systemkontext — Terminplaner für die THM
 
-<!-- Aufgabe 1 des Übungsblatts. Ersetzen Sie die Platzhalter … und fügen
-     Sie so viele Zeilen hinzu, wie Sie benötigen. Löschen Sie die
-     Kommentare, sobald Sie fertig sind. -->
-
 ## Stakeholder
-
-<!-- Mindestens sechs Stakeholder, je mit einem Satz dazu, worauf sie
-     Einfluss haben. -->
 
 | Stakeholder | Worauf hat er Einfluss? |
 |---|---|
-| … | … |
+| Studierende | Sie bestimmen, wie einfach die Buchung sein muss.| 
+| Lehrende | Sie stellen Termine zur Verfügung.|
+| Sekretariate | Sie verwalten alles und behalten den Überblick.|
+| Entwicklerteam | Sie erfüllen die Anforderungen für das Programm und wollen keine Überraschungen.|
+| IT-Abteilung/ Rechenzentrum | Das System muss reibungslos bei ihnen laufen und sicher sein. Es muss sich warten lassen können.|
+| Prüfungsamt | Es legt fest, wie und wann die Prüfungstermine vergeben und abgesagt werden dürfen.|
 
 ## Systemkontext
 
-<!-- Mindestens fünf Aspekte. Art: Person, System im Betrieb, Prozess,
-     Ereignis oder Dokument. -->
-
 | Aspekt | Art | Warum gehört er zum Kontext? |
 |---|---|---|
-| … | … | … |
+| Prüfungstermine | Daten/ Ereignis | Das System muss die Termine vom Prüfungsamt auslesen. |
+| Anmeldedaten | Benutzereingabe | Studierende melden sich für die gewünschte Prüfung an.|
+| Anmeldebestätigung | Dokument/ Nachricht | Erfolgreiche Terminbestätigungen werden vom System an die Terminbuchenden versende. |
+| Absage/ Terminänderung | Ereignis | Absagen oder Verschobene Termine müssen vom Prüfungsamt im System vermerken und Betroffene informieren. |
+| Kalendereinträge | Datenaustausch | Das System vermerkt die gebuchten Termine im Kalender, damit sie in externe Kalender importiert werden können. |
 
 ## Irrelevante Umgebung
 
-<!-- Zwei Dinge, welche es an der THM gibt, die für den Terminplaner jedoch
-     keine Rolle spielen, je mit einer kurzen Begründung. -->
-
-- … — …
-- … — …
+- Mensa Speisekarte: Diese hängt mit dem Uni Alltag in Verbindung, hat jedoch keinen Einfluss/ Bezug  auf die  Prüfungstermine und Buchungen.
+- Campus-WLAN: Eine Internetverbindung ist wichtig, gehört jedoch zur technischen Infrastruktur der Hochschule und nicht zum Terminplan.
