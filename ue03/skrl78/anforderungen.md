@@ -1,19 +1,18 @@
 # Anforderungen — Terminplaner für die THM
 
-<!-- Aufgabe 3 des Übungsblatts, ohne Hilfsmittel. Je Zeile eine
-     Anforderung in einem Satz, dazu der Stakeholder, von dem sie stammt,
-     und die Art: FA, QA oder RB. Mindestens acht Anforderungen, davon
-     mindestens zwei je Art; die Nummern laufen A01, A02 … Löschen Sie die
-     Kommentare, sobald Sie fertig sind. -->
-
 | Nr. | Anforderung | Stakeholder | Art |
 |---|---|---|---|
-| A01 | … | … | … |
+| A01 | Studierende können freie Sprechstundentermine von Lehrenden einsehen. | Studierende | FA |
+| A02 | Studierende können einen verfügbaren Termin bei einer Lehrperson buchen. | Studierende | FA |
+| A03 | Lehrende können eigene Sprechstunden und Prüfungstermine erstellen und verwalten. | Lehrende | FA |
+| A04 | Sekretariate können die Termine ihres Fachbereichs einsehen und verwalten. | Sekretariat | FA |
+| A05 | Gebuchte Termine können als iCal-Datei heruntergeladen werden. | Studierende | FA |
+| A06 | Die Bedienung des Systems soll einfach und verständlich sein. | Alle Nutzenden | QA |
+| A07 | Das System soll auch bei vielen gleichzeitigen Zugriffen zuverlässig funktionieren. | THM | QA |
+| A08 | Die Anmeldung erfolgt über das Hochschulkonto der THM. | THM | RB |
+| A09 | Der Betrieb des Terminplaners erfolgt auf einer von der THM-IT verwalteten Infrastruktur. | IT-Administratoren | RB |
+| A10 | Das System stellt sicher, dass ein angebotener Termin höchstens einmal vergeben wird. | Studierende und Lehrende | FA |
 
-## Eine Anforderung, die niemand ausgesprochen hat
+## Implizite Anforderung
 
-<!-- Nummer der Anforderung aus der Tabelle, welche im Gespräch niemand
-     ausgesprochen hat, obwohl sie gilt, und in ein bis zwei Sätzen, warum
-     sie niemand genannt hat. -->
-
-…
+A10 wurde von keinem Stakeholder ausdrücklich genannt. Sie ergibt sich jedoch aus dem Zweck der Terminbuchung: Ein Termin darf nicht gleichzeitig mehreren Personen zugeteilt werden.
