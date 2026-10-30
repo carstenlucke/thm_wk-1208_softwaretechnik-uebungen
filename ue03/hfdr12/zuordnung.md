@@ -33,5 +33,3 @@ Kürzel: hfdr12
 ## Bei welchen Karten waren Sie unsicher — und was haben Sie abgewogen?
 
 Keine Karte markiert.
-
-<!-- zuordnung ue03-anforderung-oder-loesung: k01=fa k02=wie k03=rb k04=qa k05=fa k06=wie k07=wie k08=fa k09=rb k10=qa k11=wie k12=fa k13=qa k14=fa k15=rb k16=fa | unsicher: – -->
