@@ -16,9 +16,10 @@ Wichtig: Noch ist nichts beauftragt, wir sollen zuerst einen Vorschlag machen.
 ## Nächste Schritte
 1. Erstens diese Notiz mit der THM abstimmen.
 2. Zweitens einen Phasenplan vorlegen, Datei `phasenplan.md.`
-3. Drittens die Rollen klären, Datei rollen.md.
+3. Drittens die Rollen klären, Datei `rollen.md.`
 ## Offene Punkte
-Punkt, wer klärt, bis wann
-Wer nimmt für die THM an den Gesprächen teil? Die THM, bis zum nächsten Gespräch.
-Bis wann soll die Software eingeführt sein? Die THM, bis zum nächsten Gespräch.
-Wer aus unserer Firma leitet das Projekt? Wir, in dieser Woche.
+| Punkt | Wer klärt | Bis wann |
+|---|---|---|
+|Wer nimmt für die THM an den Gesprächen teil?| Die THM| Bis zum nächsten Gespräch.
+|Bis wann soll die Software eingeführt sein?| Die THM| Bis zum nächsten Gespräch.
+|Wer aus unserer Firma leitet das Projekt? |Wir| In dieser Woche.
