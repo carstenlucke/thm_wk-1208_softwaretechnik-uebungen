@@ -34,4 +34,4 @@ Kürzel: my55
 
 Keine Karte markiert.
 
-<!-- zuordnung ue03-anforderung-oder-loesung: k01=fa k02=fa k03=qa k04=qa k05=qa k06=rb k07=qa k08=qa k09=rb k10=qa k11=fa k12=qa k13=qa k14=qa k15=wie k16=wie | unsicher: – -->
+
