@@ -1,31 +1,20 @@
-# Stakeholder und Systemkontext — Terminplaner für die THM
+# Stakeholder und Systemkontext
 
-<!-- Aufgabe 1 des Übungsblatts. Ersetzen Sie die Platzhalter … und fügen
-     Sie so viele Zeilen hinzu, wie Sie benötigen. Löschen Sie die
-     Kommentare, sobald Sie fertig sind. -->
+## 1. Stakeholder
+- Studierende, weil diese Termine schnell buchen möchten ohne Probleme.
+- Lehrer, um ihre Sprechstunden zu verwalten.
+- Sekretariate: Überblick über alle gebuchten Termine.
+- Hochschul-IT: Stellt die Server und die Anmeldung bereit.
+- Datenschutz: Achtet darauf, dass die Daten sicher sind.
+- Entwickler: Müssen das Ganze programmieren.
 
-## Stakeholder
+## 2. Systemkontext
+- Hochschulkonto: Externes System, welches die Anmeldungen prüft.
+- Kalendersystem: Externes System, welches die Termine synchronisiert.
+- E-Mail-Server: Externes System für die Bestätigungsmails.
+- KI-Agenten: Externe Software, die über die API Termine abfragt.
+- Prüfungsordnung: Dokument mit den Regeln für Prüfungen.
 
-<!-- Mindestens sechs Stakeholder, je mit einem Satz dazu, worauf sie
-     Einfluss haben. -->
-
-| Stakeholder | Worauf hat er Einfluss? |
-|---|---|
-| … | … |
-
-## Systemkontext
-
-<!-- Mindestens fünf Aspekte. Art: Person, System im Betrieb, Prozess,
-     Ereignis oder Dokument. -->
-
-| Aspekt | Art | Warum gehört er zum Kontext? |
-|---|---|---|
-| … | … | … |
-
-## Irrelevante Umgebung
-
-<!-- Zwei Dinge, welche es an der THM gibt, die für den Terminplaner jedoch
-     keine Rolle spielen, je mit einer kurzen Begründung. -->
-
-- … — …
-- … — …
+## 3. Irrelevante Umgebung
+- Mensaplan: Dies hat keinen Nutzen fürs System.
+- Parkleitsystem: Hat auch nichts mit Terminen zu tun.
