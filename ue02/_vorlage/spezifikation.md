@@ -1,20 +1,16 @@
 # Spezifikation des Terminplaners — Gliederung und Beispiele
 
-Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @nngwa35
-## Spezifikation des Terminplaners — Gliederung und Beispiele
+Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @…
 
-Mitgearbeitet hat nngwa35
-## Grundlegendes Ziel 
-- Zweck des Systems, heutige Probleme (ersetzen von Email- Absprachen, Listen und persönlichen Anmeldungen)
+<!-- Je Abschnitt Ihrer Gliederung eine Überschrift (## für Abschnitte, ###
+     für Unterabschnitte) und darunter ein Beispiel aus dem Terminplaner,
+     d.h. so, wie Sie den Sachverhalt in diesem Abschnitt festhalten würden.
+     Die beiden Überschriften unten sind lediglich Platzhalter. -->
 
-## Beteiligungen
-- Personen die beteiligt sind (Dozenten, Studierende, usw.)
-- KI Agenten als Beispiel
-- Berechtigungnen
+## …
 
-## Anforderungen
-- Termine anbieten, buchen und stornieren
-- Benachrichtigungen (Push Benachrichtigungen)
-- Verhalten bei Konflikten (Protokoll für Reklamationen)
+…
+
+## …
 
 …
