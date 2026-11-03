@@ -13,6 +13,7 @@
 A7 | Studierende | FA | Studierende sollen gebuchte Termine als Kalenderdatei herunterladen können.
 | A8 | Hochschul-IT | RB | Der Terminplaner muss mit der bestehenden IT-Infrastruktur der THM kompatibel sein. |
 | A9 | Studierende | FA | Ein Termin darf nicht gleichzeitig an zwei verschiedene Personen vergeben werden. |
+| A10 | Hochschul-IT | RB | Der Terminplaner muss die Anmeldung über das bestehende Hochschulkonto der THM ermöglichen. |
 
 ## Implizite Anforderung
 
