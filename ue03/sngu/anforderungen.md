@@ -10,8 +10,6 @@
 | A06 | Alle Studiengänge und Fachbereiche müssen exakt den offiziellen Bezeichnungen der THM entsprechen. | Studiensekretariat | RB |
 | A07 | Studierende erhalten 24 Stunden vor einem gebuchten Termin eine automatische Erinnerungs-E-Mail. | Studierende | FA |
 | A08 | Das System muss im Sommersemester 2027 in den Betrieb übergehen. | Hochschulleitung | RB |
-
+| A09 | Ein Nutzer kann ausschließlich seine eigenen Buchungen und Daten einsehen, ändern oder löschen. | Studierende / Nutzer | QA |
 ## Eine Anforderung, die niemand ausgesprochen hat
-
-- **A09:** Ein Nutzer kann ausschließlich seine eigenen Buchungen und Daten einsehen, ändern oder löschen.
 - **Begründung:** Diese Anforderung wurde im Gespräch nicht explizit genannt, da eine strenge Rechte- und Zugriffstrennung zwischen verschiedenen Nutzern eine datenschutzrechtliche Selbstverständlichkeit bei jeder Webanwendung darstellt.
