@@ -4,7 +4,7 @@
 
 …
 
-## Ich habe erste Erfahrungen mit Git und GitHub gesammelt.
+## Ich habe erste Erfahrungen mit Git und GitHub gesammelt!
 
 …
 
