@@ -4,7 +4,7 @@
 
 …
 
-## Grundlagen 
+## Ich habe erste Erfahrungen mit Git und GitHub gesammelt.
 
 …
 
