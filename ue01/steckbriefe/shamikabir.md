@@ -1,13 +1,13 @@
 # Steckbrief shamikabir
 
-## Softwaretechnik, 1. Semester
+## Studiengang und Semester
 
-…
+Softwaretechnik, 1. Semester
 
-## Ich habe erste Erfahrungen mit Git und GitHub gesammelt!
+## Meine bisherige Erfahrung mit Softwareentwicklung
 
-…
+Ich habe erste Erfahrungen mit Git und GitHub gesammelt und möchte meine Programmierkenntnisse weiterentwickeln.
 
-## Viel Praxiserfahrung 
+## Das erwarte ich von der Veranstaltung
 
-…
+Ich möchte mehr praktische Erfahrung in der Softwareentwicklung sammeln.
