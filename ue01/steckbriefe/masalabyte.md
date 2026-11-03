@@ -1,4 +1,4 @@
-# Steckbrief <masalabyte>
+# Steckbrief masalabyte
 
 ## Studiengang und Semester
 Wirtschaftsinformatik, 3. Semester
