@@ -1,7 +1,3 @@
-<!-- Diese Notiz hat noch keine Form. Bringen Sie sie in Markdown, wie es
-     Aufgabe 1 des Übungsblatts beschreibt, ohne am Inhalt etwas zu ändern.
-     Löschen Sie diesen Kommentar, sobald Sie fertig sind. -->
-
 # Gesprächsnotiz: Terminplaner für die THM
 
 ## Worum es geht
