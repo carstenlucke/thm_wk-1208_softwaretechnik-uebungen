@@ -10,4 +10,4 @@ Uni und Werkstudent in der IT
 
 ## Das erwarte ich von der Veranstaltung
 
-...
+Mehr Einblicke von vollständigen Prozessen einer Softwareentwicklung -> Prozesse, Timing, Verkauf und Verlauf
