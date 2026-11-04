@@ -15,9 +15,7 @@
 | *Datenschutzbeauftragter der THM* | Er bestimmt die Anforderungen an die DSGVO-konforme Verarbeitung personenbezogener Daten bei der Terminbuchung. |
 
 
-| Stakeholder | Worauf hat er Einfluss? |
-|---|---|
-| … | … |
+
 
 ## Systemkontext
 
