@@ -6,7 +6,7 @@ Wirtschaftsinformatik und 1. Semester
 
 ## Meine bisherige Erfahrung mit Softwareentwicklung
 
-Uni und Werkstudent in der IT
+Meine Erfahrungen habe ich von meiner alten Uni, Workshops und von der Arbeit als IT-Werkstudent geholt
 
 ## Das erwarte ich von der Veranstaltung
 
