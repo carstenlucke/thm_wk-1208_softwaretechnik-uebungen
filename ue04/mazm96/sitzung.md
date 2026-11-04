@@ -48,11 +48,11 @@ c55409f Übung 2 : Ergebnisse von akyf (#283)
 **Input:**
 ```json
 {
-  "path": "/Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen"
+  "path": "/Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen"
 }
 ```
 
-Read directory /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen, entries 1-7
+Read directory /Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen, entries 1-7
 .git/
 ue01/
 ue02/
@@ -88,11 +88,11 @@ ue04/mazm96/einrichtung.md
 **Input:**
 ```json
 {
-  "path": "/Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/README.md"
+  "path": "/Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/README.md"
 }
 ```
 
-Read file /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/README.md, lines 1-74
+Read file /Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/README.md, lines 1-74
 1: # Softwaretechnik — Übungsrepository
 2: 
 3: Dieses Repository gehört zu den Übungen der Veranstaltung **Softwaretechnik**
@@ -181,11 +181,11 @@ So only one file belongs to them: ue04/mazm96/einrichtung.md, untracked. Let me 
 **Input:**
 ```json
 {
-  "path": "/Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/mazm96/einrichtung.md"
+  "path": "/Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/mazm96/einrichtung.md"
 }
 ```
 
-Read file /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/mazm96/einrichtung.md, lines 1-56
+Read file /Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/mazm96/einrichtung.md, lines 1-56
 1: # Einrichtung — Coding Agent
 2: 
 3: <!-- Aufgaben 1 und 2 des Übungsblatts. Ersetzen Sie jedes „…“ durch Ihre
@@ -248,11 +248,11 @@ Read file /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/
 **Input:**
 ```json
 {
-  "path": "/Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/README.md"
+  "path": "/Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/README.md"
 }
 ```
 
-Read file /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/README.md, lines 1-40
+Read file /Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue04/README.md, lines 1-40
 1: # Übung 4 — Einen Coding Agent einrichten
 2: 
 3: In dieser Übung installieren Sie einen Coding Agent — das Übungsblatt
@@ -635,11 +635,11 @@ Let me quickly look at the ue01 steckbrief and ue03 files.
 **Input:**
 ```json
 {
-  "path": "/Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue01/steckbriefe/azm96.md"
+  "path": "/Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue01/steckbriefe/azm96.md"
 }
 ```
 
-Read file /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue01/steckbriefe/azm96.md, lines 1-13
+Read file /Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue01/steckbriefe/azm96.md, lines 1-13
 1: # Steckbrief azm96
 2: 
 3: ## Studiengang und Semester
@@ -659,11 +659,11 @@ Read file /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue01/
 **Input:**
 ```json
 {
-  "path": "/Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue03/azm96/zuordnung.md"
+  "path": "/Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue03/azm96/zuordnung.md"
 }
 ```
 
-Read file /Users/[BENUTZER]/Documents/thm_wk-1208_softwaretechnik-uebungen/ue03/azm96/zuordnung.md, lines 1-37
+Read file /Users/mazm96/Documents/thm_wk-1208_softwaretechnik-uebungen/ue03/azm96/zuordnung.md, lines 1-37
 1: # Anforderung oder Lösung? — Terminplaner für die THM
 2: 
 3: Kürzel: azm96
