@@ -43,11 +43,11 @@ baaa2b8 Ergebnisse der Phasen ergänzt in phasenplan.md (#284)
 **Input:**
 ```json
 {
-  "path": "C:\\Users\\shamo\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen"
+  "path": "C:\\Users\\sadimadi22\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen"
 }
 ```
 
-Read directory C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen, entries 1-7
+Read directory C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen, entries 1-7
 .git\
 ue01\
 ue02\
@@ -301,11 +301,11 @@ README.md
 **Input:**
 ```json
 {
-  "path": "C:\\Users\\shamo\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen\\README.md"
+  "path": "C:\\Users\\sadimadi22\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen\\README.md"
 }
 ```
 
-Read file C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\README.md, lines 1-74
+Read file C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\README.md, lines 1-74
 1: # Softwaretechnik — Übungsrepository
 2: 
 3: Dieses Repository gehört zu den Übungen der Veranstaltung **Softwaretechnik**
@@ -401,9 +401,9 @@ Need to inspect ue04/sadimadi22, and other dirs for sadimadi22 or possible older
 
 FullName                                                                                                     Length
 --------                                                                                                     ------
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\sadimadi22\einrichtung.md   2001
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\sadimadi22\einrichtung.md   2001
 ----
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\_vorlage\einrichtung.md         
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\_vorlage\einrichtung.md         
 
 
 
@@ -417,26 +417,9 @@ C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue
 }
 ```
 
-cbdfdc8 Sad Ahmed <sad.ahmed@mnd.thm.de>
-b5dbd3a THM-Nos <nossair.belhaj@mnd.thm.de>
-122ab21 Nathan <nathan.ghebretensae@mnd.thm.de>
-fcf17f4 PokerBuddie <kevin.zawistowski@mnd.thm.de>
-babf65e ReemAlellan <reem.alellan@mnd.thm.de>
-bf88cc9 ivloic321 <ivan.loic.baba.sah@mnd.thm.de>
-8cfd580 1Lawand <lawand.omar@mnd.thm.de>
-baaa2b8 sonnyn8 <sonny.nguyen@mnd.thm.de>
-c55409f kelliane16 <ange.kelliane.yimga.fopa@mnd.thm.de>
-9db8067 ZahraGit12 <batool.zahra.shah@mnd.thm.de>
-724bbb5 nilsowen <184246694+nilsowen@users.noreply.github.com>
-5ae12b6 Huong Nguyen <thu.huong.nguyen-2@mnd.thm.de>
-78dd5f7 Degwey Kouadjie Divinale <divinalekouadjie@gmail.com>
-b049c60 janasgr <167817584+janasgr@users.noreply.github.com>
-d7dc0ea Eaggapong Mueller <eaggapong.mueller@mnd.thm.de>
-8768bd6 PhilippeZidane <Fotsophilippe237@gmail.com>
-f8b8fd7 Pusher <136749991+Pusher63@users.noreply.github.com>
-eddf457 Georges0071 <wanssigeorges@gmail.com>
-9ce2e16 yass819 <yassine.sbai@mnd.thm.de>
-d1b75bb ssng61 <sahej.singh@mnd.thm.de>
+
+... (Commits anderer Studierender anonymisiert) ...
+
 ---- eigene Commits
 
 
@@ -458,7 +441,7 @@ The latest commit cbdfdc8 is by Sad Ahmed, branch ue04-sadimadi22. That's the us
 ```
 
 commit cbdfdc8accbcf4f00e6a4713d1f5bef45c95d8f4
-Author: Sad Ahmed <sad.ahmed@mnd.thm.de>
+Author: Sad Ahmed <sad.ahmed...mnd.thm.de>
 Date:   Thu Nov 5 22:04:17 2026 +0100
 
     Aufgabe 1: einrichtung.md abgeschlossen
@@ -498,9 +481,9 @@ b215005 2026-10-13 Dateiname anpassen
 
 FullName                                                                                     
 --------                                                                                     
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed    
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed    
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\sadimadi22
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed    
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed    
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\sadimadi22
 
 
 
@@ -525,13 +508,13 @@ Older identifier "sahmed". Let's list those dirs and ue01 steckbriefe for S_Ahme
 
 FullName                                                                                                   Length
 --------                                                                                                   ------
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\notiz.md           1447
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\phasenplan.md      3340
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\rollen.md          2070
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\spezifikation.md   3707
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed\anforderungen.md   1369
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed\kontext.md         1984
-C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed\zuordnung.md       1825
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\notiz.md           1447
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\phasenplan.md      3340
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\rollen.md          2070
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue02\sahmed\spezifikation.md   3707
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed\anforderungen.md   1369
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed\kontext.md         1984
+C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue03\sahmed\zuordnung.md       1825
 ---- steckbriefe
                                                                                                               209
 
@@ -543,11 +526,11 @@ C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue
 **Input:**
 ```json
 {
-  "path": "C:\\Users\\shamo\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen\\ue04\\sadimadi22\\einrichtung.md"
+  "path": "C:\\Users\\sadimadi22\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen\\ue04\\sadimadi22\\einrichtung.md"
 }
 ```
 
-Read file C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\sadimadi22\einrichtung.md, lines 1-55
+Read file C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\sadimadi22\einrichtung.md, lines 1-55
 1: # Einrichtung — Coding Agent
 2: 
 3: <!-- Aufgaben 1 und 2 des Übungsblatts. Ersetzen Sie jedes „…“ durch Ihre
@@ -799,11 +782,11 @@ Let me read ue04 README to describe what's expected and note missing sitzung.md.
 **Input:**
 ```json
 {
-  "path": "C:\\Users\\shamo\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen\\ue04\\README.md"
+  "path": "C:\\Users\\sadimadi22\\Desktop\\Sad Uni\\Sem 3\\SWT\\thm_wk-1208_softwaretechnik-uebungen\\ue04\\README.md"
 }
 ```
 
-Read file C:\Users\shamo\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\README.md, lines 1-40
+Read file C:\Users\sadimadi22\Desktop\Sad Uni\Sem 3\SWT\thm_wk-1208_softwaretechnik-uebungen\ue04\README.md, lines 1-40
 1: # Übung 4 — Einen Coding Agent einrichten
 2: 
 3: In dieser Übung installieren Sie einen Coding Agent — das Übungsblatt
