@@ -1,19 +1,20 @@
 # Anforderungen — Terminplaner für die THM
 
-<!-- Aufgabe 3 des Übungsblatts, ohne Hilfsmittel. Je Zeile eine
-     Anforderung in einem Satz, dazu der Stakeholder, von dem sie stammt,
-     und die Art: FA, QA oder RB. Mindestens acht Anforderungen, davon
-     mindestens zwei je Art; die Nummern laufen A01, A02 … Löschen Sie die
-     Kommentare, sobald Sie fertig sind. -->
-
 | Nr. | Anforderung | Stakeholder | Art |
 |---|---|---|---|
-| A01 | … | … | … |
+|A01 | Studierende können einen Termin bis zu 72 Stunden vorher im System absagen. | Studierende | FA |
+| A02 | Das System schickt den Studierenden eine Stunde vor dem Termin eine Erinnerung. | System / Studierende | FA |
+| A03 | Nach der erfolgreichen Anmeldung zeigt das System eine Bestätigung an. | Studierende | FA |
+| A04 | Die Webseite muss auf dem smartphone schnell laden| Studierende | QA |
+| A05| Das system muss die Passwörter sicher speichern 
+| Administrator  | QA |
+| A06| Das System muss rund um die Uhr (24/7) erreichbar sein. | Studierende | QA |
+| A07 | Die Software läuft nur auf den Servern der THM. | THM IT-Abteilung | RB |
+| A08 | Die Webseite muss auf normalen Handys (iOS und Android) ohne zusätzliche App funktionieren. | Projektleitung | RB |
+|A09 |Es ist nicht möglich,einen Termin in der vergangenheit zu buschen |Studierenden |FA
+
 
 ## Eine Anforderung, die niemand ausgesprochen hat
 
-<!-- Nummer der Anforderung aus der Tabelle, welche im Gespräch niemand
-     ausgesprochen hat, obwohl sie gilt, und in ein bis zwei Sätzen, warum
-     sie niemand genannt hat. -->
-
-…
+Nummer der Anforderung :A09
+Diese Anforderung wurde im Gesprächvon niemanden gennant,weil es selbstverständlich ist.Man kann Termine nur für die zunkunft buchen, da die vergangenheit nicht mehr geändert werden kann.
