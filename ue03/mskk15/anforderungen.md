@@ -15,7 +15,7 @@
 
 ## Eine Anforderung, die niemand ausgesprochen hat
 
-A10
+A11
 Diese Anforderung wurde möglicherweise nicht ausdrücklich genannt, weil selbstverständlich sein sollte, dass jeder Termin nur einmal vergeben wird. Ohne diese Regel könnten mehrere Studierende denselben Termin buchen.
  genannt hat.
 
