@@ -1,6 +1,6 @@
 # Anforderungen — Terminplaner für die THM
 
-| Nr.|	Anforderung |	Stakeholder| Art
+| Nr.|	Anforderung |	Stakeholder| Art |
 |A01| Studierende können freie Sprechstundentermine bei einer Lehrperson buchen.| Studierende| FA |
 |A02	| Lehrende können ihre verfügbaren Sprechstundenzeiten eintragen und ändern.| Lehrende|FA |
 |A03	| Studierende können ihre gebuchten Termine einsehen.| Studierende| FA|
@@ -15,8 +15,13 @@
 
 ## Eine Anforderung, die niemand ausgesprochen hat
 
-A11
-Diese Anforderung wurde möglicherweise nicht ausdrücklich genannt, weil selbstverständlich sein sollte, dass jeder Termin nur einmal vergeben wird. Ohne diese Regel könnten mehrere Studierende denselben Termin buchen.
- genannt hat.
+
+| Nr. | Anforderung | Stakeholder | Art |
+|---|---|---|---|
+| A11 | Studierende können nur Termine buchen, die noch verfügbar sind. | Studierende | FA |
+
+**Begründung:**
+
+Diese Anforderung wurde im Gespräch möglicherweise nicht ausdrücklich genannt, weil es selbstverständlich sein sollte, dass nur freie Termine gebucht werden können. Dadurch wird verhindert, dass mehrere Studierende denselben bereits vergebenen Termin buchen.
 
 …
