@@ -184,7 +184,7 @@ ue01\steckbriefe\pdam.md
 ue01\steckbriefe\peng.md
 ue01\steckbriefe\pgml.md
 ue01\steckbriefe\pz01.md
-ue01\steckbriefe\qdb.md
+ue01\steckbriefe\daidat123.md
 ue01\steckbriefe\qho.md
 ue01\steckbriefe\real.md
 ue01\steckbriefe\renn.md
@@ -462,10 +462,10 @@ ue02\pgml\spezifikation.md
 ue02\pz01\notiz.md
 ue02\pz01\phasenplan.md
 ue02\pz01\spezifikation.md
-ue02\qdb\notiz.md
-ue02\qdb\phasenplan.md
-ue02\qdb\rollen.md
-ue02\qdb\spezifikation.md
+ue02\daidat123\notiz.md
+ue02\daidat123\phasenplan.md
+ue02\daidat123\rollen.md
+ue02\daidat123\spezifikation.md
 ue02\qho\notiz.md
 ue02\qho\phasenplan.md
 ue02\qho\spezifikation.md
@@ -953,13 +953,13 @@ Let's inspect ue04/daidat123 contents, ue04/README.md, README.md, and git log fo
 }
 ```
 
-327b99f | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-26 | Ue02 qdb (#269)
-b1b740c | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-26 | phasenplan ausgefüllt
-f13d1b7 | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-26 | Gliederung der Spezifikation erstellt
-21bf9fc | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-26 | Gesprächsnotiz in Markdown formtatiert
-a43fc39 | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-26 | UE02 vorbereitet
-a202520 | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-20 | Steckbrief für qdb anlegen (#118)
-6f94e62 | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-20 | Steckbrief für qdb anlegen
+327b99f | daidat123 | quoc.dat.bui...mnd.thm.de | 2026-10-26 | Ue02 daidat123 (#269)
+b1b740c | daidat123 | quoc.dat.bui...mnd.thm.de | 2026-10-26 | phasenplan ausgefüllt
+f13d1b7 | daidat123 | quoc.dat.bui...mnd.thm.de | 2026-10-26 | Gliederung der Spezifikation erstellt
+21bf9fc | daidat123 | quoc.dat.bui...mnd.thm.de | 2026-10-26 | Gesprächsnotiz in Markdown formtatiert
+a43fc39 | daidat123 | quoc.dat.bui...mnd.thm.de | 2026-10-26 | UE02 vorbereitet
+a202520 | daidat123 | quoc.dat.bui...mnd.thm.de | 2026-10-20 | Steckbrief für daidat123 anlegen (#118)
+6f94e62 | daidat123 | quoc.dat.bui...mnd.thm.de | 2026-10-20 | Steckbrief für daidat123 anlegen
 
 
 ---
@@ -968,11 +968,11 @@ a202520 | daidat123 | quoc.dat.bui@mnd.thm.de | 2026-10-20 | Steckbrief für qdb
 
 _Thinking:_
 
-Interesting - earlier directories use qdb, not daidat123. AGENTS says older directories may carry an earlier chosen abbreviation; they still belong to the person. So user's files: ue01/steckbriefe/qdb.md? Actually ue01 has qdb.md? Yes "ue01\steckbriefe\qdb.md". ue02/qdb/*, ue03/qdb? Let me check. There's no ue03/qdb in list... let me check. Listing shows ue03 dirs... I don't see qdb in ue03. There is qdb in ue02. ue01 has qdb.md.
+Interesting - earlier directories use daidat123, not daidat123. AGENTS says older directories may carry an earlier chosen abbreviation; they still belong to the person. So user's files: ue01/steckbriefe/daidat123.md? Actually ue01 has daidat123.md? Yes "ue01\steckbriefe\daidat123.md". ue02/daidat123/*, ue03/daidat123? Let me check. There's no ue03/daidat123 in list... let me check. Listing shows ue03 dirs... I don't see daidat123 in ue03. There is daidat123 in ue02. ue01 has daidat123.md.
 
-Wait, but username is daidat123 and commits by daidat123. Older dirs "qdb" may or may not belong. The commit "Ue02 qdb (#269)" by daidat123 confirms ue02/qdb belongs. For ue01/qdb.md, the commits mention "Steckbrief für qdb" → belongs.
+Wait, but username is daidat123 and commits by daidat123. Older dirs "daidat123" may or may not belong. The commit "Ue02 daidat123 (#269)" by daidat123 confirms ue02/daidat123 belongs. For ue01/daidat123.md, the commits mention "Steckbrief für daidat123" → belongs.
 
-ue03/qdb doesn't exist. ue04 only has daidat123 (untracked). Also ue04/daidat123/_vorlage/einrichtung.md — a copy of the template inside own dir, probably accidental. Worth flagging.
+ue03/daidat123 doesn't exist. ue04 only has daidat123 (untracked). Also ue04/daidat123/_vorlage/einrichtung.md — a copy of the template inside own dir, probably accidental. Worth flagging.
 
 Let's verify git status detail and contents. Also check README files to describe repo. And check whether ue04/daidat123/_vorlage is ignored? It's untracked shown only top-level "ue04/daidat123/". Let's run git status --untracked-files=all.
 
@@ -1126,7 +1126,7 @@ Weitere Dateien, welche der Agent anlegt, geh�ren nicht in den Pull Request.
 
 _Thinking:_
 
-Now let's read the user's files to summarize. ue01/steckbriefe/qdb.md, ue02/qdb/*, ue04/daidat123/einrichtung.md, and the duplicated _vorlage. Also check whether ue03 has qdb or daidat123 — no. Let's verify git log for ue03/qdb or commits by daidat123 in ue03.
+Now let's read the user's files to summarize. ue01/steckbriefe/daidat123.md, ue02/daidat123/*, ue04/daidat123/einrichtung.md, and the duplicated _vorlage. Also check whether ue03 has daidat123 or daidat123 — no. Let's verify git log for ue03/daidat123 or commits by daidat123 in ue03.
 
 Let me read content.
 
@@ -1201,11 +1201,11 @@ Read file ue04/daidat123/einrichtung.md, lines 1-55
 **Input:**
 ```json
 {
-  "command": "Get-Content ue01\\steckbriefe\\qdb.md; Get-ChildItem ue02\\qdb; Get-Content ue02\\qdb\\notiz.md | Select-Object -First 15"
+  "command": "Get-Content ue01\\steckbriefe\\daidat123.md; Get-ChildItem ue02\\daidat123; Get-Content ue02\\daidat123\\notiz.md | Select-Object -First 15"
 }
 ```
 
-# Steckbrief <qdb>
+# Steckbrief <daidat123>
 
 ## Studiengang und Semester
 
@@ -1220,7 +1220,7 @@ Wirtschaftsinformatik B.Sc
 
 .
 
-    Verzeichnis: C:\Users\daida\Documents\GITHUB\thm_wk-1208_softwaretechnik-uebungen\ue02\qdb
+    Verzeichnis: C:\Users\daida\Documents\GITHUB\thm_wk-1208_softwaretechnik-uebungen\ue02\daidat123
 
 [32;1mMode   [0m[32;1m              LastWriteTime[0m[32;1m         Length[0m[32;1m Name[0m
 [32;1m----   [0m [32;1m             -------------[0m [32;1m        ------[0m [32;1m----[0m
@@ -1252,7 +1252,7 @@ Wirtschaftsinformatik B.Sc
 
 _Thinking:_
 
-Now check user's other files maybe in ue02/qdb all 4 files (notiz, phasenplan, rollen, spezifikation). Also check ue03: no qdb dir. But maybe ue03 commit exists by user under another name? Let's check git log for author and all names/files touched. Use git log --author daidat --name-only to see all files by user.
+Now check user's other files maybe in ue02/daidat123 all 4 files (notiz, phasenplan, rollen, spezifikation). Also check ue03: no daidat123 dir. But maybe ue03 commit exists by user under another name? Let's check git log for author and all names/files touched. Use git log --author daidat --name-only to see all files by user.
 
 Also check if there's a "sitzung.md" missing — ue04 requires einrichtung.md and sitzung.md. And _vorlage copy inside personal dir is extra file not to be included per README ("Weitere Dateien, welche der Agent anlegt, gehören nicht in den Pull Request"). Actually the _vorlage copy is user-created. Flag.
 
@@ -1269,32 +1269,32 @@ Let me gather user commits full file list.
 }
 ```
 
---- 327b99f 2026-10-26 Ue02 qdb (#269)
+--- 327b99f 2026-10-26 Ue02 daidat123 (#269)
 
-A	ue02/qdb/notiz.md
-A	ue02/qdb/phasenplan.md
-A	ue02/qdb/rollen.md
-A	ue02/qdb/spezifikation.md
+A	ue02/daidat123/notiz.md
+A	ue02/daidat123/phasenplan.md
+A	ue02/daidat123/rollen.md
+A	ue02/daidat123/spezifikation.md
 --- b1b740c 2026-10-26 phasenplan ausgefüllt
 
-A	ue02/qdb/phasenplan.md
-A	ue02/qdb/rollen.md
+A	ue02/daidat123/phasenplan.md
+A	ue02/daidat123/rollen.md
 --- f13d1b7 2026-10-26 Gliederung der Spezifikation erstellt
 
-M	ue02/qdb/spezifikation.md
+M	ue02/daidat123/spezifikation.md
 --- 21bf9fc 2026-10-26 Gesprächsnotiz in Markdown formtatiert
 
-M	ue02/qdb/notiz.md
+M	ue02/daidat123/notiz.md
 --- a43fc39 2026-10-26 UE02 vorbereitet
 
-A	ue02/qdb/notiz.md
-A	ue02/qdb/spezifikation.md
---- a202520 2026-10-20 Steckbrief für qdb anlegen (#118)
+A	ue02/daidat123/notiz.md
+A	ue02/daidat123/spezifikation.md
+--- a202520 2026-10-20 Steckbrief für daidat123 anlegen (#118)
 
-A	ue01/steckbriefe/qdb.md
---- 6f94e62 2026-10-20 Steckbrief für qdb anlegen
+A	ue01/steckbriefe/daidat123.md
+--- 6f94e62 2026-10-20 Steckbrief für daidat123 anlegen
 
-A	ue01/steckbriefe/qdb.md
+A	ue01/steckbriefe/daidat123.md
 
 
 **Tool: shell**
@@ -1302,7 +1302,7 @@ A	ue01/steckbriefe/qdb.md
 **Input:**
 ```json
 {
-  "command": "Get-ChildItem ue03 -Directory | Where-Object { $_.Name -match 'qdb|daidat' }; Get-ChildItem ue01\\steckbriefe -Filter '*qdb*'; git log --all --oneline -- ue04"
+  "command": "Get-ChildItem ue03 -Directory | Where-Object { $_.Name -match 'daidat123|daidat' }; Get-ChildItem ue01\\steckbriefe -Filter '*daidat123*'; git log --all --oneline -- ue04"
 }
 ```
 
@@ -1311,7 +1311,7 @@ A	ue01/steckbriefe/qdb.md
 
 [32;1mMode   [0m[32;1m              LastWriteTime[0m[32;1m         Length[0m[32;1m Name[0m
 [32;1m----   [0m [32;1m             -------------[0m [32;1m        ------[0m [32;1m----[0m
--a---         26.10.2026 12:59 Uhr            209 qdb.md
+-a---         26.10.2026 12:59 Uhr            209 daidat123.md
 9c6998c docs(ue04): README für beliebige Agenten fassen
 3763aa2 docs(ue04): Agentenwahl offen, Copilot als Agent, Überschrift „Antwort des Agenten geprüft“
 e9cba61 docs(ue04): „nein oder teilweise“ in der README wie im Übungsblatt
@@ -1325,7 +1325,7 @@ e9cba61 docs(ue04): „nein oder teilweise“ in der README wie im Übungsblatt
 
 _Thinking:_
 
-Now we have a clear picture. Note the "qdb" files belong to user (older abbreviation). No ue03 submission from user (ue03/qdb absent). ue04/daidat123 currently untracked and not filled.
+Now we have a clear picture. Note the "daidat123" files belong to user (older abbreviation). No ue03 submission from user (ue03/daidat123 absent). ue04/daidat123 currently untracked and not filled.
 
 Also check ue02/_vorlage/image.png untracked — not user's, it's in template dir. Probably stray. Mention but don't touch.
 
@@ -1333,7 +1333,7 @@ Also the `ue04/daidat123/_vorlage/einrichtung.md` duplicate — the user copied 
 
 Also sitzung.md is missing (required for exercise 4). einrichtung.md still has placeholders, so the exercise isn't done yet.
 
-Let me also check the user's ue02/qdb contents briefly to describe accurately, and check whether there are any other files by the user's email not under author match (maybe commits with different author name). Search git log --all --format for email quoc.dat.bui. Also check commits with name "qdb" maybe different author.
+Let me also check the user's ue02/daidat123 contents briefly to describe accurately, and check whether there are any other files by the user's email not under author match (maybe commits with different author name). Search git log --all --format for email quoc.dat.bui. Also check commits with name "daidat123" maybe different author.
 
 **Tool: shell**
 
@@ -1344,13 +1344,13 @@ Let me also check the user's ue02/qdb contents briefly to describe accurately, a
 }
 ```
 
-21bf9fc|daidat123|quoc.dat.bui@mnd.thm.de
-327b99f|daidat123|quoc.dat.bui@mnd.thm.de
-6f94e62|daidat123|quoc.dat.bui@mnd.thm.de
-a202520|daidat123|quoc.dat.bui@mnd.thm.de
-a43fc39|daidat123|quoc.dat.bui@mnd.thm.de
-b1b740c|daidat123|quoc.dat.bui@mnd.thm.de
-f13d1b7|daidat123|quoc.dat.bui@mnd.thm.de
+21bf9fc|daidat123|quoc.dat.bui...mnd.thm.de
+327b99f|daidat123|quoc.dat.bui...mnd.thm.de
+6f94e62|daidat123|quoc.dat.bui...mnd.thm.de
+a202520|daidat123|quoc.dat.bui...mnd.thm.de
+a43fc39|daidat123|quoc.dat.bui...mnd.thm.de
+b1b740c|daidat123|quoc.dat.bui...mnd.thm.de
+f13d1b7|daidat123|quoc.dat.bui...mnd.thm.de
 
 
 **Tool: shell**
@@ -1358,13 +1358,13 @@ f13d1b7|daidat123|quoc.dat.bui@mnd.thm.de
 **Input:**
 ```json
 {
-  "command": "Get-Content ue02\\qdb\\rollen.md; Get-Content ue02\\qdb\\spezifikation.md"
+  "command": "Get-Content ue02\\daidat123\\rollen.md; Get-Content ue02\\daidat123\\spezifikation.md"
 }
 ```
 
 # Rollen - Terminplaner f�r die THM
 
-Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @daidat123, @AnnaLena563
+Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): ...daidat123, ...AnnaLena563
 
 ## Der Kunde
 
@@ -1375,30 +1375,30 @@ Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @daidat123, @
 
 ## Das Projektteam
 
-Zwei Personen: @daidat123 (Person A) und @AnnaLena563 (Person B).
+Zwei Personen: ...daidat123 (Person A) und ...AnnaLena563 (Person B).
 
 | Rolle | Wer |
 |---|---|
-| Projektmanager | @daidat123 |
-| Projektleiter | @daidat123 |
-| Chefdesigner | @AnnaLena563 |
-| Entwickler | @daidat123 |
-| Qualit�tsbeauftragter | @AnnaLena563 |
+| Projektmanager | ...daidat123 |
+| Projektleiter | ...daidat123 |
+| Chefdesigner | ...AnnaLena563 |
+| Entwickler | ...daidat123 |
+| Qualit�tsbeauftragter | ...AnnaLena563 |
 
-Diese Rollen haben wir zusammengelegt, da bei einem 2-Personen-Team @daidat123 die organisatorische und technische Steuerung sowie die Entwicklung �bernimmt und @AnnaLena563 das UI/UX-Design gestaltet.
+Diese Rollen haben wir zusammengelegt, da bei einem 2-Personen-Team ...daidat123 die organisatorische und technische Steuerung sowie die Entwicklung �bernimmt und ...AnnaLena563 das UI/UX-Design gestaltet.
 
-Diese Rollen halten wir getrennt, da der Qualit�tsbeauftragte (@AnnaLena563) unabh�ngig vom Entwickler (@daidat123) testen muss, um eine neutrale und objektive Qualit�tssicherung ohne Befangenheit zu gew�hrleisten.
+Diese Rollen halten wir getrennt, da der Qualit�tsbeauftragte (...AnnaLena563) unabh�ngig vom Entwickler (...daidat123) testen muss, um eine neutrale und objektive Qualit�tssicherung ohne Befangenheit zu gew�hrleisten.
 
 ## Drei Situationen
 
 | Situation | Wer entscheidet? | Wer muss davon erfahren? |
 |---|---|---|
-| Ein Sekretariat w�nscht sich w�hrend der Implementierung zus�tzlich eine Raumbuchung. | Fachbereich (Auftraggeber) & Projektleiter (@daidat123) | Chefdesigner (@AnnaLena563) & Entwickler (@daidat123), da UI und Datenbank angepasst werden m�ssen. |
-| Der Systemtest zeigt, dass Benachrichtigungen bei vielen gleichzeitigen Buchungen erst nach Minuten ankommen. | Projektleiter & Entwickler (@daidat123) | Qualit�tsbeauftragter (@AnnaLena563) zur erneuten �berpr�fung sowie der Kunde zur Information. |
-| Um den Einf�hrungstermin zu halten, braucht das Projekt zwei weitere Entwickler. | Projektmanager (@daidat123) & Fachbereich (Kunde) | Das gesamte Projektteam (@daidat123, @AnnaLena563) zwecks Einarbeitung der neuen Entwickler. |
+| Ein Sekretariat w�nscht sich w�hrend der Implementierung zus�tzlich eine Raumbuchung. | Fachbereich (Auftraggeber) & Projektleiter (...daidat123) | Chefdesigner (...AnnaLena563) & Entwickler (...daidat123), da UI und Datenbank angepasst werden m�ssen. |
+| Der Systemtest zeigt, dass Benachrichtigungen bei vielen gleichzeitigen Buchungen erst nach Minuten ankommen. | Projektleiter & Entwickler (...daidat123) | Qualit�tsbeauftragter (...AnnaLena563) zur erneuten �berpr�fung sowie der Kunde zur Information. |
+| Um den Einf�hrungstermin zu halten, braucht das Projekt zwei weitere Entwickler. | Projektmanager (...daidat123) & Fachbereich (Kunde) | Das gesamte Projektteam (...daidat123, ...AnnaLena563) zwecks Einarbeitung der neuen Entwickler. |
 # Spezifikation des Terminplaners - Gliederung und Beispiele
 
-Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): @daidat123 , @AnnaLena563
+Mitgearbeitet haben (GitHub-Benutzernamen, auch bei Einzelarbeit): ...daidat123 , ...AnnaLena563
 
 # Spezifikation Terminplaner THM
 
@@ -1448,12 +1448,12 @@ Beispiel: Ein Studierender bucht einen freien Termin. Anschlie�end erscheint d
 
 _Thinking:_
 
-Now I have enough. Let me also check the ue02/qdb/notiz.md and phasenplan content briefly — already know. Fine.
+Now I have enough. Let me also check the ue02/daidat123/notiz.md and phasenplan content briefly — already know. Fine.
 
 Summarize for the user in German:
 - Repo purpose and structure: ue01-ue04, templates, README, AGENTS.
-- Own files: ue01/steckbriefe/qdb.md, ue02/qdb/* (4 files), ue04/daidat123/* (untracked).
-- Note older abbreviation qdb belongs to them (commits by daidat123), which matches AGENTS note.
+- Own files: ue01/steckbriefe/daidat123.md, ue02/daidat123/* (4 files), ue04/daidat123/* (untracked).
+- Note older abbreviation daidat123 belongs to them (commits by daidat123), which matches AGENTS note.
 - No ue03 submission found.
 - Status of ue04: einrichtung.md still template with "…", sitzung.md missing, and accidental _vorlage copy inside own dir; extra files don't belong in PR.
 - ue02/_vorlage/image.png is an untracked stray in the template directory — not theirs, leave untouched.
@@ -1477,14 +1477,14 @@ Dazu kommen `_vorlage/`-Verzeichnisse je Übung, `_zugabe/` in `ue02/`, die `REA
 
 ## Deine Dateien
 
-Du bist **daidat123**; deine älteren Abgaben liegen noch unter dem früheren Kürzel **`qdb`**. Das ist durch deine Commits belegt (`Steckbrief für qdb`, `Ue02 qdb`).
+Du bist **daidat123**; deine älteren Abgaben liegen noch unter dem früheren Kürzel **`daidat123`**. Das ist durch deine Commits belegt (`Steckbrief für daidat123`, `Ue02 daidat123`).
 
 **Bereits eingecheckt:**
-- `ue01/steckbriefe/qdb.md` — Steckbrief
-- `ue02/qdb/notiz.md` — Gesprächsnotiz
-- `ue02/qdb/phasenplan.md` — Phasenplan
-- `ue02/qdb/rollen.md` — Rollen (Team mit @AnnaLena563)
-- `ue02/qdb/spezifikation.md` — Spezifikationsgliederung
+- `ue01/steckbriefe/daidat123.md` — Steckbrief
+- `ue02/daidat123/notiz.md` — Gesprächsnotiz
+- `ue02/daidat123/phasenplan.md` — Phasenplan
+- `ue02/daidat123/rollen.md` — Rollen (Team mit ...AnnaLena563)
+- `ue02/daidat123/spezifikation.md` — Spezifikationsgliederung
 
 **Noch nicht eingecheckt (`git status`):**
 - `ue04/daidat123/einrichtung.md` — die Vorlage für Übung 4
@@ -1494,7 +1494,7 @@ Du bist **daidat123**; deine älteren Abgaben liegen noch unter dem früheren K�
 
 - **Übung 4 ist noch nicht ausgefüllt:** In `ue04/daidat123/einrichtung.md` stehen noch die Platzhalter `…`, und die laut `ue04/README.md` geforderte Datei `sitzung.md` fehlt.
 - **Die Kopie `ue04/daidat123/_vorlage/`** gehört nicht in die Abgabe — laut `ue04/README.md` sollen nur `einrichtung.md` und `sitzung.md` im Pull Request landen. Du kannst sie löschen; ich habe sie nicht angefasst.
-- **Für Übung 3** (`ue03/`) gibt es von dir kein Verzeichnis (`qdb` oder `daidat123`) — dort scheint nichts eingereicht zu sein.
+- **Für Übung 3** (`ue03/`) gibt es von dir kein Verzeichnis (`daidat123` oder `daidat123`) — dort scheint nichts eingereicht zu sein.
 - `ue02/_vorlage/image.png` ist eine nicht versionierte Datei in einem Vorlagenverzeichnis. Sie ist nicht deine; ich habe sie unverändert gelassen.
 
 Soll ich `einrichtung.md` mit dir ausfüllen, die überflüssige `_vorlage`-Kopie entfernen oder etwas anderes vorbereiten?
