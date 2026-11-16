@@ -9,12 +9,12 @@
 
 | Angabe | Ihre Angabe |
 |---|---|
-| Läuft der Agent? | … |
-| Werkzeug | … |
-| Version | … |
-| Betriebssystem | … |
-| Modellzugang | … |
-| Modell | … |
+| Läuft der Agent? | ja |
+| Werkzeug | Opencode |
+| Version | 2.2.7 |
+| Betriebssystem | Windows |
+| Modellzugang | Zen |
+| Modell | GLM-5.3-Flash Free |
 
 <!-- Läuft der Agent?: ja, teilweise oder nein. Teilweise heißt, er
      startet, aber ein Schritt danach scheitert (Anmeldung, Antwort,
@@ -36,7 +36,7 @@
      gefunden? Hat er etwas Fremdes für Ihres gehalten oder etwas erfunden?
      Zwei bis drei Sätze. -->
 
-…
+Der agent hat alle daten und files gefunden. Alle meine Branches wurden mir angezigt sowie meine folder
 
 ## Wenn es nicht läuft
 
@@ -44,7 +44,7 @@
      der Überschrift. In den Kasten gehört der Befehl, der scheitert, samt
      seiner Ausgabe, wörtlich aus dem Terminal kopiert. -->
 
-**Schritt, an dem es scheitert:** …
+**Schritt, an dem es scheitert:** Es läuft
 
 **Befehl und Ausgabe:**
 
