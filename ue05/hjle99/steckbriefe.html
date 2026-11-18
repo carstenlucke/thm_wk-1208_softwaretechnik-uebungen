@@ -1,0 +1,2731 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steckbriefe – Softwaretechnik (THM)</title>
+<style>
+  :root {
+    --thm-gruen: #80BA24;
+    --thm-grau: #4A5C66;
+    --thm-rot: #9C132E;
+    --thm-gelb: #F4AA00;
+    --thm-hellblau: #00B8E4;
+    --thm-blau: #002878;
+    --thm-weiss: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  [hidden] { display: none !important; }
+
+  body {
+    margin: 0;
+    background: var(--thm-weiss);
+    color: var(--thm-grau);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .kopf {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 1rem;
+  }
+
+  h1 {
+    margin: 0 0 0.75rem;
+    padding-left: 1rem;
+    border-left: 0.5rem solid var(--thm-gruen);
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+
+  .kopf p { margin: 0; max-width: 46rem; }
+
+  .suche {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .suche label { font-weight: bold; }
+
+  .suche input {
+    flex: 1 1 18rem;
+    max-width: 28rem;
+    padding: 0.55rem 0.75rem;
+    border: 0.125rem solid var(--thm-grau);
+    border-radius: 0;
+    background: var(--thm-weiss);
+    color: var(--thm-grau);
+    font: inherit;
+  }
+
+  .suche input:focus {
+    outline: 0.1875rem solid var(--thm-gruen);
+    outline-offset: 0.0625rem;
+  }
+
+  .zaehler {
+    font-size: 0.9rem;
+  }
+
+  .raster {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: 21rem 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .liste {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    border-top: 0.25rem solid var(--thm-grau);
+  }
+
+  .liste ul { margin: 0; padding: 0; list-style: none; }
+
+  .liste li { border-bottom: 0.0625rem solid var(--thm-grau); }
+
+  .liste button {
+    display: block;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 0;
+    border-left: 0.25rem solid transparent;
+    border-radius: 0;
+    background: var(--thm-weiss);
+    color: var(--thm-grau);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .liste button:hover { border-left-color: var(--thm-gruen); }
+
+  .liste button:focus-visible {
+    outline: 0.1875rem solid var(--thm-gruen);
+    outline-offset: -0.1875rem;
+  }
+
+  .liste button[aria-current="true"] {
+    border-left-color: var(--thm-blau);
+    color: var(--thm-blau);
+    font-weight: bold;
+  }
+
+  .liste .name { display: block; }
+
+  .liste .studiengang {
+    display: inline-block;
+    margin-top: 0.15rem;
+    padding: 0 0.4rem;
+    background: var(--thm-hellblau);
+    color: var(--thm-blau);
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+
+  .leer {
+    margin: 0.75rem 0 0;
+    color: var(--thm-rot);
+    font-weight: bold;
+  }
+
+  .detail {
+    border-top: 0.375rem solid var(--thm-gelb);
+    padding-top: 1rem;
+    min-width: 0;
+  }
+
+  .hinweis {
+    margin: 0;
+    padding: 1rem;
+    border: 0.0625rem dashed var(--thm-grau);
+  }
+
+  .profil { margin: 0 0 0.5rem; }
+
+  .profil a { color: var(--thm-blau); }
+
+  .steckbrief h2,
+  .steckbrief h3,
+  .steckbrief h4,
+  .steckbrief h5 {
+    margin: 1.25rem 0 0.5rem;
+    color: var(--thm-grau);
+    line-height: 1.3;
+  }
+
+  .steckbrief h2 { margin-top: 0.5rem; font-size: 1.4rem; }
+  .steckbrief h3 { font-size: 1.15rem; }
+  .steckbrief h4 { font-size: 1rem; }
+  .steckbrief h5 { font-size: 0.95rem; }
+
+  .steckbrief p { margin: 0 0 0.85rem; }
+
+  .steckbrief ul,
+  .steckbrief ol { margin: 0 0 0.85rem; padding-left: 1.25rem; }
+
+  .steckbrief a { color: var(--thm-blau); }
+
+  @media (max-width: 55rem) {
+    .raster { grid-template-columns: 1fr; gap: 1.5rem; }
+    .liste { position: static; max-height: 24rem; }
+  }
+</style>
+</head>
+<body>
+  <header class="kopf">
+    <h1>Steckbriefe der Übung 1</h1>
+    <p>
+      Alle 150 Steckbriefe aus <code>ue01/steckbriefe/</code>, durchsuchbar nach
+      Benutzername und Studiengang. Wähle links einen Namen, um den Steckbrief zu lesen.
+    </p>
+    <div class="suche">
+      <label for="suche">Benutzername oder Studiengang</label>
+      <input id="suche" type="search" placeholder="z. B. hjle99 oder Wirtschaftsinformatik"
+             autocomplete="off" spellcheck="false">
+      <output class="zaehler" id="zaehler" for="suche">150 von 150 Steckbriefen</output>
+    </div>
+  </header>
+
+  <main class="raster">
+    <nav class="liste" aria-label="Benutzernamen">
+      <ul id="namen">
+        <li data-suche="aalg wirtschaftsinformatik b sc 5 semester">
+          <button type="button" data-ziel="s-aalg">
+            <span class="name">aalg</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="aayd wirtschaftsinformatik 5 semester">
+          <button type="button" data-ziel="s-aayd">
+            <span class="name">aayd</span>
+            <span class="studiengang">Wirtschaftsinformatik, 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="adni wirtschaftsinformatik und 3 semester">
+          <button type="button" data-ziel="s-adni">
+            <span class="name">adni</span>
+            <span class="studiengang">Wirtschaftsinformatik und 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="af wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-AF">
+            <span class="name">AF</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="agbr wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-agbr">
+            <span class="name">agbr</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="agub organisation und it sicherehit b sc 3 semester">
+          <button type="button" data-ziel="s-Agub">
+            <span class="name">Agub</span>
+            <span class="studiengang">Organisation und IT-Sicherehit B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="ahyi wirtschaftsinformatik semester 3">
+          <button type="button" data-ziel="s-ahyi">
+            <span class="name">ahyi</span>
+            <span class="studiengang">… Wirtschaftsinformatik Semester 3</span>
+          </button>
+        </li>
+        <li data-suche="akyf wirschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-akyf">
+            <span class="name">akyf</span>
+            <span class="studiengang">… Wirschaftsinformatik 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="ale563 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-ale563">
+            <span class="name">ale563</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="anas23088 ich studiere wirtschaftsinformatik und bin im 5 semester">
+          <button type="button" data-ziel="s-Anas23088">
+            <span class="name">Anas23088</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik und bin im 5. Semester.</span>
+          </button>
+        </li>
+        <li data-suche="anddun wirtschaftsinformatik bachelor im 3 semester">
+          <button type="button" data-ziel="s-anddun">
+            <span class="name">anddun</span>
+            <span class="studiengang">Wirtschaftsinformatik Bachelor im 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="andel0 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-andel0">
+            <span class="name">andel0</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="anpa ich studiere wirtschaftsinformatik und bin im siebten semester">
+          <button type="button" data-ziel="s-anpa">
+            <span class="name">anpa</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik und bin im siebten Semester</span>
+          </button>
+        </li>
+        <li data-suche="anushka wirtschaftsinformatik semester 3">
+          <button type="button" data-ziel="s-anushka">
+            <span class="name">anushka</span>
+            <span class="studiengang">Wirtschaftsinformatik Semester 3</span>
+          </button>
+        </li>
+        <li data-suche="ar wirtschaftsinformatik und 5 semester">
+          <button type="button" data-ziel="s-AR">
+            <span class="name">AR</span>
+            <span class="studiengang">…Wirtschaftsinformatik und 5 Semester</span>
+          </button>
+        </li>
+        <li data-suche="asi wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-asi">
+            <span class="name">asi</span>
+            <span class="studiengang">…Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="asng24">
+          <button type="button" data-ziel="s-asng24">
+            <span class="name">asng24</span>
+            <span class="studiengang">…</span>
+          </button>
+        </li>
+        <li data-suche="athr wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-athr">
+            <span class="name">athr</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="avon507 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-avon507">
+            <span class="name">avon507</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="aza organisations und it sicherheit 3 semester beachlor">
+          <button type="button" data-ziel="s-Aza">
+            <span class="name">Aza</span>
+            <span class="studiengang">Organisations und IT Sicherheit 3.Semester Beachlor</span>
+          </button>
+        </li>
+        <li data-suche="azm96 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-azm96">
+            <span class="name">azm96</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="bblj09 wirtschaftsinformatik bachelor 5 semester">
+          <button type="button" data-ziel="s-Bblj09">
+            <span class="name">Bblj09</span>
+            <span class="studiengang">Wirtschaftsinformatik (Bachelor), 5.Semester</span>
+          </button>
+        </li>
+        <li data-suche="bima wirtschaftsinformatik b sc 7 semester thm">
+          <button type="button" data-ziel="s-bima">
+            <span class="name">bima</span>
+            <span class="studiengang">Wirtschaftsinformatik (B.Sc.), 7. Semester, THM</span>
+          </button>
+        </li>
+        <li data-suche="bunter95 wirtschaftsinformatik b sc im dritten semester">
+          <button type="button" data-ziel="s-bunter95">
+            <span class="name">bunter95</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. im dritten Semester.</span>
+          </button>
+        </li>
+        <li data-suche="cms wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-cms">
+            <span class="name">cms</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="datr03 wirtschaftsinformatik b sc 5 semester">
+          <button type="button" data-ziel="s-datr03">
+            <span class="name">datr03</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="davn68 wirtschaftsinformatik b sc 5 semester">
+          <button type="button" data-ziel="s-davn68">
+            <span class="name">davn68</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="dhfn1611 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-dhfn1611">
+            <span class="name">dhfn1611</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="div wirschaftinformatik 5 semester">
+          <button type="button" data-ziel="s-div">
+            <span class="name">div</span>
+            <span class="studiengang">Wirschaftinformatik 5. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="dlm28 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-dlm28">
+            <span class="name">dlm28</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="dmal2004 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-dmal2004">
+            <span class="name">dmal2004</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="dmmh1710 wirtschaftsinformatik semester 3">
+          <button type="button" data-ziel="s-dmmh1710">
+            <span class="name">dmmh1710</span>
+            <span class="studiengang">Wirtschaftsinformatik Semester 3</span>
+          </button>
+        </li>
+        <li data-suche="dsc wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-dsc">
+            <span class="name">dsc</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="dsch wirtschaftsinformatik 12 semester">
+          <button type="button" data-ziel="s-dsch">
+            <span class="name">dsch</span>
+            <span class="studiengang">Wirtschaftsinformatik, 12. Semester</span>
+          </button>
+        </li>
+        <li data-suche="dszp wirtschaftsinformatik b sc 5 semester">
+          <button type="button" data-ziel="s-dszp">
+            <span class="name">dszp</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="ecib organisations it sicherheit">
+          <button type="button" data-ziel="s-ecib">
+            <span class="name">ecib</span>
+            <span class="studiengang">Organisations &amp; IT-Sicherheit</span>
+          </button>
+        </li>
+        <li data-suche="ekes wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-ekes">
+            <span class="name">ekes</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="emalj wirtschaftsinformatik b sc 7 semester">
+          <button type="button" data-ziel="s-emalj">
+            <span class="name">emalj</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 7. Semester</span>
+          </button>
+        </li>
+        <li data-suche="emrano wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-emrano">
+            <span class="name">emrano</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="en7 mj">
+          <button type="button" data-ziel="s-en7-mj">
+            <span class="name">en7-mj</span>
+            <span class="studiengang">…</span>
+          </button>
+        </li>
+        <li data-suche="ezen wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-ezen">
+            <span class="name">ezen</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="fahm wirtschaftsinformatik b sc im semester">
+          <button type="button" data-ziel="s-Fahm">
+            <span class="name">Fahm</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. im. Semester</span>
+          </button>
+        </li>
+        <li data-suche="flk wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-flk">
+            <span class="name">flk</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="fortnitepro organisations und it sicherheit 3 semester">
+          <button type="button" data-ziel="s-fortnitepro">
+            <span class="name">fortnitepro</span>
+            <span class="studiengang">Organisations- und IT-Sicherheit 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="fpz ich studiere im 5 semester softwaretechnik">
+          <button type="button" data-ziel="s-fpz">
+            <span class="name">fpz</span>
+            <span class="studiengang">Ich studiere im 5. Semester Softwaretechnik.</span>
+          </button>
+        </li>
+        <li data-suche="hams wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-hams">
+            <span class="name">hams</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="hfdr12 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-hfdr12">
+            <span class="name">hfdr12</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="hjle99 wirtschaftsinformatik und 3 semester">
+          <button type="button" data-ziel="s-hjle99">
+            <span class="name">hjle99</span>
+            <span class="studiengang">Wirtschaftsinformatik und 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="hjri 3 semester wirtschaftsinformatik">
+          <button type="button" data-ziel="s-hjri">
+            <span class="name">hjri</span>
+            <span class="studiengang">3 Semester Wirtschaftsinformatik</span>
+          </button>
+        </li>
+        <li data-suche="hussainbutt7 wirtschaftsinformatik und semester 3">
+          <button type="button" data-ziel="s-HussainButt7">
+            <span class="name">HussainButt7</span>
+            <span class="studiengang">Wirtschaftsinformatik und Semester 3</span>
+          </button>
+        </li>
+        <li data-suche="iaa wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-iaa">
+            <span class="name">iaa</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="iesp wirtschaftsinformatik im 3 semester">
+          <button type="button" data-ziel="s-iesp">
+            <span class="name">iesp</span>
+            <span class="studiengang">Wirtschaftsinformatik im 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="ilias04j wirtschaftsinformatik im 5 semester">
+          <button type="button" data-ziel="s-ilias04j">
+            <span class="name">ilias04j</span>
+            <span class="studiengang">Wirtschaftsinformatik im 5.Semester</span>
+          </button>
+        </li>
+        <li data-suche="ivlbs ich studiere wirtschaftsinformatik im 3 semester">
+          <button type="button" data-ziel="s-ivlbs">
+            <span class="name">ivlbs</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik im 3. Semester.…</span>
+          </button>
+        </li>
+        <li data-suche="iy69 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-IY69">
+            <span class="name">IY69</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="janp wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-janp">
+            <span class="name">janp</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="jat01 wirtschaftsinformatik 5 semester">
+          <button type="button" data-ziel="s-jat01">
+            <span class="name">jat01</span>
+            <span class="studiengang">Wirtschaftsinformatik 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="javu wirtschaftsinformatik m sc 1 semester">
+          <button type="button" data-ziel="s-javu">
+            <span class="name">javu</span>
+            <span class="studiengang">Wirtschaftsinformatik (M.Sc.) 1. Semester</span>
+          </button>
+        </li>
+        <li data-suche="jemy wirtschaftsinformatik b sc 6 semester">
+          <button type="button" data-ziel="s-jemy">
+            <span class="name">jemy</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 6. Semester</span>
+          </button>
+        </li>
+        <li data-suche="jk04 witschaftsinformatik 3">
+          <button type="button" data-ziel="s-jk04">
+            <span class="name">jk04</span>
+            <span class="studiengang">Witschaftsinformatik, 3 …</span>
+          </button>
+        </li>
+        <li data-suche="jp26 ich studiere wirtschaftsinformatik im 3 semester">
+          <button type="button" data-ziel="s-jp26">
+            <span class="name">jp26</span>
+            <span class="studiengang">ich studiere Wirtschaftsinformatik im 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="jsug organisations und it sicherheit b sc 1 semester">
+          <button type="button" data-ziel="s-jsug">
+            <span class="name">jsug</span>
+            <span class="studiengang">Organisations- und IT-Sicherheit B.Sc., 1, Semester …</span>
+          </button>
+        </li>
+        <li data-suche="jvng wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-jvng">
+            <span class="name">jvng</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="kraz wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-kraz">
+            <span class="name">kraz</span>
+            <span class="studiengang">Wirtschaftsinformatik B.sc 3.semester</span>
+          </button>
+        </li>
+        <li data-suche="lebr wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-lebr">
+            <span class="name">lebr</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. 3 Semester</span>
+          </button>
+        </li>
+        <li data-suche="lkrs wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-lkrs">
+            <span class="name">lkrs</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="lom wirtschaftsinformatik">
+          <button type="button" data-ziel="s-lom">
+            <span class="name">lom</span>
+            <span class="studiengang">Wirtschaftsinformatik</span>
+          </button>
+        </li>
+        <li data-suche="lpr wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-Lpr">
+            <span class="name">Lpr</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="lpr2 wirtschaftsinformatik b sc 9 semester">
+          <button type="button" data-ziel="s-lpr2">
+            <span class="name">lpr2</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 9. Semester</span>
+          </button>
+        </li>
+        <li data-suche="lswl60 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-lswl60">
+            <span class="name">lswl60</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mabl wirtschaftsinformatik b sc 7 semester">
+          <button type="button" data-ziel="s-mabl">
+            <span class="name">mabl</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 7. Semester</span>
+          </button>
+        </li>
+        <li data-suche="masalabyte wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-masalabyte">
+            <span class="name">masalabyte</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="maxbarrosschauer wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-maxbarrosschauer">
+            <span class="name">maxbarrosschauer</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mbgrn04 wirtschaftsinformatik 5 semester">
+          <button type="button" data-ziel="s-mbgrn04">
+            <span class="name">mbgrn04</span>
+            <span class="studiengang">Wirtschaftsinformatik, 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mduc wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-mduc">
+            <span class="name">mduc</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="meq organisations und it sicherheit im 3 semester">
+          <button type="button" data-ziel="s-meq">
+            <span class="name">meq</span>
+            <span class="studiengang">Organisations- und IT-Sicherheit im 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="mf23 ich studiere oragnisations und it sicherheit b a an der thm und befinde mich im 3 fachsemester">
+          <button type="button" data-ziel="s-mf23">
+            <span class="name">mf23</span>
+            <span class="studiengang">Ich studiere Oragnisations-und It-Sicherheit (B.A.) an der THM…</span>
+          </button>
+        </li>
+        <li data-suche="mjab wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-mjab">
+            <span class="name">mjab</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="mjas wirtschaftsinformatik 5 semester">
+          <button type="button" data-ziel="s-mjas">
+            <span class="name">mjas</span>
+            <span class="studiengang">Wirtschaftsinformatik, 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mk wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-MK">
+            <span class="name">MK</span>
+            <span class="studiengang">Wirtschaftsinformatik B.sc. 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="mken wirtschaftsinformatik 3 semester thm friedberg">
+          <button type="button" data-ziel="s-mken">
+            <span class="name">mken</span>
+            <span class="studiengang">wirtschaftsinformatik, 3. semester ,Thm Friedberg</span>
+          </button>
+        </li>
+        <li data-suche="mkon studiengang wirtschaftsinformatik b sc semester 3">
+          <button type="button" data-ziel="s-mkon">
+            <span class="name">mkon</span>
+            <span class="studiengang">Studiengang: Wirtschaftsinformatik B.Sc Semester: 3</span>
+          </button>
+        </li>
+        <li data-suche="mks24 organisations und it sicherheit 3 semester">
+          <button type="button" data-ziel="s-mks24">
+            <span class="name">mks24</span>
+            <span class="studiengang">Organisations- und IT-Sicherheit 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mnag organisations it sicherheit">
+          <button type="button" data-ziel="s-mnag">
+            <span class="name">mnag</span>
+            <span class="studiengang">Organisations &amp; IT-Sicherheit</span>
+          </button>
+        </li>
+        <li data-suche="mosm wirtschaftsinformatik und ich bin im 5 semester">
+          <button type="button" data-ziel="s-mosm">
+            <span class="name">mosm</span>
+            <span class="studiengang">Wirtschaftsinformatik und ich bin im 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mpal wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-mpal">
+            <span class="name">mpal</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mskk15 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-mskk15">
+            <span class="name">mskk15</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3.Semester …</span>
+          </button>
+        </li>
+        <li data-suche="mu wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-mu">
+            <span class="name">mu</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="mw ich studiere wirtschaftsinformatik im bachelor im 5 semester">
+          <button type="button" data-ziel="s-mw">
+            <span class="name">mw</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik im Bachelor im 5. Semester.</span>
+          </button>
+        </li>
+        <li data-suche="my55 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-my55">
+            <span class="name">my55</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="nblh wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-nblh">
+            <span class="name">nblh</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="ngh wirtschaftsinformatik 5 semester">
+          <button type="button" data-ziel="s-ngh">
+            <span class="name">ngh</span>
+            <span class="studiengang">Wirtschaftsinformatik, 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="nicolino wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-nicolino">
+            <span class="name">nicolino</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="nko wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-nko">
+            <span class="name">nko</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="nly50 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-nly50">
+            <span class="name">nly50</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="nn wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-NN">
+            <span class="name">NN</span>
+            <span class="studiengang">Wirtschaftsinformatik B.sc. 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="nohl wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-nohl">
+            <span class="name">nohl</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="nuali wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-NUAli">
+            <span class="name">NUAli</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3 Semester</span>
+          </button>
+        </li>
+        <li data-suche="onzj ich studiere wirtschaftsinformatik an der technischen hochschule mittelhessen im 3 semester">
+          <button type="button" data-ziel="s-onzj">
+            <span class="name">onzj</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik an der Technischen Hochschul…</span>
+          </button>
+        </li>
+        <li data-suche="oubou wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-oubou">
+            <span class="name">oubou</span>
+            <span class="studiengang">Wirtschaftsinformatik 3 Semester …</span>
+          </button>
+        </li>
+        <li data-suche="pdam wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-pdam">
+            <span class="name">pdam</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="peng wirtschaftsinformatik 3 semester bachelorg">
+          <button type="button" data-ziel="s-peng">
+            <span class="name">peng</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester Bachelorg</span>
+          </button>
+        </li>
+        <li data-suche="pgml ich studiere wirtschaftsinformatik an der technischen hochschule mittelhessen thm am campus friedberg und befinde mich derzeit im funften fachsemester">
+          <button type="button" data-ziel="s-pgml">
+            <span class="name">pgml</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik an der Technischen Hochschul…</span>
+          </button>
+        </li>
+        <li data-suche="pz01 ich studiere wirtschaftsinformatik an der thm in friedberg und befinde mich im 3 semester">
+          <button type="button" data-ziel="s-pz01">
+            <span class="name">pz01</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik an der THM in Friedberg und…</span>
+          </button>
+        </li>
+        <li data-suche="qdb wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-qdb">
+            <span class="name">qdb</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="qho ich studiere wirtschaftsinformatik im 3 semester an der thm am campus friedberg">
+          <button type="button" data-ziel="s-qho">
+            <span class="name">qho</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik im 3. Semester an der THM am…</span>
+          </button>
+        </li>
+        <li data-suche="real wirtschaftsinformatik 3 semseter">
+          <button type="button" data-ziel="s-real">
+            <span class="name">real</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3.Semseter</span>
+          </button>
+        </li>
+        <li data-suche="renn wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-renn">
+            <span class="name">renn</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="sahmad ich studiere wirtschaftsinformatik b sc an der thm am campus friedberg und befinde mich aktuell im 3 semester">
+          <button type="button" data-ziel="s-sahmad">
+            <span class="name">sahmad</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik (B.Sc.) an der THM am Campus…</span>
+          </button>
+        </li>
+        <li data-suche="sahmed wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-sahmed">
+            <span class="name">sahmed</span>
+            <span class="studiengang">Wirtschaftsinformatik / 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="sam wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-sam">
+            <span class="name">sam</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="sazy1 ich studiere wirtschaftsinformatik und bin im dritten semester">
+          <button type="button" data-ziel="s-sazy1">
+            <span class="name">sazy1</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik und bin im dritten Semester.</span>
+          </button>
+        </li>
+        <li data-suche="sd99 studiengang wirtschaftsinformatik b sc semester 7">
+          <button type="button" data-ziel="s-sd99">
+            <span class="name">sd99</span>
+            <span class="studiengang">Studiengang: Wirtschaftsinformatik B.Sc - Semester: 7 …</span>
+          </button>
+        </li>
+        <li data-suche="shiva">
+          <button type="button" data-ziel="s-shiva">
+            <span class="name">shiva</span>
+            <span class="studiengang">…</span>
+          </button>
+        </li>
+        <li data-suche="skrl78 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-skrl78">
+            <span class="name">skrl78</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="skt435 wirtschaftsinformatik im 3 semester">
+          <button type="button" data-ziel="s-skt435">
+            <span class="name">skt435</span>
+            <span class="studiengang">Wirtschaftsinformatik im 3.Semester …</span>
+          </button>
+        </li>
+        <li data-suche="slr63 wirtschaftsinformatik 7 semester">
+          <button type="button" data-ziel="s-slr63">
+            <span class="name">slr63</span>
+            <span class="studiengang">Wirtschaftsinformatik, 7. Semester</span>
+          </button>
+        </li>
+        <li data-suche="smu wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-Smu">
+            <span class="name">Smu</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="snab wirtschaftsinformatik bachelor 3 semester">
+          <button type="button" data-ziel="s-snab">
+            <span class="name">snab</span>
+            <span class="studiengang">Wirtschaftsinformatik Bachelor, 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="sngu wirtschaftsinformatik 5 semester">
+          <button type="button" data-ziel="s-sngu">
+            <span class="name">sngu</span>
+            <span class="studiengang">Wirtschaftsinformatik! 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="sshj44 wirtschaftsinformatik b sc im 3 semester">
+          <button type="button" data-ziel="s-sshj44">
+            <span class="name">sshj44</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. im 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="ssng61 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-ssng61">
+            <span class="name">ssng61</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="stmx wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-stmx">
+            <span class="name">stmx</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="tariqk2004 organisations und it sicherheit b sc 3 te semester">
+          <button type="button" data-ziel="s-TariqK2004">
+            <span class="name">TariqK2004</span>
+            <span class="studiengang">…Organisations- und IT-Sicherheit B.SC 3.te Semester</span>
+          </button>
+        </li>
+        <li data-suche="tcam wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-tcam">
+            <span class="name">tcam</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="thng wirtschaftsinformatik b sc in 5 semester">
+          <button type="button" data-ziel="s-thng">
+            <span class="name">thng</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. in 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="tiger wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-Tiger">
+            <span class="name">Tiger</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="tnd b sc wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-tnd">
+            <span class="name">tnd</span>
+            <span class="studiengang">…B. Sc. Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="tngan wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-tngan">
+            <span class="name">tngan</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="trry wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-trry">
+            <span class="name">trry</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="ttpr21 wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-ttpr21">
+            <span class="name">ttpr21</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="tyfncc wirtschaftsinformatik 7 semester">
+          <button type="button" data-ziel="s-tyfncc">
+            <span class="name">tyfncc</span>
+            <span class="studiengang">Wirtschaftsinformatik 7. Semester</span>
+          </button>
+        </li>
+        <li data-suche="uk wirtschaftsinformatik b sc 5 semester">
+          <button type="button" data-ziel="s-uk">
+            <span class="name">uk</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. , 5. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="uwar bsc wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-uwar">
+            <span class="name">uwar</span>
+            <span class="studiengang">BSc Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="val organisation und it sicherheit b sc 3 semester">
+          <button type="button" data-ziel="s-val">
+            <span class="name">val</span>
+            <span class="studiengang">Organisation und IT Sicherheit B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="vic26 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-vic26">
+            <span class="name">vic26</span>
+            <span class="studiengang">Wirtschaftsinformatik 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="virus wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-virus">
+            <span class="name">virus</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="vkab wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-vkab">
+            <span class="name">vkab</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc. 3. Semester …</span>
+          </button>
+        </li>
+        <li data-suche="wnga wirtschaftsinformatik b sc 5 semester">
+          <button type="button" data-ziel="s-wnga">
+            <span class="name">wnga</span>
+            <span class="studiengang">Wirtschaftsinformatik B.Sc., 5. Semester</span>
+          </button>
+        </li>
+        <li data-suche="yamekk b sc organisations und it sicherheit 3 semester">
+          <button type="button" data-ziel="s-yamekk">
+            <span class="name">yamekk</span>
+            <span class="studiengang">B. Sc. Organisations und IT-Sicherheit, 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="ygue wirtschaftsinformatik b sc im 3 semester an der thm in friedberg">
+          <button type="button" data-ziel="s-ygue">
+            <span class="name">ygue</span>
+            <span class="studiengang">Wirtschaftsinformatik (B.Sc.) im 3. Semester an der THM in Frie…</span>
+          </button>
+        </li>
+        <li data-suche="ykar wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-ykar">
+            <span class="name">ykar</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="yoibr42 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-yoibr42">
+            <span class="name">yoibr42</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester …</span>
+          </button>
+        </li>
+        <li data-suche="ysbi82 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-ysbi82">
+            <span class="name">ysbi82</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3 Semester</span>
+          </button>
+        </li>
+        <li data-suche="z 266 wirtschaftinformatik b sc dritte semester">
+          <button type="button" data-ziel="s-Z-266">
+            <span class="name">Z-266</span>
+            <span class="studiengang">wirtschaftinformatik B.sc dritte semester</span>
+          </button>
+        </li>
+        <li data-suche="zahragit12 wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-ZahraGit12">
+            <span class="name">ZahraGit12</span>
+            <span class="studiengang">Wirtschaftsinformatik, 3 Semester</span>
+          </button>
+        </li>
+        <li data-suche="zc wirtschaftsinformatik bachelor 3 semester">
+          <button type="button" data-ziel="s-zc">
+            <span class="name">zc</span>
+            <span class="studiengang">Wirtschaftsinformatik Bachelor 3. Semester</span>
+          </button>
+        </li>
+        <li data-suche="zcbn ich studiere wirtschaftsinformatik im 7 semester">
+          <button type="button" data-ziel="s-zcbn">
+            <span class="name">zcbn</span>
+            <span class="studiengang">Ich studiere Wirtschaftsinformatik im 7. Semester.</span>
+          </button>
+        </li>
+        <li data-suche="zcoel wirtschaftsinformatik 3 semester">
+          <button type="button" data-ziel="s-zcoel">
+            <span class="name">zcoel</span>
+            <span class="studiengang">Wirtschaftsinformatik 3.Semester</span>
+          </button>
+        </li>
+        <li data-suche="zomj wirtschaftsinformatik b sc 3 semester">
+          <button type="button" data-ziel="s-zomj">
+            <span class="name">zomj</span>
+            <span class="studiengang">Wirtschaftsinformatik B.sc. 3. Semester …</span>
+          </button>
+        </li>
+      </ul>
+      <p class="leer" id="leer" hidden>Keine Treffer für diese Suche.</p>
+    </nav>
+
+    <section class="detail" aria-label="Steckbrief">
+      <p class="hinweis" id="hinweis">Wähle links einen Benutzernamen aus.</p>
+      <article class="steckbrief" id="s-aalg" hidden>
+        <p class="profil"><a href="https://github.com/aalg" rel="noopener noreferrer">github.com/aalg</a></p>
+        <h2>Steckbrief aalg</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Einführung in die Programmierung absolviert. Auf IntelliJ gearbeitet mit Java.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Erklärungen so gut wie es geht zu übermitteln.</p>
+      </article>
+      <article class="steckbrief" id="s-aayd" hidden>
+        <p class="profil"><a href="https://github.com/aayd" rel="noopener noreferrer">github.com/aayd</a></p>
+        <h2>Steckbrief aayd</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits in Hochschulprojekten mit verschiedenen Programmiersprachen und Technologien gearbeitet und dabei Erfahrungen mit Git und GitHub gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte meine Kenntnisse in der Softwareentwicklung erweitern und lernen, wie man Softwareprojekte strukturiert und erfolgreich umsetzt.</p>
+      </article>
+      <article class="steckbrief" id="s-adni" hidden>
+        <p class="profil"><a href="https://github.com/adni" rel="noopener noreferrer">github.com/adni</a></p>
+        <h2>Steckbrief &lt;adni&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik und 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-AF" hidden>
+        <p class="profil"><a href="https://github.com/AF" rel="noopener noreferrer">github.com/AF</a></p>
+        <h2>Steckbrief AF</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Selbst bisher nicht wirklich programmiert. Aktuell CS Managerin bei einem FinTech und betreue zwei Softwarelösungen für den öffentlichen Sektor mit.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erhoffe mir einen tieferen Einblick in die Softwareentwicklung und wie ich Werkzeuge wie Git und GitHub sicher anwenden kann.</p>
+      </article>
+      <article class="steckbrief" id="s-agbr" hidden>
+        <p class="profil"><a href="https://github.com/agbr" rel="noopener noreferrer">github.com/agbr</a></p>
+        <h2>Steckbrief agbr</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe im Studium erste Erfahrungen mit der Programmierung in Java sammeln können. Mit der Entwicklung größerer Softwareprojekte habe ich bisher noch wenig Erfahrung:)</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen wie Softwareprojekte geplant, entwickelt und umgesetzt werden und dabei praktische Erfahrungen sammeln.</p>
+      </article>
+      <article class="steckbrief" id="s-Agub" hidden>
+        <p class="profil"><a href="https://github.com/Agub" rel="noopener noreferrer">github.com/Agub</a></p>
+        <h2>Steckbrief Agub</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisation und IT-Sicherehit B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Code-Analyse</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das ich vieles neues lerne und mich weiterbilden kann.</p>
+      </article>
+      <article class="steckbrief" id="s-ahyi" hidden>
+        <p class="profil"><a href="https://github.com/ahyi" rel="noopener noreferrer">github.com/ahyi</a></p>
+        <h2>Steckbrief &lt;ahyi&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>… Wirtschaftsinformatik Semester 3</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-akyf" hidden>
+        <p class="profil"><a href="https://github.com/akyf" rel="noopener noreferrer">github.com/akyf</a></p>
+        <h2>Steckbrief &lt;kürzel&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>… Wirschaftsinformatik 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich wusste bisher sehr wenig über das Thema Softwareentwickung. je mehr ich lerne, worüber es im Allgemeinen geht, desto interessanter finde ich das Ganze. …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>von der Veranstaltung erwarte ich noch mehr praktische und theoretische Kenntnisse rund um den Begriff Softwareentwickung zu erwerben.Zudem erwarte ich auch, dass der Dozent sich Zeit nimmt, um alles, insbesondere die für Studierende relevante Themen, möglichst ausführlich zu erklären. …</p>
+      </article>
+      <article class="steckbrief" id="s-ale563" hidden>
+        <p class="profil"><a href="https://github.com/ale563" rel="noopener noreferrer">github.com/ale563</a></p>
+        <h2>Steckbrief &lt;ale563&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-Anas23088" hidden>
+        <p class="profil"><a href="https://github.com/Anas23088" rel="noopener noreferrer">github.com/Anas23088</a></p>
+        <h2>Steckbrief Anas23088</h2>
+        <p>Ich belege diese Semester das Modul Softwaretechnik</p>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik und bin im 5. Semester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher erste Erfahrungen mit Softwareentwicklung gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man mit Git und GitHub arbeitet und Softwareprojekte entwickelt. Außerdem möchte ich lernen, wie man gemeinsam an Softwareprojekte arbeitet.</p>
+      </article>
+      <article class="steckbrief" id="s-anddun" hidden>
+        <p class="profil"><a href="https://github.com/anddun" rel="noopener noreferrer">github.com/anddun</a></p>
+        <p>Steckbrief anddun</p>
+        <p>Studiengang und Semester Wirtschaftsinformatik Bachelor im 3. Semester</p>
+        <p>Meine bisherige Erfahrung mit Softwareentwicklung Ich habe in der zweijährigen höheren Berufsfachschule für Informationsverarbeitung bereits Erfahrung durch Visual Basic in Softwareentwicklung gemacht</p>
+        <p>Das erwarte ich von der Veranstaltung Ich erwarte, dass ich neues Wissen erlange für die Zukunft</p>
+      </article>
+      <article class="steckbrief" id="s-andel0" hidden>
+        <p class="profil"><a href="https://github.com/andel0" rel="noopener noreferrer">github.com/andel0</a></p>
+        <h2>Steckbrief andel0</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Habe das Modul &quot;Einführung in die Programmierung&quot; an der THM absolviert und habe dort die Grundlagen von Java gelernt. Ansonsten habe ich ein paar kleine Bash Skripte geschrieben.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Da ich mich für Cybersecurity interessiere, würde ich mich sehr für die Sicherheitsaspekte von Software interessieren und auch wünschen, dass diese auch behandelt werden. :-)</p>
+      </article>
+      <article class="steckbrief" id="s-anpa" hidden>
+        <p class="profil"><a href="https://github.com/anpa" rel="noopener noreferrer">github.com/anpa</a></p>
+        <h2>Steckbrief anpa</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik und bin im siebten Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits erste Erfahrungen mit der Programmiersprache Java gesammelt und grundlegende Programmierkonzepte kennengelernt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man Git zur Versionsverwaltung nutzt und wie man gemeinsam an Softwareprojekten arbeitet. Außerdem möchte ich die einzelnen Schritte der Softwareentwicklung besser verstehen.</p>
+        <p>Ich freue mich darauf, das Gelernte praktisch anzuwenden.</p>
+      </article>
+      <article class="steckbrief" id="s-anushka" hidden>
+        <p class="profil"><a href="https://github.com/anushka" rel="noopener noreferrer">github.com/anushka</a></p>
+        <h2>Steckbrief &lt;anushka&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik Semester 3</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-AR" hidden>
+        <p class="profil"><a href="https://github.com/AR" rel="noopener noreferrer">github.com/AR</a></p>
+        <h2>Steckbrief &lt;AR&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>…Wirtschaftsinformatik und 5 Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>… kleinere Websites mit html und css erstellt und mit Java Objektorientiert programmiert.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…Ich möchte lernen, wie man mit Git im Team arbeitet.</p>
+      </article>
+      <article class="steckbrief" id="s-asi" hidden>
+        <p class="profil"><a href="https://github.com/asi" rel="noopener noreferrer">github.com/asi</a></p>
+        <h2>Steckbrief &lt;kürzel&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>…Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…Bisher gar keine Erfahrungen</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…Ich erwarte eine gute Einführung in die Softwaretechnik und ggf. eigene Projekte bauen zu können.</p>
+      </article>
+      <article class="steckbrief" id="s-asng24" hidden>
+        <p class="profil"><a href="https://github.com/asng24" rel="noopener noreferrer">github.com/asng24</a></p>
+        <h2>Steckbrief &lt;asng24&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>ich habe keine Erfahrung mit Softwareentwicklung …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>… Ich möchte lernen, wie man Softwareprojekte gemeinsam plant und mit Git und GitHub bearbeitet.</p>
+      </article>
+      <article class="steckbrief" id="s-athr" hidden>
+        <p class="profil"><a href="https://github.com/athr" rel="noopener noreferrer">github.com/athr</a></p>
+        <h2>Steckbrief athr</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>ich habe github persönlich erfunden mit gerlach</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>wenig theorie mehr praxis, um sich mehr zu engagieren. mehr bonuspunkte für die Klausur ^^</p>
+      </article>
+      <article class="steckbrief" id="s-avon507" hidden>
+        <p class="profil"><a href="https://github.com/avon507" rel="noopener noreferrer">github.com/avon507</a></p>
+        <h2>Steckbrief &lt;avon507&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe Erfahrungen in kleinen Skripten und in den Grundlagen der Programmierung gesammelt. Der Schlüssel zum Erfolg liegt nicht in einmaligen Anstrengungen sondern in kontinuierlichen Praxis.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte einen tiefgründigen Einblick in die Methoden und Werkzeuge der Softwaretechnik. Die Grundlagen nachhaltig und zukunftsorientiert zu lernen, insbesondere im Hinblick auf den Einsatz von Künstlicher Intelligenz.</p>
+      </article>
+      <article class="steckbrief" id="s-Aza" hidden>
+        <p class="profil"><a href="https://github.com/Aza" rel="noopener noreferrer">github.com/Aza</a></p>
+        <h2>Steckbrief Aza</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisations und IT Sicherheit 3.Semester Beachlor</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe leider noch nicht so viel Erfahrung bisher gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das ich in dem Modul was neues Lernen kann und lerne wie man eine Software entwickelt.</p>
+      </article>
+      <article class="steckbrief" id="s-azm96" hidden>
+        <p class="profil"><a href="https://github.com/azm96" rel="noopener noreferrer">github.com/azm96</a></p>
+        <h2>Steckbrief azm96</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Programmieren 1 in Java. Mit Git habe ich bisher nicht gearbeitet.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man im Team an Software arbeitet.</p>
+      </article>
+      <article class="steckbrief" id="s-Bblj09" hidden>
+        <p class="profil"><a href="https://github.com/Bblj09" rel="noopener noreferrer">github.com/Bblj09</a></p>
+        <h2>Steckbrief Bblj09</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik (Bachelor), 5.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe im Studium erste Erfahrungen mit Java gesammelt. Dabei habe ich kleinere Programme und Übungsaufgaben bearbeitet.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man Softwareprojekte strukturiert plant und gemeinsam mit Git und Github bearbeitet …</p>
+      </article>
+      <article class="steckbrief" id="s-bima" hidden>
+        <p class="profil"><a href="https://github.com/bima" rel="noopener noreferrer">github.com/bima</a></p>
+        <h2>Steckbrief bima</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik (B.Sc.), 7. Semester, THM</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Im Studium habe ich ein Webtechnologien-Projekt umgesetzt, ein Buchungssystem für Lagerräume mit HTML, CSS, JavaScript, PHP, MariaDB und Docker, sowie ein DevOps-Projekt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte Softwaretechnik gut verstehen und lernen, wie sie in der Praxis angewendet wird und wofür man sie einsetzt.</p>
+      </article>
+      <article class="steckbrief" id="s-bunter95" hidden>
+        <p class="profil"><a href="https://github.com/bunter95" rel="noopener noreferrer">github.com/bunter95</a></p>
+        <h2>Steckbrief bunter95</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. im dritten Semester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Noch keine Erfahrungen sammeln können.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Neues Wissen zu erlernen und dies strategisch einzusetzen.</p>
+      </article>
+      <article class="steckbrief" id="s-cms" hidden>
+        <p class="profil"><a href="https://github.com/cms" rel="noopener noreferrer">github.com/cms</a></p>
+        <h2>Steckbrief &lt;cms&gt;</h2>
+        <h3>Studiengang  und Semester</h3>
+        <h4>Wirtschaftsinformatik 3. Semester</h4>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <h4>Ich habe bisher kaum Erfahrung mit Softwareentwicklung. Meine bisherigen Erfahrungen liegen eher im Bereich Verkauf und sozialer Tätigkeiten. Meine Motivation, diesen Studiengang zu absolvieren, ist meine Faszination für technische Themen und Informationen. Ich möchte mehr darüber lernen, wie Software entwickelt wird und wie technische Lösungen entstehen.</h4>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <h4>Ich erwarte von der Verantstaltungen, dass die Grundlagen der Softwareentwicklung besser verstehen, gleichzeitig möchte gerne die praktische Anwendung mit Git und Github Programm lernen und vor allem wie man gemeinsam an Sorfwareprojekt arbeitet,weil ich bisher noch keine Erfahrung damit habe.</h4>
+      </article>
+      <article class="steckbrief" id="s-datr03" hidden>
+        <p class="profil"><a href="https://github.com/datr03" rel="noopener noreferrer">github.com/datr03</a></p>
+        <h2>Steckbrief datr03</h2>
+        <p>&lt;!-- Beispiel mit einem erfundenen Kürzel — so kann Ihr Steckbrief aussehen. --&gt;</p>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Programmieren vorallem mit Java, Flutter. Webbasierte Projekte mit JavaScript. WipeCoding von mehreren WebApps.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte die Grundlagen und wichitgsten Anforderungen für ein Softwareprojekt erlernen um in Zukunft auch für eigene Projekte das Knowledge zu haben.</p>
+      </article>
+      <article class="steckbrief" id="s-davn68" hidden>
+        <p class="profil"><a href="https://github.com/davn68" rel="noopener noreferrer">github.com/davn68</a></p>
+        <h2>Steckbrief davn68</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Einführung in die Programmierung bestanden</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>das ich dieses Modul bestehe!</p>
+      </article>
+      <article class="steckbrief" id="s-dhfn1611" hidden>
+        <p class="profil"><a href="https://github.com/dhfn1611" rel="noopener noreferrer">github.com/dhfn1611</a></p>
+        <h2>Steckbrief &lt;kürzel&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…Projektmanagement bei Siemens</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…Aktuelle Themen besprechen und ein tiefers verständnis für Software</p>
+      </article>
+      <article class="steckbrief" id="s-div" hidden>
+        <p class="profil"><a href="https://github.com/div" rel="noopener noreferrer">github.com/div</a></p>
+        <h2>Steckbrief &lt;div&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirschaftinformatik 5. Semester</p>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Im Rahmen meines Studiums konnte ich bereits praktische Erfahrungen in der Softwareentwicklung sammeln. Dabei habe ich mich insbesondere mit der Entwicklung von Webanwendungen, der Datenbankverwaltung und der strukturierten Umsetzung von Softwareprojekten beschäftigt.</p>
+        <p>Ein wichtiger Bestandteil meiner bisherigen Erfahrungen ist das Hochschulprojekt <strong>SkillMatch</strong>. Gemeinsam mit meinem Projektteam habe ich an der Entwicklung einer Webanwendung gearbeitet, die Unternehmen bei der passenden Zuordnung von Mitarbeitenden zu Projekten unterstützt. Mithilfe eines Matching-Scores werden die vorhandenen Kompetenzen der Mitarbeitenden mit den Anforderungen eines Projekts verglichen.</p>
+        <p>Während dieses Projekts konnte ich Erfahrungen mit verschiedenen Technologien und Werkzeugen sammeln, darunter <strong>PHP, MariaDB, Docker, Git, GitHub und APIs</strong>. Darüber hinaus habe ich mich mit der Analyse und Dokumentation von Softwareanforderungen, der Erstellung von Anwendungsfällen sowie der Modellierung von Softwarearchitekturen beschäftigt.</p>
+        <p>Neben SkillMatch habe ich bereits eigene Webseiten erstellt und mich dabei mit den Grundlagen der Webentwicklung beschäftigt. Dazu gehören insbesondere die Strukturierung von Webseiten mit <strong>HTML</strong>, die Gestaltung mit <strong>CSS</strong> und die Umsetzung interaktiver Funktionen mit <strong>JavaScript</strong>.</p>
+        <p>Durch diese praktischen Arbeiten konnte ich mein Verständnis für die Zusammenarbeit zwischen Frontend, Backend und Datenbanken erweitern.</p>
+        <p>Zusätzlich habe ich Erfahrungen mit der Planung und Dokumentation von Softwareprojekten gesammelt. Dazu zählen die Erstellung technischer Spezifikationen, die Beschreibung von Anwendungsfunktionen sowie die Darstellung von Systemabläufen durch Diagramme.</p>
+        <p>Meine bisherigen Erfahrungen haben mir geholfen, sowohl meine technischen Fähigkeiten als auch mein Verständnis für die strukturierte Entwicklung von Softwarelösungen weiterzuentwickeln. Besonders interessiere ich mich für die Webentwicklung, die Entwicklung datenbankgestützter Anwendungen und die praktische Umsetzung neuer Softwareideen. …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Von der Lehrveranstaltung Softwaretechnik erwarte ich, dass ich meine bisherigen praktischen Erfahrungen in der Softwareentwicklung erweitern und vertiefen kann. Besonders möchte ich lernen, wie komplexe Softwareprojekte strukturiert geplant, entwickelt und getestet werden. Außerdem möchte ich meine Kenntnisse in der Softwarearchitektur, der Qualitätssicherung und der Teamarbeit verbessern. Mein Ziel ist es, zukünftig nicht nur funktionierende Anwendungen zu entwickeln, sondern auch sauberen, wartbaren und professionell strukturierten Code zu schreiben. …</p>
+      </article>
+      <article class="steckbrief" id="s-dlm28" hidden>
+        <p class="profil"><a href="https://github.com/dlm28" rel="noopener noreferrer">github.com/dlm28</a></p>
+        <h2>Steckbrief DLM28</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>… Java in der Oberstufe, Einführung in die Programmierung und AD</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…Verbesserung der Programmierskills und Perspektiven durch Ki einsatz</p>
+      </article>
+      <article class="steckbrief" id="s-dmal2004" hidden>
+        <p class="profil"><a href="https://github.com/dmal2004" rel="noopener noreferrer">github.com/dmal2004</a></p>
+        <h2>Steckbrief dmal2004</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>bisschen Java, aus dem ersten Semeste</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Erweiterung meines jetzigen Standes</p>
+      </article>
+      <article class="steckbrief" id="s-dmmh1710" hidden>
+        <p class="profil"><a href="https://github.com/dmmh1710" rel="noopener noreferrer">github.com/dmmh1710</a></p>
+        <h2>Steckbrief &lt;dmmh1710&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik Semester 3</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe keine bisherige Erfahrung.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Kommunikation und gute vorbereitung auf die Prüfung.</p>
+      </article>
+      <article class="steckbrief" id="s-dsc" hidden>
+        <p class="profil"><a href="https://github.com/dsc" rel="noopener noreferrer">github.com/dsc</a></p>
+        <h2>Steckbrief &lt;dsc&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Programmieren 1 mit Java. Entwicklungen in Microsoft Power Automate sowie Power Apps. Erstellen kleiner Javascript Scripte. Experiementieren mit Python.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erhoffe mir, weitere Konzepte der Softwareentwicklung zu erlernen, sowie die ersten Versuche mit Github weiter zu vertiefen. Ebenfalls hoffe ich auf eine angenehme Veranstaltung.</p>
+      </article>
+      <article class="steckbrief" id="s-dsch" hidden>
+        <p class="profil"><a href="https://github.com/dsch" rel="noopener noreferrer">github.com/dsch</a></p>
+        <h2>Steckbrief dsch</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 12. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Praktische Erfahrung im DevOps-Umfeld, vor allem mit CI/CD-Pipelines, sowie Erfahrung mit Microsoft Azure. Git habe ich bisher eher nebenbei genutzt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte Git und GitHub sicher und sauber im Team einsetzen können und die Methoden der Softwaretechnik von Anforderungen bis Test strukturiert kennenlernen.</p>
+      </article>
+      <article class="steckbrief" id="s-dszp" hidden>
+        <p class="profil"><a href="https://github.com/dszp" rel="noopener noreferrer">github.com/dszp</a></p>
+        <h2>Steckbrief dszp</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Einführung in die Programmierung mit Java.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Von der Veranstaltung erwarte ich, fundiertes und tieferes Wissen über Softwareentwicklung zu erlangen und den Umgang mit Git und GitHub zu lernen.</p>
+      </article>
+      <article class="steckbrief" id="s-ecib" hidden>
+        <p class="profil"><a href="https://github.com/ecib" rel="noopener noreferrer">github.com/ecib</a></p>
+        <h2>Steckbrief ecib</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisations &amp; IT-Sicherheit</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Grundkenntnisse Java durch IT-Fachabi und 1/2 Semester. Grundkenntnisse Webentwicklung (HTML, CSS, JS, PHP)</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte merh Technisches verständnis mir an eignen.</p>
+      </article>
+      <article class="steckbrief" id="s-ekes" hidden>
+        <p class="profil"><a href="https://github.com/ekes" rel="noopener noreferrer">github.com/ekes</a></p>
+        <h2>Steckbrief ekes</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Programmieren 1 und 2 in Java, ein kleines Python-Skript für die Vereinskasse. Mit Git habe ich bisher nicht gearbeitet.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte verstehen, wie aus einer Idee ein Softwareprojekt wird, an dem mehrere Personen gleichzeitig arbeiten können.</p>
+      </article>
+      <article class="steckbrief" id="s-emalj" hidden>
+        <p class="profil"><a href="https://github.com/emalj" rel="noopener noreferrer">github.com/emalj</a></p>
+        <h2>Steckbrief emalj</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 7. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <ul><li>Hochschulmodule PRG, AD, DevOps, kleinere Hobbyprojekte, unter anderem kleines Spiel in Unity programmiert</li></ul>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <ul><li>Theoretisches und Praktisches Wissen in der Softwaretechnik erweitern</li><li>Klausur bestehen</li><li>Lernen, Beschreibungen und Anforderungen richtig zu lesen und zu verstehen.</li></ul>
+      </article>
+      <article class="steckbrief" id="s-emrano" hidden>
+        <p class="profil"><a href="https://github.com/emrano" rel="noopener noreferrer">github.com/emrano</a></p>
+        <h2>Steckbrief emrano</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>PG, BSR, AD, JS, PY …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Spaß und erste Erfahrungen in der Softwareentwicklung sammeln. Zusätzlich wissen wie man gut organisierte Dokumentationen schreibt. …</p>
+      </article>
+      <article class="steckbrief" id="s-en7-mj" hidden>
+        <p class="profil"><a href="https://github.com/en7-mj" rel="noopener noreferrer">github.com/en7-mj</a></p>
+        <h2>Steckbrief &lt;en7-mj&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Bisher keine Erfahrungen mit Softwareentwicklung</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Die Grundlagen der Softwareentwicklung effizient zu lernen und das Gelernte als Softwareprojekt in einer selbst gewählten Gruppe umzusetzen.</p>
+      </article>
+      <article class="steckbrief" id="s-ezen" hidden>
+        <p class="profil"><a href="https://github.com/ezen" rel="noopener noreferrer">github.com/ezen</a></p>
+        <h2>Steckbrief ezen</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe im ersten Semester Einführung in die Programmierung bestanden und bin jetzt dabei mich mit Git und GitHub anzufreunden</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Dass ich das Prinzip dahinter verstehe und selber anwenden kann</p>
+      </article>
+      <article class="steckbrief" id="s-Fahm" hidden>
+        <p class="profil"><a href="https://github.com/Fahm" rel="noopener noreferrer">github.com/Fahm</a></p>
+        <h2>Steckbrief FAhm</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. im. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe erste Grundkenntnisse in Java, HTML, CSS und SQL, möchte meine Kenntnisse aber noch weiter vertiefen</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man Softwareprojekte strukturiert umsetzt und mit Git und GitHub im Team zusammenarbeitet.</p>
+      </article>
+      <article class="steckbrief" id="s-flk" hidden>
+        <p class="profil"><a href="https://github.com/flk" rel="noopener noreferrer">github.com/flk</a></p>
+        <h2>Steckbrief flk</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich mache das bereits beruflich, angefangen mit Lua zu Java zu C# zu Python</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Git korrekt kennenzulernen und in der Zukunft mit einem Team zu nutzen</p>
+      </article>
+      <article class="steckbrief" id="s-fortnitepro" hidden>
+        <p class="profil"><a href="https://github.com/fortnitepro" rel="noopener noreferrer">github.com/fortnitepro</a></p>
+        <h2>Steckbrief fortnitepro</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisations- und IT-Sicherheit 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Algorithmen und Datenstrukturen und Einführung in die Programmierung, sowie ein kleines Python-Programm Programm zur Berechnung und optimierung meiner Fabriken in Satisfactory. (in zusammenarbeit mit Claude)</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Mehr verständnis dafür wie man Software-Systeme systematisch und effizient entwirft, entwickelt und wartet.</p>
+      </article>
+      <article class="steckbrief" id="s-fpz" hidden>
+        <p class="profil"><a href="https://github.com/fpz" rel="noopener noreferrer">github.com/fpz</a></p>
+        <h2>Steckbrief &lt;fpz&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere im 5. Semester Softwaretechnik.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Im Rahmen meines Studiums habe ich bereits erste Erfahrungen mit der Softwareentwicklung gesammelt. Ich habe mich mit verschiedenen Programmiersprachen und der Entwicklung kleiner Anwendungen beschäftigt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte meine Kenntnisse in Git und GitHub vertiefen und die Zusammenarbeit in Softwareprojekten besser verstehen.</p>
+      </article>
+      <article class="steckbrief" id="s-hams" hidden>
+        <p class="profil"><a href="https://github.com/hams" rel="noopener noreferrer">github.com/hams</a></p>
+        <h2>Steckbrief hams</h2>
+        <h3>Wirtschaftsinformatik, 3. Semester</h3>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>noch keine Erfahrung, nur die Grundlagen von Programmieren mit Java</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ein besseres Verständnis von coden zu erlangen und vielleicht irgendwann in der Lage sein können eigene Games zu codieren</p>
+      </article>
+      <article class="steckbrief" id="s-hfdr12" hidden>
+        <p class="profil"><a href="https://github.com/hfdr12" rel="noopener noreferrer">github.com/hfdr12</a></p>
+        <h2>Steckbrief hfdr12</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Bisher habe ich erste Erfahrungen mit Java gesammelt. Ich habe einfache Programme geschrieben und dabei Grundlagen wie Variablen, Bedingungen, Schleifen, Methoden und Klassen kennengelernt. Mit Git und gemeinsamer Softwareentwicklung habe ich bisher noch wenig Erfahrung.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte, dass ich die Grundlagen der Softwareentwicklung besser verstehe und lerne, größere Programme strukturiert zu planen und umzusetzen. Außerdem möchte ich den Umgang mit Git und GitHub lernen und verstehen, wie mehrere Personen gemeinsam an einem Softwareprojekt arbeiten. Ich möchte dabei auch lernen, Änderungen zuverlässig mit Git zu verwalten.</p>
+      </article>
+      <article class="steckbrief" id="s-hjle99" hidden>
+        <p class="profil"><a href="https://github.com/hjle99" rel="noopener noreferrer">github.com/hjle99</a></p>
+        <h2>Steckbrief &lt;hjle99&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik und 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Die meiste Erfahrung kommt von der Uni und aus der Arbeit als Werkstudent in einem Start Up</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Tiefere Einblicke vom Prozess einer Softwareentwicklung</p>
+      </article>
+      <article class="steckbrief" id="s-hjri" hidden>
+        <p class="profil"><a href="https://github.com/hjri" rel="noopener noreferrer">github.com/hjri</a></p>
+        <h2>Steckbrief &lt;hjri&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>3 Semester Wirtschaftsinformatik</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-HussainButt7" hidden>
+        <p class="profil"><a href="https://github.com/HussainButt7" rel="noopener noreferrer">github.com/HussainButt7</a></p>
+        <h2>Steckbrief &lt;HussainButt7&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik und Semester 3</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-iaa" hidden>
+        <p class="profil"><a href="https://github.com/iaa" rel="noopener noreferrer">github.com/iaa</a></p>
+        <h2>Steckbrief iaa</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Vor dem Studium habe ich eine Ausbildung zum Informationstechnischen Assistenten abgeschlossen und davor Informatik studiert (nicht abgeschlossen). Neben Grundlagen in Java, SQL und Git baue ich vor allem  gerne eigene Projekte und erstelle Prototypen über Vibecoding.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Eine gute Einführung, sowie ggf kleine Projekte bauen zu können und mehr oder weniger ein tieferes Verständnis über die Softwareentwicklung zu erhalten.</p>
+      </article>
+      <article class="steckbrief" id="s-iesp" hidden>
+        <p class="profil"><a href="https://github.com/iesp" rel="noopener noreferrer">github.com/iesp</a></p>
+        <h2>Steckbrief iesp</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik im 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher nur in Java Erfahrungen gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich habe keine besonderen Erwartungen, hoffe jedoch, dass mich die Veranstaltung ausreichend interessiert und mir somit das Lernen leichter fällt.</p>
+      </article>
+      <article class="steckbrief" id="s-ilias04j" hidden>
+        <p class="profil"><a href="https://github.com/ilias04j" rel="noopener noreferrer">github.com/ilias04j</a></p>
+        <h2>Steckbrief &lt;ilias04j&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik im 5.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Keine Erfahrung</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte von der Veranstaltung, dass mir die Grundlagen, aber auch weitere wichtige Aspekte der Softwareentwicklung vermittelt werden. Zudem das verstehen und gegebenenfalls vertiefen von GitHub.</p>
+      </article>
+      <article class="steckbrief" id="s-ivlbs" hidden>
+        <p class="profil"><a href="https://github.com/ivlbs" rel="noopener noreferrer">github.com/ivlbs</a></p>
+        <h2>Steckbrief &lt;ilbs&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik im 3. Semester.…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe keine Erfahrung mit Softwareenticklung</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das es verständlich und machbar sein wird.</p>
+      </article>
+      <article class="steckbrief" id="s-IY69" hidden>
+        <p class="profil"><a href="https://github.com/IY69" rel="noopener noreferrer">github.com/IY69</a></p>
+        <h2>Steckbrief &lt;IY69&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Erste Erfahrungen in Java aus den Vorlesungen, Git ist noch neu für mich.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man im Team Software entwickelt und Git richtig nutzt.</p>
+      </article>
+      <article class="steckbrief" id="s-janp" hidden>
+        <p class="profil"><a href="https://github.com/janp" rel="noopener noreferrer">github.com/janp</a></p>
+        <h2>Steckbrief janp</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe etwas Erfahrung, aber nicht übermäßig. Ich habe Vorkenntnisse in Java, Python, C, C++ und einige andere …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte die Grundlagen agiler Arbeitsmethoden wie Scrum und Kanban kennenzulernen und wie man im Team gemeinsam Softwareprojekte plant, entwickelt und umsetzt. …</p>
+      </article>
+      <article class="steckbrief" id="s-jat01" hidden>
+        <p class="profil"><a href="https://github.com/jat01" rel="noopener noreferrer">github.com/jat01</a></p>
+        <h2>Steckbrief &lt;kürzel&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Schlechte (wirklich sehr schlechte...)</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Die Softwareentwicklung von der Planung bis in die Praxis verstehen. Maybe sogar etwas lanfristig lernen, fingers crossed.</p>
+      </article>
+      <article class="steckbrief" id="s-javu" hidden>
+        <p class="profil"><a href="https://github.com/javu" rel="noopener noreferrer">github.com/javu</a></p>
+        <h2>Steckbrief &lt;javu&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik (M.Sc.) 1. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Meine bisherige Erfahrungen sind eher im konzeptionellen und kommerziellen Bereich.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte ein technischen Verständnis für Softwareentwicklung aufbauen.</p>
+      </article>
+      <article class="steckbrief" id="s-jemy" hidden>
+        <p class="profil"><a href="https://github.com/jemy" rel="noopener noreferrer">github.com/jemy</a></p>
+        <h2>Steckbrief jemy</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 6. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Noch keine: bisher habe ich Software nur benutzt und mich gelegentlich raigebaiten lassen. 😂</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <ul><li>Theoretische Grundlagen vertiefen und in praktischen Aufgaben anwenden.</li><li>Die Prfüung bestehen xD</li><li>Viel Spaß am lernen</li></ul>
+      </article>
+      <article class="steckbrief" id="s-jk04" hidden>
+        <p class="profil"><a href="https://github.com/jk04" rel="noopener noreferrer">github.com/jk04</a></p>
+        <h2>Steckbrief &lt;jk04&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Witschaftsinformatik, 3 …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Hab unteranderem MacOS, Windows und Linux entwickelt falls ihnen das etwas sagt, …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>viel spaß und freude!! …</p>
+      </article>
+      <article class="steckbrief" id="s-jp26" hidden>
+        <p class="profil"><a href="https://github.com/jp26" rel="noopener noreferrer">github.com/jp26</a></p>
+        <h2>Steckbrief &lt;jp26&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>ich studiere Wirtschaftsinformatik im 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>programmier Erfahrung mit Java</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>ich erwarte spannende Einblicke in die Softwareentwicklung und viel Praxis</p>
+      </article>
+      <article class="steckbrief" id="s-jsug" hidden>
+        <p class="profil"><a href="https://github.com/jsug" rel="noopener noreferrer">github.com/jsug</a></p>
+        <h2>Steckbrief jsug</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisations- und IT-Sicherheit B.Sc., 1, Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ein bisschen Python, ein kleines bisschen Haskell …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte mehr über Git lernen. …</p>
+      </article>
+      <article class="steckbrief" id="s-jvng" hidden>
+        <p class="profil"><a href="https://github.com/jvng" rel="noopener noreferrer">github.com/jvng</a></p>
+        <h2>Steckbrief &lt;jvng&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Nur einfürung in die Programmierung. …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Tiefgreifenderes Wissen über SW und bessere Kenntnisse zu Github;-(</p>
+      </article>
+      <article class="steckbrief" id="s-kraz" hidden>
+        <p class="profil"><a href="https://github.com/kraz" rel="noopener noreferrer">github.com/kraz</a></p>
+        <h2>Steckbrief kraz</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.sc 3.semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher kleinere Projekte in Python und Java umgesetzt und arbeite gerade an meiner ersten App mit Flutter.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man Software im Team strukturiert plant, testet und wartbar entwickelt.</p>
+      </article>
+      <article class="steckbrief" id="s-lebr" hidden>
+        <p class="profil"><a href="https://github.com/lebr" rel="noopener noreferrer">github.com/lebr</a></p>
+        <h2>Steckbrief lebr</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. 3 Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Leider noch nicht viel Erfahrung gesammelt, aber das wird sich in Zukunft bestimmt ändern.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>In die Welt der Softwaretechnik eizutauchen.</p>
+      </article>
+      <article class="steckbrief" id="s-lkrs" hidden>
+        <p class="profil"><a href="https://github.com/lkrs" rel="noopener noreferrer">github.com/lkrs</a></p>
+        <h2>Steckbrief lkrs</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>ich habe bereits erste Erfahrungen mit der Programmiersprache Java sammeln können</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich würde gerne verstehen wollen, wie Softwareprojekte funktionieren und wie diese organisiert sind</p>
+      </article>
+      <article class="steckbrief" id="s-lom" hidden>
+        <p class="profil"><a href="https://github.com/lom" rel="noopener noreferrer">github.com/lom</a></p>
+        <h2>Mein Steckbrief</h2>
+        <p>Studiengang: Wirtschaftsinformatik</p>
+        <p>Semester: 3</p>
+        <p>Hobbys:Fußball Lieblingssport: Fußball</p>
+      </article>
+      <article class="steckbrief" id="s-Lpr" hidden>
+        <p class="profil"><a href="https://github.com/Lpr" rel="noopener noreferrer">github.com/Lpr</a></p>
+        <h2>Steckbrief Lpr</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Entwichlungsabteilungsleiter bei der NASA</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das mich die Veranstaltung im Bereich der Softwaretechnik auf eine neue Ebene meines bisherigens Wissensstandes bringt.</p>
+      </article>
+      <article class="steckbrief" id="s-lpr2" hidden>
+        <p class="profil"><a href="https://github.com/lpr2" rel="noopener noreferrer">github.com/lpr2</a></p>
+        <h2>Steckbrief leroghost</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Erfahrungen in der Cross-Platform-App-Entwicklung mit Flutter &amp; Dart, Backend-Anbindungen (z. B. Firebase) sowie ABAP-Programmierung. Zudem fundierte Praxis im E-Commerce/Web-Bereich und Erstellung von Automatisierungs-Workflows. Erste Handgriffe mit Git und GitHub.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das mich die Veranstaltung im Bereich der Softwaretechnik auf eine neue Ebene meines bisherigens Wissensstandes bringt.</p>
+      </article>
+      <article class="steckbrief" id="s-lswl60" hidden>
+        <p class="profil"><a href="https://github.com/lswl60" rel="noopener noreferrer">github.com/lswl60</a></p>
+        <h2>Steckbrief lswl60</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc.</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-mabl" hidden>
+        <p class="profil"><a href="https://github.com/mabl" rel="noopener noreferrer">github.com/mabl</a></p>
+        <h2>Steckbrief mabl</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 7. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Java kenne ich aus PG, Python habe ich in Projekten eingesetzt. Über ein Wahlpflichtmodul habe ich außerdem erste Erfahrungen mit SAP gesammelt. GitHub habe ich in Projekt 1 und 2 sowie in weiteren Projekten bereits genutzt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich wünsche mir durch die Veranstaltung ein besserer Verständnis darüber wie größere Softwareprojekte geplant und strukturiert werden</p>
+      </article>
+      <article class="steckbrief" id="s-masalabyte" hidden>
+        <p class="profil"><a href="https://github.com/masalabyte" rel="noopener noreferrer">github.com/masalabyte</a></p>
+        <h2>Steckbrief &lt;masalabyte&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Vor dem Beginn des Studiengangs habe ich den Programmiervorkurs besucht und im 1. Semester das Modul &quot;Einführung in die Programmierung&quot; erfolgreich absolviert. Im 2. Semester habe ich mich im Modul &quot;Algorithmen und Datenstrukturen&quot; mit vertiefenden Konzepten der Porgrammierung auseinandergesetzt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte verstehen, wie man im Team Softwareprojekte entwickelt und wie man Tools wie Git und GitHub praxisnah nutzt.</p>
+        <p><em>Ergänzug im Browser :)</em></p>
+      </article>
+      <article class="steckbrief" id="s-maxbarrosschauer" hidden>
+        <p class="profil"><a href="https://github.com/maxbarrosschauer" rel="noopener noreferrer">github.com/maxbarrosschauer</a></p>
+        <h2>Steckbrief &lt;maxbarrosschauer&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-mbgrn04" hidden>
+        <p class="profil"><a href="https://github.com/mbgrn04" rel="noopener noreferrer">github.com/mbgrn04</a></p>
+        <h2>Steckbrief &lt;mbgrn04&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Meine bisherigen habe ich usschließlich im Studium gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte meine Kenntnisse in der Softwareentwicklung erweitern. Dabei habe ich erste Grundlagen der Programmierung kennengelernt. Außerdem möchte ich praktische Erfahrungen in der Softwareentwicklung sammeln.</p>
+      </article>
+      <article class="steckbrief" id="s-mduc" hidden>
+        <p class="profil"><a href="https://github.com/mduc" rel="noopener noreferrer">github.com/mduc</a></p>
+        <h2>Steckbrief mduc</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Grundlagen der Programmierung aus dem Studium. Erste Erfahrungen mit Git sammle ich in dieser Übung.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie Softwareprojekte im Team geplant und umgesetzt werden, und Werkzeuge wie Git sicher im Alltag einsetzen können. Außerdem interessiert mich, wie aus Anforderungen fertige Software wird.</p>
+      </article>
+      <article class="steckbrief" id="s-meq" hidden>
+        <p class="profil"><a href="https://github.com/meq" rel="noopener noreferrer">github.com/meq</a></p>
+        <h2>Steckbrief &lt;meq&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisations- und IT-Sicherheit im 3. Semester</p>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich interessiere mich besonders für Cybersecurity, insbesondere SOC und Cloud Security. Ich beschäftige mich mit den Grundlagen und möchte mein technisches Wissen Schritt für Schritt erweitern. Praktische Erfahrungen in der Softwareentwicklung möchte ich im Rahmen der Veranstaltung sammeln. …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man Softwareprojekte strukturiert bearbeitet. Ich möchte außerdem lernen, wie man Git in Softwareprojekten einsetzt. …</p>
+      </article>
+      <article class="steckbrief" id="s-mf23" hidden>
+        <p class="profil"><a href="https://github.com/mf23" rel="noopener noreferrer">github.com/mf23</a></p>
+        <h2>Steckbrief mf23</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Oragnisations-und It-Sicherheit (B.A.) an der THM und befinde mich im 3. Fachsemester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Bisher habe ich erste Kenntnisse in der Informatik durch die Module Programmieren 1, Technische Informatik 1 und Praktische Informatik 1 erworben. Mit Git und GitHub habe ich bisher noch keine Erfahrung.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich wünsche mir, dass die Vorlesung genauso interessant, abwechslungsreich und unterhaltsam weitergeht wie heute. Die heutige Vorlesung war mit Abstand eine der unterhaltsamsten Vorlesungen, die ich bisher an der THM besucht habe.</p>
+      </article>
+      <article class="steckbrief" id="s-mjab" hidden>
+        <p class="profil"><a href="https://github.com/mjab" rel="noopener noreferrer">github.com/mjab</a></p>
+        <h2>Steckbrief mjab</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe im Rahmen des Studiums an der THM Erfahrungen sammeln können.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte meine Programmierkenntnisse vertiefen und lernen, wie man gemeinsam im Team Softwareprojekte entwickelt.</p>
+      </article>
+      <article class="steckbrief" id="s-mjas" hidden>
+        <p class="profil"><a href="https://github.com/mjas" rel="noopener noreferrer">github.com/mjas</a></p>
+        <h2>Steckbrief mjas</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe in Studienprojekten an Webanwendungen gearbeitet und dabei Erfahrungen mit Git, GitHub, PHP und Docker gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, Softwareprojekte besser zu planen und gemeinsam im Team zu entwickeln. Außerdem möchte ich sicherer im Umgang mit Git und GitHub werden.</p>
+      </article>
+      <article class="steckbrief" id="s-MK" hidden>
+        <p class="profil"><a href="https://github.com/MK" rel="noopener noreferrer">github.com/MK</a></p>
+        <h2>Steckbrief &lt;MK&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.sc. 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-mken" hidden>
+        <p class="profil"><a href="https://github.com/mken" rel="noopener noreferrer">github.com/mken</a></p>
+        <h2>Steckbrief mken</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>wirtschaftsinformatik, 3. semester ,Thm Friedberg</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>erste grundlagen der Programmierung(java) aus den ersten Semestern</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>zu lernen, wie theoretische konzepte der wirtschaftsinformatik in echten projekten angewendet werden</p>
+      </article>
+      <article class="steckbrief" id="s-mkon" hidden>
+        <p class="profil"><a href="https://github.com/mkon" rel="noopener noreferrer">github.com/mkon</a></p>
+        <h2>Steckbrief &lt;mkon&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Studiengang: Wirtschaftsinformatik B.Sc Semester: 3</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe erste Erfahrungen mit der Programmierung in Java gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte von der Veranstaltung, Kenntnisse in der Softwareentwicklung zu sammeln und zu erweitern.</p>
+      </article>
+      <article class="steckbrief" id="s-mks24" hidden>
+        <p class="profil"><a href="https://github.com/mks24" rel="noopener noreferrer">github.com/mks24</a></p>
+        <h2>Steckbrief &lt;mks24&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisations- und IT-Sicherheit 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Einführung in die Programmierung</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man die Softwareprojekte umsetzt</p>
+      </article>
+      <article class="steckbrief" id="s-mnag" hidden>
+        <p class="profil"><a href="https://github.com/mnag" rel="noopener noreferrer">github.com/mnag</a></p>
+        <h2>Steckbrief mnag</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisations &amp; IT-Sicherheit</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Grundkenntnisse Java durch IT-Fachabi und 1/2 Semester. Grundkenntnisse Webentwicklung (HTML, CSS, JS, PHP)</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das erlernen der allgemeinen Handhabung von Softwareprojekten. Kenntniserweiterung in diesem Gebiet.</p>
+      </article>
+      <article class="steckbrief" id="s-mosm" hidden>
+        <p class="profil"><a href="https://github.com/mosm" rel="noopener noreferrer">github.com/mosm</a></p>
+        <h2>Steckbrief mosm</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik und ich bin im 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Backend Entwicklung mit Java-Spring(Rest-Api und andere kleine Projekte)</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>lernen wie man effektiv im Team aufgaben delegiert und bewältigt. wie man ein Projekt von vorne bis hinten gestaltet. Meine Kenntnisse in Github vertiefen und eine professionelle Arbeitsweise anlernen.</p>
+      </article>
+      <article class="steckbrief" id="s-mpal" hidden>
+        <p class="profil"><a href="https://github.com/mpal" rel="noopener noreferrer">github.com/mpal</a></p>
+        <h2>Steckbrief mpal</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ausbildung in Java, C#, Phyton. Beruflich in PL/SQL, Java. SVN als Versionsverwaltung.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Neues theoretisches Wissen</p>
+      </article>
+      <article class="steckbrief" id="s-mskk15" hidden>
+        <p class="profil"><a href="https://github.com/mskk15" rel="noopener noreferrer">github.com/mskk15</a></p>
+        <h2>Steckbrief &lt;mskk155&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3.Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Keine erfahrungen in der Softwareentwicklung.Erste Grundlagen im Programmieren habe ich bereits in Java kennengelernt. …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Die Grundlagen der Softwareentwichlung besser verstehen und lernen. Umgang mit Git, GitHub ubd Visual Studio Code lernen. …</p>
+      </article>
+      <article class="steckbrief" id="s-mu" hidden>
+        <p class="profil"><a href="https://github.com/mu" rel="noopener noreferrer">github.com/mu</a></p>
+        <h3>Steckbrief mu</h3>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Erfahrungen im Kurs von Einführung in die Programmierung im 1. Semester</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Neues Wissen zum Thema Softwaretechnik erlangen.</p>
+      </article>
+      <article class="steckbrief" id="s-mw" hidden>
+        <p class="profil"><a href="https://github.com/mw" rel="noopener noreferrer">github.com/mw</a></p>
+        <h2>Steckbrief mw</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik im Bachelor im 5. Semester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher erste Erfahrungen mit der Programmierung im Studium gesammelt und möchte meine Kenntnisse in der Softwareentwicklung weiter vertiefen.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte von der Veranstaltung, dass ich lerne, wie Softwareprojekte geplant, entwickelt und organisiert werden. Außerdem möchte ich meine praktischen Kenntnisse verbessern und den Umgang mit Git und GitHub besser verstehen.</p>
+      </article>
+      <article class="steckbrief" id="s-my55" hidden>
+        <p class="profil"><a href="https://github.com/my55" rel="noopener noreferrer">github.com/my55</a></p>
+        <h2>Steckbrief my55</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Kleine anwendungsaufgaben implementieren und code lesen sowie verstehen</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Meine unsicherheit in der in der Programmierungen loswerden</p>
+      </article>
+      <article class="steckbrief" id="s-nblh" hidden>
+        <p class="profil"><a href="https://github.com/nblh" rel="noopener noreferrer">github.com/nblh</a></p>
+        <h2>Steckbrief nblh</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Die Entwicklung mehrerer Applikationen.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das Lernen von besserer Strukturierung von Software(-projekten) und Themen / Punkte, die ich persoenlich nicht kenne / mir fehlen.</p>
+      </article>
+      <article class="steckbrief" id="s-ngh" hidden>
+        <p class="profil"><a href="https://github.com/ngh" rel="noopener noreferrer">github.com/ngh</a></p>
+        <h2>Steckbrief ngh</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <ul><li>Gruppenprojekt „Restitut“ (App zur Katastrophenkoordination): Next.js im Frontend, PostgreSQL, Docker. Organisiert über GitLab und Jira. Meine Rolle war Qualitätssicherung; dabei habe ich vor allem an API-Design, Schnittstellendokumentation und Anforderungsdokumenten (Volere) gearbeitet.</li><li>DevOps-Modul: Aufbau einer CI/CD-Pipeline im 5er-Team, meine Rolle war Softwareentwicklung mit Java/Spring Boot im Backend.</li></ul>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <ul><li>Git und GitHub sicher anwenden, also Branches, Commits und Pull Requests, sodass ich im Team ohne Unsicherheit damit arbeiten kann.</li><li>Verstehen, wie Softwareprojekte strukturiert geplant und umgesetzt werden, von den Anforderungen über Entwurf und Modellierung bis zum Testen.</li><li>Methoden kennenlernen, die ich als Wirtschaftsinformatiker in der Schnittstelle zwischen Fachseite und Entwicklung einsetzen kann.</li></ul>
+      </article>
+      <article class="steckbrief" id="s-nicolino" hidden>
+        <p class="profil"><a href="https://github.com/nicolino" rel="noopener noreferrer">github.com/nicolino</a></p>
+        <h2>Steckbrief nicolino</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>PG, AD, BSRN …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Neue Erfahrung …</p>
+      </article>
+      <article class="steckbrief" id="s-nko" hidden>
+        <p class="profil"><a href="https://github.com/nko" rel="noopener noreferrer">github.com/nko</a></p>
+        <h2>Steckbrief nko</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich kenne erste Grundlagen der Programmierung aus der Schule oder dem ersten Semester</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Die Grundlagen von Git, GitHub und noch mehr über Softwaretechnik ich bin daran schon gespannt</p>
+      </article>
+      <article class="steckbrief" id="s-nly50" hidden>
+        <p class="profil"><a href="https://github.com/nly50" rel="noopener noreferrer">github.com/nly50</a></p>
+        <h2>Steckbrief nly50</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher wenig Erfahrung mit Softwareentwicklung und möchte die Grundlagen kennenlernen und lernen, eigene Programme zu entwickeln.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie Softwareentwicklung in der Praxis funktioniert und wie man gemeinsam an Projekten arbeitet. Außerdem möchte ich den Umgang mit Git und GitHub besser verstehen.</p>
+      </article>
+      <article class="steckbrief" id="s-NN" hidden>
+        <p class="profil"><a href="https://github.com/NN" rel="noopener noreferrer">github.com/NN</a></p>
+        <h2>Steckbrief &lt;kürzel&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.sc. 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>War sehr spannend ich freue mich auf mehr …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ganz viel Input …</p>
+      </article>
+      <article class="steckbrief" id="s-nohl" hidden>
+        <p class="profil"><a href="https://github.com/nohl" rel="noopener noreferrer">github.com/nohl</a></p>
+        <h2>Steckbrief nohl</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Java</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Danach ein besseres Designverständnis von Software haben</p>
+      </article>
+      <article class="steckbrief" id="s-NUAli" hidden>
+        <p class="profil"><a href="https://github.com/NUAli" rel="noopener noreferrer">github.com/NUAli</a></p>
+        <h2>Steckbrief NUAli</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc 3 Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Keine bisherige Erfahrung</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte die Funktionen und Features von Git und Github kennenlernen und wie man sie am besten bedient.</p>
+      </article>
+      <article class="steckbrief" id="s-onzj" hidden>
+        <p class="profil"><a href="https://github.com/onzj" rel="noopener noreferrer">github.com/onzj</a></p>
+        <h2>Steckbrief onzj</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik an der Technischen Hochschule Mittelhessen im 3. Semester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits erste Erfahrungen mit der Programmiersprache Java und der Entwicklungsumgebung Intellij IDEA gesammelt. Mit Git und GitHub habe ich bisher wenig Erfahrung.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie Softwareprojekte entwickelt und organisiert werden. Besonders interessiert mich, wie man im Team arbeitet und Werkzeuge wie Git und GitHub in der Praxis verwendet.</p>
+      </article>
+      <article class="steckbrief" id="s-oubou" hidden>
+        <p class="profil"><a href="https://github.com/oubou" rel="noopener noreferrer">github.com/oubou</a></p>
+        <h2>Steckbrief &lt;oubou.md&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3 Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwaretechnik</h3>
+        <p>Ich habe im Studium erste Programmiererfahrung in Übungen gesammelt, vor allem mit Java. Mit Git und GitHub habe ich noch nicht gearbeitet, deshalb ist diese Übung mein erster Einstieg in Versionsverwaltung.</p>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie Softwareprojekte geplant und umgesetzt werden. …</p>
+      </article>
+      <article class="steckbrief" id="s-pdam" hidden>
+        <p class="profil"><a href="https://github.com/pdam" rel="noopener noreferrer">github.com/pdam</a></p>
+        <h2>Steckbrief pdam</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Entwichlungsabteilungsleiter bei der NASA.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das mich die Veranstaltung im Bereich der Softwaretechnik auf eine neue Ebene meines bisherigens Wissensstandes bringt.</p>
+      </article>
+      <article class="steckbrief" id="s-peng" hidden>
+        <p class="profil"><a href="https://github.com/peng" rel="noopener noreferrer">github.com/peng</a></p>
+        <h2>Steckbrief peng</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester Bachelorg</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>mein Onkel hat mir programmieren beigebracht</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>das altaf mo sachen zeigt</p>
+      </article>
+      <article class="steckbrief" id="s-pgml" hidden>
+        <p class="profil"><a href="https://github.com/pgml" rel="noopener noreferrer">github.com/pgml</a></p>
+        <h2>Steckbrief pgml</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik an der Technischen Hochschule Mittelhessen (THM) am Campus Friedberg und befinde mich derzeit im fünften Fachsemester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits umfangreiche Erfahrungen in der Softwareentwicklung gesammelt. Während meines Studiums und verschiedener Praxisprojekte habe ich Anwendungen mit Java, Python und JavaScript entwickelt. Darüber hinaus habe ich an der Entwicklung datenbasierter Anwendungen mitgewirkt und erste Erfahrungen im Bereich Machine Learning gesammelt.</p>
+        <p>Besonders interessant finde ich die Entwicklung skalierbarer Softwaresysteme sowie die Arbeit mit Cloud-Technologien. Außerdem bin ich mit agilen Entwicklungsmethoden wie Scrum und der Versionsverwaltung mit Git vertraut.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Von der Veranstaltung Softwaretechnik erwarte ich, dass ich meine Kenntnisse über die systematische Planung, Entwicklung und Wartung komplexer Softwaresysteme vertiefen kann.</p>
+        <p>Besonders interessieren mich moderne Softwarearchitekturen, agile Entwicklungsmethoden sowie die Qualitätssicherung durch automatisierte Tests. Darüber hinaus möchte ich lernen, wie Softwareprojekte effizient organisiert und im Team erfolgreich umgesetzt werden können.</p>
+      </article>
+      <article class="steckbrief" id="s-pz01" hidden>
+        <p class="profil"><a href="https://github.com/pz01" rel="noopener noreferrer">github.com/pz01</a></p>
+        <h2>Steckbrief pz01</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik an der THM in Friedberg und befinde mich im 3. Semester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher erste Grundlagen der Programmierung im Studium kennengelernt. Meine praktischen Erfahrungen mit Softwareentwicklung sind noch begrenzt, aber ich möchte meine Kenntnisse weiter ausbauen.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte von der Veranstaltung, dass ich die Grundlagen der Softwareentwicklung besser verstehe und lerne, wie Softwareprojekte geplant und umgesetzt werden. Besonders möchte ich praktische Erfahrungen sammeln und den Umgang mit Git und GitHub verbessern.</p>
+      </article>
+      <article class="steckbrief" id="s-qdb" hidden>
+        <p class="profil"><a href="https://github.com/qdb" rel="noopener noreferrer">github.com/qdb</a></p>
+        <h2>Steckbrief &lt;qdb&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-qho" hidden>
+        <p class="profil"><a href="https://github.com/qho" rel="noopener noreferrer">github.com/qho</a></p>
+        <h2>Steckbrief &lt;qho&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik im 3. Semester an der THM am Campus Friedberg.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits Erfahrungen in Java und SQL machen können, möchte jedoch mein Wissen in der praktischen Softwaretechnik erweitern.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte, dass ich meine praktischen Kenntnisse in Softwareentwicklung vertiefen kann und lernen kann Softwareprojekte umzusetzen.</p>
+      </article>
+      <article class="steckbrief" id="s-real" hidden>
+        <p class="profil"><a href="https://github.com/real" rel="noopener noreferrer">github.com/real</a></p>
+        <h2>Steckbrief &lt;real&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3.Semseter</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher wenig Erfahrung mit Softwareentwicklung und lerne die grundlagen im Studuim.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte in der Veranstaltung neue Erfahrungen sammeln, mein Wissen erweitern und mehr über Softwareentwicklung lernen. Außerdem möchte ich lernen, wie man gemeinsam an Softwareprojekten arbeitet.</p>
+      </article>
+      <article class="steckbrief" id="s-renn" hidden>
+        <p class="profil"><a href="https://github.com/renn" rel="noopener noreferrer">github.com/renn</a></p>
+        <h2>Steckbrief renn</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher keine Erfahrung mit Softwareentwicklung und Programmieren. Ich freue mich darauf, die Grundlagen kennenzulernen und erste praktische Erfahrungen zu sammeln.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man Software entwickelt und mit Git und GitHub arbeitet. Außerdem möchte ich verstehen, wie man gemeinsam an Projekten arbeitet und Änderungen speichert. Ich erwarte, dass ich durch praktische Übungen meine Programmierkenntnisse erweitere und lerne, selbständig an Softwareprojekten zu arbeiten.</p>
+      </article>
+      <article class="steckbrief" id="s-sahmad" hidden>
+        <p class="profil"><a href="https://github.com/sahmad" rel="noopener noreferrer">github.com/sahmad</a></p>
+        <h2>Steckbrief sahmad</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik (B.Sc.) an der THM am Campus Friedberg und befinde mich aktuell im 3. Semester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe im Studium erste Grundlagen der Programmierung kennengelernt und bereits einfache Programme geschrieben. Mit der professionellen Softwareentwicklung und der Zusammenarbeit über Git und GitHub habe ich bisher wenig Erfahrung.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte in dieser Veranstaltung lernen, wie Softwareprojekte professionell geplant, entwickelt und umgesetzt werden. Besonders interessiert mich die Zusammenarbeit im Team sowie der praktische Umgang mit Git und GitHub. Außerdem möchte ich meine Programmierkenntnisse erweitern.</p>
+      </article>
+      <article class="steckbrief" id="s-sahmed" hidden>
+        <p class="profil"><a href="https://github.com/sahmed" rel="noopener noreferrer">github.com/sahmed</a></p>
+        <h2>Steckbrief &lt;S_Ahmed&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik / 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-sam" hidden>
+        <p class="profil"><a href="https://github.com/sam" rel="noopener noreferrer">github.com/sam</a></p>
+        <h2>Steckbrief sam</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Bisher keine wirklichen, nur etwas Java im ersten Semester.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte, dass ich mehr Kenntnisse in dem Bereich erlange, mein Können erweitere und ggf. auch eigene Projekte damit bauen kann.</p>
+      </article>
+      <article class="steckbrief" id="s-sazy1" hidden>
+        <p class="profil"><a href="https://github.com/sazy1" rel="noopener noreferrer">github.com/sazy1</a></p>
+        <p>Steckbrief sazy1</p>
+        <p>Studiengang und Semester</p>
+        <p>Ich studiere Wirtschaftsinformatik und bin im dritten Semester.</p>
+        <p>Meine bisherige Erfahrung mit Softwareentwicklung</p>
+        <p>Ich habe bisher wenig Erfahrung mit Softwareentwicklung. Ich möchte lernen, wie man mit Git und GitHub arbeitet.</p>
+        <p>Das erwarte ich von der Veranstaltung</p>
+        <p>Ich möchte die Grundlagen der Softwareentwicklung lernen und sicher mit Git und GitHub umgehen können.</p>
+        <h3>Aufgabe 3</h3>
+        <p>Diese Änderung habe ich direkt im GitHub-Browser gemacht.</p>
+      </article>
+      <article class="steckbrief" id="s-sd99" hidden>
+        <p class="profil"><a href="https://github.com/sd99" rel="noopener noreferrer">github.com/sd99</a></p>
+        <h2>Steckbrief &lt;sd99&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <ul><li>Studiengang: Wirtschaftsinformatik B.Sc</li><li>Semester: 7</li></ul>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Meine ersten Erfahrungen mit der Softwareentwicklung habe ich mit Flutter und Dart gesammelt. Angefangen hat alles mit einer einfachen To-do-App im Rahmen einer Übung. Danach habe ich mich weiter mit Flutter beschäftigt und eine eigene Android-App entwickelt. Wenn ich heute an meinen damaligen Code denke, muss ich schmunzeln. Von einer richtigen Struktur war ich damals noch weit entfernt.</p>
+        <p>Im Studium haben wir von Anfang an mit Java gearbeitet. Zwischendurch habe ich auch Python, JavaScript, HTML und CSS ausprobiert. Irgendwann habe ich gemerkt, dass es sinnvoller ist, sich erst einmal auf eine Programmiersprache zu konzentrieren, statt ständig zwischen verschiedenen Sprachen zu wechseln.</p>
+        <p>Also bin ich bei Java geblieben und habe mich intensiver damit beschäftigt. Zunächst habe ich eine To-do-Anwendung ohne grafische Oberfläche programmiert. Mittlerweile arbeite ich an einer eigenen Web-App mit Java, Spring Boot, MySQL, HTML und CSS.</p>
+        <p>Dabei lerne ich besonders viel über das Zusammenspiel von Frontend und Backend. Ich merke, dass ich durch die Arbeit an einem eigenen Projekt vieles besser verstehe.</p>
+        <p>ChatGPT nutze ich zusätzlich als Lernhilfe, um Fragen zu klären und Code besser zu verstehen. Ich muss zwar immer noch vieles nachschlagen, aber das gehört für mich zum Lernen dazu.</p>
+        <p>Ich bin noch lange kein Profi, aber mittlerweile macht mir das Programmieren richtig Spaß.</p>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte in dieser Veranstaltung vor allem lernen, wie man größere Softwareprojekte richtig plant und strukturiert. Bisher habe ich bei meinen eigenen Projekten vieles einfach ausprobiert und dabei gelernt. Jetzt würde ich gerne verstehen, wie man von Anfang an besser vorgeht und sauberen, übersichtlichen Code schreibt.</p>
+        <p>Besonders interessiert mich die Softwarearchitektur. Ich möchte verstehen, wie man eine Anwendung so aufbaut, dass sie auch bei neuen Funktionen übersichtlich und leicht erweiterbar bleibt. Außerdem würde ich gerne lernen, wie ein Softwareprojekt von der ersten Idee über die Planung bis zur fertigen Anwendung entsteht.</p>
+        <p>Spannend finde ich auch, wie Entwickler in Unternehmen zusammenarbeiten, zum Beispiel mit Git, GitHub und Code Reviews. Ich möchte lernen, mich besser in fremden Code einzuarbeiten, Software richtig zu testen und Fehler systematisch zu finden.</p>
+        <p>Wichtig ist mir außerdem, dass der Code langfristig verständlich und wartbar bleibt. Besonders freue ich mich auf praktische Übungen und echte Projekte, bei denen man das Gelernte direkt anwenden kann.</p>
+        <p>Mein Ziel ist es, die neuen Kenntnisse auch für meine eigene Web-App mit Java und Spring Boot zu nutzen.</p>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-shiva" hidden>
+        <p class="profil"><a href="https://github.com/shiva" rel="noopener noreferrer">github.com/shiva</a></p>
+        <h2>Steckbrief &lt;shiva&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>keine Ahnung</p>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>ich will lernen</p>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-skrl78" hidden>
+        <p class="profil"><a href="https://github.com/skrl78" rel="noopener noreferrer">github.com/skrl78</a></p>
+        <h2>Steckbrief skrl78</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits erste Erfahrungen mit Java gesammelt und kenne einige grundlegende Syntaxelemente. Meine Kenntnisse sind noch nicht fortgeschritten, und ich möchte sie im Laufe des Studiums weiter ausbauen und praktische Erfahrungen in der Softwareentwicklung sammeln.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte die Grundlagen der Softwaretechnik besser verstehen und lernen, wie man Softwareprojekte strukturiert plant und umsetzt. Außerdem möchte ich meine praktischen Fähigkeiten im Umgang mit Git und GitHub verbessern und lernen, effektiv mit anderen an Softwareprojekten zu arbeiten.</p>
+        <p>Ich freue mich darauf, die Zusammenarbeit mit Git und GitHub praktisch zu lernen.</p>
+        <p>Ich möchte lernen, Änderungen nachvollziehbar zu dokumentieren und gemeinsam an Softwareprojekten zu arbeiten.</p>
+      </article>
+      <article class="steckbrief" id="s-skt435" hidden>
+        <p class="profil"><a href="https://github.com/skt435" rel="noopener noreferrer">github.com/skt435</a></p>
+        <h2>Steckbrief skt435</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik im 3.Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>keine Erfahrung mit Softwaretechnik.Möchte Erfahrung sammlen. …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das Basiswissen von Softwaretechnik erlernen und verstehen …</p>
+      </article>
+      <article class="steckbrief" id="s-slr63" hidden>
+        <p class="profil"><a href="https://github.com/slr63" rel="noopener noreferrer">github.com/slr63</a></p>
+        <h2>Steckbrief &lt;slr63&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 7. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Bots in Python, Agenten in Go, Apps in C#, Webentwicklung, MySQL, ClickHouseDB, PostgreSQL</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Viel zu lernen</p>
+      </article>
+      <article class="steckbrief" id="s-Smu" hidden>
+        <p class="profil"><a href="https://github.com/Smu" rel="noopener noreferrer">github.com/Smu</a></p>
+        <h2>Steckbrief Smu</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Nicht wirklich</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie man professionell mit Git, GitHub, Branches und Pull Requests arbeitet und Softwareprojekte organisiert. // Ich teste etwas.</p>
+      </article>
+      <article class="steckbrief" id="s-snab" hidden>
+        <p class="profil"><a href="https://github.com/snab" rel="noopener noreferrer">github.com/snab</a></p>
+        <h2>Steckbrief snab</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik Bachelor, 3. Semester</p>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Einführung in die Programmierung und Algorithmen und Datenstrukturen als Module bisher im Studium.</p>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte, dass ich durch die Veranstaltung mich der Softwareentwicklung vertrauter mache und dass ich lerne, wie man in diesem Bereich vorgeht. …</p>
+      </article>
+      <article class="steckbrief" id="s-sngu" hidden>
+        <p class="profil"><a href="https://github.com/sngu" rel="noopener noreferrer">github.com/sngu</a></p>
+        <h2>Steckbrief sngu</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik! 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Modul Einführung in die Programmierung und Algorithmen und Datenstrukturen</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte ein grundlegendes Verständnis für den professionellen Softwareentwicklungsprozess sowie den praktischen Umgang mit Git, GitHub und agilen Methoden.</p>
+      </article>
+      <article class="steckbrief" id="s-sshj44" hidden>
+        <p class="profil"><a href="https://github.com/sshj44" rel="noopener noreferrer">github.com/sshj44</a></p>
+        <h2>Steckbrief sshj44</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. im 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Module aus dem 1. &amp; 2. Semester der THM sowie 1 Semester Python an der Universität Frankfurt</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Relevanz in der späteren Praxis sowie ein tiefes Verständnis für die Thematik &quot;Softwaretechnik&quot;</p>
+      </article>
+      <article class="steckbrief" id="s-ssng61" hidden>
+        <p class="profil"><a href="https://github.com/ssng61" rel="noopener noreferrer">github.com/ssng61</a></p>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe schon mit java und SQL gearbeitet, aber mit Git hatte ich bis jetzt noch nie gearbeitet</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>ich will wissen was der kern von SOftwaretechnik ist und wie es mir weiter helfen kann in deer zukunft.</p>
+      </article>
+      <article class="steckbrief" id="s-stmx" hidden>
+        <p class="profil"><a href="https://github.com/stmx" rel="noopener noreferrer">github.com/stmx</a></p>
+        <h2>Steckbrief stmx</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Kleine Programme mit Java …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Github verstehen und benutzen können sowie eine gute Note …</p>
+      </article>
+      <article class="steckbrief" id="s-TariqK2004" hidden>
+        <p class="profil"><a href="https://github.com/TariqK2004" rel="noopener noreferrer">github.com/TariqK2004</a></p>
+        <h2>Steckbrief TariqK2004</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>…Organisations- und IT-Sicherheit B.SC 3.te Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>… Bisher habe ich keine Erfahrung damit gemacht</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>… Das ich die Veranstaltung mit mehr Wissen verlasse</p>
+      </article>
+      <article class="steckbrief" id="s-tcam" hidden>
+        <p class="profil"><a href="https://github.com/tcam" rel="noopener noreferrer">github.com/tcam</a></p>
+        <h2>Steckbrief &lt;tcam&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Absoluter noob</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich will am Ende des Semesters verstehen, wie man Software anständig baut.</p>
+      </article>
+      <article class="steckbrief" id="s-thng" hidden>
+        <p class="profil"><a href="https://github.com/thng" rel="noopener noreferrer">github.com/thng</a></p>
+        <h2>Steckbrief thng</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. in 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Objektorientierte Programmierung in Java, Web-Entwicklung mit html, javascript und php. Durch das Modul GUI, sowie Projekt I und Web-Technologie habe ein bisschen Git-Erkenntnisse gesammelt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, Software strukturiert zu entwickeln und meine bisherigen Programmier- und Git-Kenntnisse zu vertiefen.</p>
+      </article>
+      <article class="steckbrief" id="s-Tiger" hidden>
+        <p class="profil"><a href="https://github.com/Tiger" rel="noopener noreferrer">github.com/Tiger</a></p>
+        <h2>Steckbrief Tiger</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>PG, AD, BSRN</p>
+        <p>…</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Neue Erfahrungen, Neues Wissen für Software …</p>
+      </article>
+      <article class="steckbrief" id="s-tnd" hidden>
+        <p class="profil"><a href="https://github.com/tnd" rel="noopener noreferrer">github.com/tnd</a></p>
+        <h2>Steckbrief &lt;tnd&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>…B. Sc. Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>…Beim Herrn Gerlach erste Java Erfahrungen gemacht.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>…Von Noobie auf Beginner Level zu kommen</p>
+      </article>
+      <article class="steckbrief" id="s-tngan" hidden>
+        <p class="profil"><a href="https://github.com/tngan" rel="noopener noreferrer">github.com/tngan</a></p>
+        <h2>Steckbrief tngan</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Am Anfang meines Studiums habe ich das Modul „Einführung in die Programmierung” belegt und dort die Grundlagen von Java gelernt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie Software im Team geplant und entwickelt wird, und sicher mit Git und GitHub arbeiten</p>
+      </article>
+      <article class="steckbrief" id="s-trry" hidden>
+        <p class="profil"><a href="https://github.com/trry" rel="noopener noreferrer">github.com/trry</a></p>
+        <h2>Steckbrief &lt;trry&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>&quot;Hello World&quot; schreiben</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Dass man vielleicht auch ein paar praktische Einblicke bekommt, die man im Studium verwenden kann.</p>
+      </article>
+      <article class="steckbrief" id="s-ttpr21" hidden>
+        <p class="profil"><a href="https://github.com/ttpr21" rel="noopener noreferrer">github.com/ttpr21</a></p>
+        <h2>Steckbrief ttpr21</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc.,</p>
+        <ol><li>Semester</li></ol>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Kleine Projekte in Java. Mit Git habe ich schon gearbeitet.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte, dass ich nach der Veranstaltung verstehe, wie große Softwaresysteme im Team professionell geplant und umgesetzt werden. Dazu muss gelehrt werden, wie man mit Git arbeitet.</p>
+      </article>
+      <article class="steckbrief" id="s-tyfncc" hidden>
+        <p class="profil"><a href="https://github.com/tyfncc" rel="noopener noreferrer">github.com/tyfncc</a></p>
+        <h2>Steckbrief &lt;tyfncc&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 7. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Privat kaum bis jetzt Uni Java, Python und weitere Module Noch nichts richtig handfestes.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Grundlagen der Softwaretechnik Erfahrung mit GitHUB</p>
+      </article>
+      <article class="steckbrief" id="s-uk" hidden>
+        <p class="profil"><a href="https://github.com/uk" rel="noopener noreferrer">github.com/uk</a></p>
+        <h2>Steckbrief uk</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. , 5. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>PG, GUI …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen, wie Software entsteht und wie man langfristig an die Software arbeitet. …</p>
+      </article>
+      <article class="steckbrief" id="s-uwar" hidden>
+        <p class="profil"><a href="https://github.com/uwar" rel="noopener noreferrer">github.com/uwar</a></p>
+        <h2>Steckbrief uwar</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>BSc Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Grundkenntnisse in Java aus dem Studium, SQL baue ich gerade aus. Beruflich hatte ich vorher mit Zahlungsverkehrssystemen zu tun — dort eher aus Anwender- und Prozesssicht als selbst entwickelnd. Mit Git arbeite ich seit dieser Übung zum ersten Mal richtig.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte verstehen, wie Softwareprojekte strukturiert ablaufen, statt nur einzelne Programme zu schreiben. Konkret interessieren mich Anforderungen und Architektur — also was vor dem Code passiert.</p>
+      </article>
+      <article class="steckbrief" id="s-val" hidden>
+        <p class="profil"><a href="https://github.com/val" rel="noopener noreferrer">github.com/val</a></p>
+        <h2>Steckbrief val</h2>
+        <p>&lt;!-- Beispiel mit einem erfundenen Kürzel — so kann Ihr Steckbrief aussehen. --&gt;</p>
+        <h3>Studiengang und Semester</h3>
+        <p>Organisation und IT Sicherheit B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Sehr einfaches Programmieren in Java. Mit Git habe ich bisher nicht gearbeitet.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das ich mehr über Softwaretechnik lerne.</p>
+      </article>
+      <article class="steckbrief" id="s-vic26" hidden>
+        <p class="profil"><a href="https://github.com/vic26" rel="noopener noreferrer">github.com/vic26</a></p>
+        <h2>Steckbrief vic26</h2>
+        <h3>Studiengang und Semester</h3>
+        <ul><li>Wirtschaftsinformatik 3. Semester</li></ul>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits mit Java, Python und SQL gearbeitet. Außerdem habe ich eine eigene Webseite mit Unterstützung von KI entwickelt und dabei erste praktische Erfahrungen mit der Softwareentwicklung gesammelt</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen wie größere Softwareprojekte strukturiert geplant und entwickelt werden</p>
+      </article>
+      <article class="steckbrief" id="s-virus" hidden>
+        <p class="profil"><a href="https://github.com/virus" rel="noopener noreferrer">github.com/virus</a></p>
+        <h2>Steckbrief virus</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>5 Semester Geoinformatik und 2 Semester Wirtschaftsinformatik</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Praxisnähe</p>
+      </article>
+      <article class="steckbrief" id="s-vkab" hidden>
+        <p class="profil"><a href="https://github.com/vkab" rel="noopener noreferrer">github.com/vkab</a></p>
+        <h2>Steckbrief &lt;vkab&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc. 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Programmieren 1 mit Java …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Viel neues zu lernen …</p>
+      </article>
+      <article class="steckbrief" id="s-wnga" hidden>
+        <p class="profil"><a href="https://github.com/wnga" rel="noopener noreferrer">github.com/wnga</a></p>
+        <h2>Steckbrief wnga</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.Sc., 5. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Programmierung in Java, PHP, CSS, HTML sowie JavaScript und Dart. Mit Datenbanken wie MySQL und MariaDB habe ich bereits gearbeitet. Ich habe auch schon ein Webanwendungen nämlich Skill-Match und ein Lernraum-Buchungssystem sowie eine To-Do-Liste entwickelt. Dazu habe ich Git einsetzen müssen.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte konkret nachvollziehen, wie die Softwareentwicklung läuft. Das heißt wie der Prozess aufgebaut ist und was oder welche Aufgaben bei jedem Schritt zu erledigen ist.</p>
+      </article>
+      <article class="steckbrief" id="s-yamekk" hidden>
+        <p class="profil"><a href="https://github.com/yamekk" rel="noopener noreferrer">github.com/yamekk</a></p>
+        <h2>Steckbrief &lt;yamekk&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>B. Sc. Organisations und IT-Sicherheit, 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ja</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>nicht Hardwaretechnik :D</p>
+      </article>
+      <article class="steckbrief" id="s-ygue" hidden>
+        <p class="profil"><a href="https://github.com/ygue" rel="noopener noreferrer">github.com/ygue</a></p>
+        <h2>Steckbrief ygue</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik (B.Sc.) im 3. Semester an der THM in Friedberg.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bisher Grundlagen im Studium gelernt und erste Erfahrungen mit dem Programmieren gemacht. Das möchte ich hier weiter vertiefen.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erwarte einen guten Einblick in die Planung und Entwicklung von Softwareprojekten. Besonders interessieren mich agile Methoden, die Arbeit mit Git und GitHub sowie gutes Arbeiten im Team.</p>
+      </article>
+      <article class="steckbrief" id="s-ykar" hidden>
+        <p class="profil"><a href="https://github.com/ykar" rel="noopener noreferrer">github.com/ykar</a></p>
+        <h2>Steckbrief ykar</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich stehe am Anfang meiner Reise in der Softwareentwicklung und bringe eine ausgeprägte Begeisterung für IT-Lösungen und Automatisierung mit. Sowohl im beruflichen Umfeld als auch in privaten Projekten sammle ich kontinuierlich praktische Erfahrung. Mein Schwerpunkt liegt derzeit auf der Automatisierung von Prozessen mittels PowerShell sowie dem Entwickeln, Konfigurieren und Optimieren von KI-Agenten. Mich reizt es, wiederkehrende Aufgaben effizienter zu gestalten und modernste Technologien zielgerichtet einzusetzen.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erhoffe mir von der Veranstaltung vor allem praktische Einblicke und konkrete Lösungsansätze, die ich direkt in meinen Alltag integrieren kann. Da ich bereits erste Erfahrungen mit PowerShell und KI-Agenten gesammelt habe, möchte ich mein Verständnis vertiefen und lernen, wie ich Workflows noch strukturierter und effizienter aufbaue.</p>
+        <p>Besonders wichtig ist mir der Austausch mit den Referenten und anderen Teilnehmenden, um neue Impulse zu erhalten, typische Stolpersteine in der Entwicklung frühzeitig zu vermeiden und meine Kenntnisse auf das nächste Level zu heben.</p>
+      </article>
+      <article class="steckbrief" id="s-yoibr42" hidden>
+        <p class="profil"><a href="https://github.com/yoibr42" rel="noopener noreferrer">github.com/yoibr42</a></p>
+        <h2>Steckbrief &lt;yoibr42&gt;</h2>
+        <p>Yosef Ibrahim</p>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <p>…</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Leider habe ich kein Erfahrung mir Softwareentwicklung …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich erhoffe mir mehr in dem Bereich zu Lernen um dies dann auch Zukünftig verwenden zu können.</p>
+        <p>…</p>
+      </article>
+      <article class="steckbrief" id="s-ysbi82" hidden>
+        <p class="profil"><a href="https://github.com/ysbi82" rel="noopener noreferrer">github.com/ysbi82</a></p>
+        <h2>Steckbrief ysbi82</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3 Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe erste Erfahrungen mit Java und SQL gesammelt.Ich möchte meine Programmierkenntnisse verbessern</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte lernen,wie man Softwareprojekte entwickelt und Git und GitHub richtig verwendet</p>
+      </article>
+      <article class="steckbrief" id="s-Z-266" hidden>
+        <p class="profil"><a href="https://github.com/Z-266" rel="noopener noreferrer">github.com/Z-266</a></p>
+        <h2>Steckbrief Z-266</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>wirtschaftinformatik B.sc dritte semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>habe schon beim appel und lenovo gearbeitet</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>alle oder fast alle  software verstehen zu koennen</p>
+      </article>
+      <article class="steckbrief" id="s-ZahraGit12" hidden>
+        <p class="profil"><a href="https://github.com/ZahraGit12" rel="noopener noreferrer">github.com/ZahraGit12</a></p>
+        <h2>Steckbrief ZahraGit12</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik, 3 Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe vor diesem Semester keine einzigen Erfahrungen in dem Bereich kennengelernt.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Dass ich in dem Thema vertraut bin und dadurch die Klausur meistere.</p>
+      </article>
+      <article class="steckbrief" id="s-zc" hidden>
+        <p class="profil"><a href="https://github.com/zc" rel="noopener noreferrer">github.com/zc</a></p>
+        <h2>Steckbrief zc</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik Bachelor 3. Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>keine</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>das mich die Veranstaltung im Bereich der Softwaretechnik auf eine neue Ebene bringt.</p>
+      </article>
+      <article class="steckbrief" id="s-zcbn" hidden>
+        <p class="profil"><a href="https://github.com/zcbn" rel="noopener noreferrer">github.com/zcbn</a></p>
+        <h2>Steckbrief zcbn</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Ich studiere Wirtschaftsinformatik im 7. Semester.</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Ich habe bereits erste Erfahrungen mit der Programmierung und Softwareentwicklung im Studium gesammelt. Dabei habe ich grundlegende Kenntnisse erworben und möchte diese weiter vertiefen.</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Ich möchte in dieser Veranstaltung meine Kenntnisse in der Softwareentwicklung vertiefen und neue Methoden kennenlernen. Außerdem möchte ich lernen, wie Softwareprojekte strukturiert geplant und im Team umgesetzt werden.</p>
+      </article>
+      <article class="steckbrief" id="s-zcoel" hidden>
+        <p class="profil"><a href="https://github.com/zcoel" rel="noopener noreferrer">github.com/zcoel</a></p>
+        <h2>Steckbrief zcoel</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik 3.Semester</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>Leider Keine</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Interaktives und spannende Vorlesungen mit Integration von Studierenden</p>
+      </article>
+      <article class="steckbrief" id="s-zomj" hidden>
+        <p class="profil"><a href="https://github.com/zomj" rel="noopener noreferrer">github.com/zomj</a></p>
+        <h2>Steckbrief &lt;zomj&gt;</h2>
+        <h3>Studiengang und Semester</h3>
+        <p>Wirtschaftsinformatik B.sc. 3. Semester …</p>
+        <h3>Meine bisherige Erfahrung mit Softwareentwicklung</h3>
+        <p>anspruchsvolle Übung …</p>
+        <h3>Das erwarte ich von der Veranstaltung</h3>
+        <p>Das es lustig wird. …</p>
+      </article>
+    </section>
+  </main>
+
+<script>
+(function () {
+  var feld = document.getElementById('suche');
+  var zaehler = document.getElementById('zaehler');
+  var leer = document.getElementById('leer');
+  var hinweis = document.getElementById('hinweis');
+  var liste = document.getElementById('namen');
+  var eintraege = Array.prototype.slice.call(liste.children);
+  var artikel = Array.prototype.slice.call(document.querySelectorAll('article.steckbrief'));
+  var gesamt = eintraege.length;
+
+  function falten(text) {
+    return text.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/ß/g, 'ss')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  }
+
+  function zeige(id) {
+    var gefunden = false;
+    artikel.forEach(function (a) {
+      var treffer = a.id === id;
+      a.hidden = !treffer;
+      if (treffer) gefunden = true;
+    });
+    eintraege.forEach(function (li) {
+      var b = li.querySelector('button');
+      if (b.dataset.ziel === id) b.setAttribute('aria-current', 'true');
+      else b.removeAttribute('aria-current');
+    });
+    hinweis.hidden = gefunden;
+    if (gefunden && history.replaceState) history.replaceState(null, '', '#' + id);
+  }
+
+  function filtern() {
+    var q = falten(feld.value);
+    var sichtbar = 0;
+    eintraege.forEach(function (li) {
+      var treffer = q === '' || li.dataset.suche.indexOf(q) !== -1;
+      li.hidden = !treffer;
+      if (treffer) sichtbar++;
+    });
+    zaehler.textContent = sichtbar + ' von ' + gesamt + ' Steckbriefen';
+    leer.hidden = sichtbar !== 0;
+  }
+
+  function ausListe(auswahl) {
+    return eintraege
+      .filter(function (li) { return !li.hidden; })
+      .map(function (li) { return li.querySelector('button'); })
+      .filter(auswahl);
+  }
+
+  liste.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (b) zeige(b.dataset.ziel);
+  });
+
+  feld.addEventListener('input', filtern);
+
+  liste.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    var sichtbar = ausListe(function () { return true; });
+    var pos = sichtbar.indexOf(document.activeElement);
+    if (pos === -1) return;
+    e.preventDefault();
+    var naechster = sichtbar[e.key === 'ArrowDown' ? pos + 1 : pos - 1];
+    if (naechster) naechster.focus();
+  });
+
+  filtern();
+  if (location.hash.length > 1) zeige(location.hash.slice(1));
+})();
+</script>
+</body>
+</html>
