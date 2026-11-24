@@ -57,12 +57,12 @@ Weitere Beobachtungen ohne Regeln:
 
 ## Aufgabe 4 — Zustandsdiagramm
 
-<!-- Schritt 5: jede Abweichung, welche der Agent gemeldet hat, mit Ihrem
-     Urteil (berechtigt / nicht berechtigt) und einem Satz Begründung. -->
-
 | Abweichung laut Agent | Urteil | Begründung |
 |---|---|---|
-| … | … | … |
+| Endzustände fehlen: Von `abgesagt`, `wahrgenommen` und `verfallen` führt kein Übergang zu einem Endknoten, obwohl sie sich laut Beschreibung „nicht mehr ändern“. | berechtigt | Die drei Zustände beenden den Lebenslauf des Zeitfensters; die Vorlage (Tür, `defekt --> [*]`) zeigt genau diese Notation. Behoben: je ein Übergang `--> [*]`. |
+| „Beginn erreicht“ steht wie ein gewöhnliches Ereignis da, ist aber ein Zeit-/Änderungsereignis; UML schreibt dafür `when(…)` bzw. `at(…)`. | berechtigt | Niemand löst „Beginn erreicht“ aus, es tritt ein, wenn die Zeit erreicht ist. Behoben: an allen drei Übergängen `when(Beginn erreicht)`. |
+
+Nicht gemeldet und nach meiner Prüfung richtig: der Oberzustand `angeboten` mit dem einen Übergang „Sprechstunde absagen“, die Bedingung `[jetzt ≤ Beginn − 2 h]` am Stornieren und dass nur `gebucht` zu `wahrgenommen` führt.
 
 ## Ein System, vier Sichten
 
