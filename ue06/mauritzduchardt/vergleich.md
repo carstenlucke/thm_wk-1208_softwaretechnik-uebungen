@@ -22,10 +22,7 @@ Agent: Claude Code, jede Aufgabe in einer neuen Sitzung.
 - **Fehler:** Nach der Vereinigung stand noch eine Aktion „Buchung abgeschlossen“. Das ist keine Tätigkeit, sondern das Ergebnis; „sind alle drei erledigt, ist die Buchung abgeschlossen“ heißt: Vereinigung, dann Endknoten. Diese Aktion habe ich selbst im Text gelöscht.
 - **Kleinigkeit:** Die Bedingungen an den Kanten stehen ohne eckige Klammern („nein“, „ja“). In der UML wären es Guards wie `[vergeben]`; PlantUML zeichnet sie so, das habe ich gelassen.
 
-**Die Änderung um die Warteliste:** …
-
-<!-- Schritt 7: Hat der Agent nur ergänzt, was verlangt war? Ist die neue
-     Verzweigung richtig eingefügt? -->
+**Die Änderung um die Warteliste:** Laut `git diff` hat der Agent nur 13 Zeilen eingefügt und sonst nichts umgestellt. Neu ist direkt nach „Freie Zeitfenster anzeigen“ die Verzweigung „Noch ein Zeitfenster frei?“; bei „nein“ folgen „Warteliste anbieten“ (Terminplaner), „Warteliste annehmen?“ (Studentin) und bei „ja“ „Studentin auf die Warteliste setzen“ mit eigenem Endknoten. Das ist richtig eingefügt. Fehler: Der Zweig „Warteliste annehmen? → nein“ war leer, d.h. der Ablauf lief weiter zu „Zeitfenster auswählen“, obwohl keines frei ist. Der Agent hat das selbst gemeldet und nachgefragt, statt etwas zu erfinden. Ich habe dort einen Endknoten in der Bahn „Studentin“ ergänzt (Annahme: Wer ablehnt, beendet den Ablauf ohne Buchung). Unschön bleibt, dass erst angezeigt und dann geprüft wird, ob überhaupt etwas frei ist; „beim Anzeigen“ lässt das aber zu.
 
 ## Aufgabe 3 — Klassendiagramm
 
