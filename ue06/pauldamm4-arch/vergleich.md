@@ -76,21 +76,28 @@
 
 ## Ein System, vier Sichten
 
-<!-- Vor der nächsten Vorlesung. -->
 
 ### Was kommt mehrfach vor?
 
 | Element | Use-Case | Aktivität | Klassen | Zustand |
 |---|---|---|---|---|
-| … | … | … | … | … |
-
-<!-- Je Zelle: unter welchem Namen und in welcher Form das Element dort
-     vorkommt (Akteur, Use-Case, Aktion, Klasse, Zustand …), oder „—“. -->
+| Zeitfenster | Use-Case | Aktion/Objekt „Zeitfenster“ | Klasse | Zustand/Objekt |
+| Studierende | Akteur | Bahn „Studentin“ | Klasse „Studierende“ | — |
+| Lehrende | Akteur | — | Klasse „Lehrende“ | — |
+| Sprechstunde | Use-Case „Sprechstunde anlegen/absagen“ | Aktion „Sprechstunde auswählen“ | Klasse „Sprechstunde“ | — |
+| Buchung | Use-Case „Zeitfenster buchen/stornieren“ | Aktionen rund um die Buchung | Klasse „Buchung“ | Zustand „gebucht“ |
 
 ### Wo passt es nicht zusammen?
 
-- …
+- Im Use-Case-Diagramm heißt es „Zeitfenster buchen“, im Aktivitätsdiagramm geht es ebenfalls um das Buchen eines Zeitfensters – das passt zusammen.
+- Im Use-Case-Diagramm gibt es „Sprechstunde“, und im Aktivitätsdiagramm wird eine Sprechstunde ausgewählt – das passt zusammen.
+- Das Klassendiagramm enthält die Klasse `Buchung`, während das Zustandsdiagramm den Zustand `gebucht` verwendet. Das beschreibt unterschiedliche Dinge und ist daher kein Widerspruch.
+- Das Zustandsdiagramm enthält die Zustände `gesperrt`, `abgesagt`, `wahrgenommen` und `verfallen`. Für diese Zustände gibt es im Klassendiagramm keine eigenen Klassen. Das ist kein Widerspruch, weil Zustände eines Zeitfensters keine eigenen Klassen sein müssen.
 
 ### Aus „Zeitfenster“ wird „Termin“
 
-**Stellen:** … in … Dateien
+**Stellen:** 14 Stellen in 4 Dateien
+- `usecase.puml`: 3 Stellen
+- `aktivitaet.puml`: 5 Stellen
+- `klassen.md`: 3 Stellen
+- `zustand.md`: 3 Stellen
