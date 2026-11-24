@@ -1,10 +1,5 @@
 # Von Hand und mit dem Agenten — Terminplaner für die THM
 
-<!-- Aufgaben 1 bis 4 des Übungsblatts und „Vor der nächsten Vorlesung“.
-     Ersetzen Sie jedes „…“ durch Ihre Angabe und fügen Sie so viele
-     Zeilen hinzu, wie Sie benötigen. Löschen Sie die Kommentare, sobald
-     Sie fertig sind. -->
-
 ## Aufgabe 1 — Use-Case-Diagramm
 
 - Der Agent hat gemacht, dass Studierende einen ICal-Datei machen können aber in der Beschreibung steht, dass jede Buchung sich als iCal-Datei herunterladen lässt.
@@ -72,12 +67,12 @@
 
 ## Aufgabe 4 — Zustandsdiagramm
 
-<!-- Schritt 5: jede Abweichung, welche der Agent gemeldet hat, mit Ihrem
-     Urteil (berechtigt / nicht berechtigt) und einem Satz Begründung. -->
-
 | Abweichung laut Agent | Urteil | Begründung |
 |---|---|---|
-| … | … | … |
+| `frei` wird durch `state frei { ... }` gleichzeitig als einfacher und zusammengesetzter Zustand verwendet. | berechtigt | `frei` soll ein einfacher Zustand sein. Der innere Block stammt aus der Tür-Vorlage und ist hier nicht notwendig. |
+| Der Startknoten innerhalb von `frei` zeigt auf `frei` selbst. | berechtigt | `frei` ist kein Unterzustand seiner eigenen Region. Der innere Startknoten ist daher falsch und außerdem überflüssig. |
+| `[mehr als 2h vor Beginn]` schließt genau zwei Stunden vor Beginn aus. | berechtigt | Laut Beschreibung kann bis zwei Stunden vor Beginn storniert werden. Daher muss der Grenzfall von genau zwei Stunden eingeschlossen sein. |
+| `Beginn erreicht` ist als Auslöser kein explizites Zeitereignis der UML. | nicht berechtigt | Die Aufgabenstellung verwendet selbst freie Textauslöser in der Vorlage. Außerdem ist `Beginn erreicht` inhaltlich verständlich und passend zur Beschreibung. |
 
 ## Ein System, vier Sichten
 
