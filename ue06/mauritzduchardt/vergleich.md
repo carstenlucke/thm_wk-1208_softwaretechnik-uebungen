@@ -66,21 +66,31 @@ Nicht gemeldet und nach meiner Prüfung richtig: der Oberzustand `angeboten` mit
 
 ## Ein System, vier Sichten
 
-<!-- Vor der nächsten Vorlesung. -->
-
 ### Was kommt mehrfach vor?
 
 | Element | Use-Case | Aktivität | Klassen | Zustand |
 |---|---|---|---|---|
-| … | … | … | … | … |
-
-<!-- Je Zelle: unter welchem Namen und in welcher Form das Element dort
-     vorkommt (Akteur, Use-Case, Aktion, Klasse, Zustand …), oder „—“. -->
+| Zeitfenster | im Use-Case „Zeitfenster buchen“ | in den Aktionen „Freie Zeitfenster … anzeigen“, „Zeitfenster auswählen“, „Zeitfenster als gebucht vermerken“ und in Bedingungen (kein Objektknoten) | Klasse `Zeitfenster` (ohne Attribute) | das ganze Diagramm (Lebenslauf eines Zeitfensters) |
+| Lehrperson | Akteur „Lehrende“ | in der Aktion „Lehrperson benachrichtigen“ (keine eigene Bahn) | Klasse `Lehrperson` | — (sperrt, gibt frei, sagt ab, wird aber nicht genannt) |
+| Studentin / Studierende | Akteur „Studierende“ | Bahn „Studentin“ | Klasse `Studierende` (mit Regeln: `Student`) | — (nur indirekt über „buchen“, „stornieren“) |
+| Sprechstunde | Use-Cases „Sprechstunde anlegen“, „Sprechstunde absagen“ | Aktion „Sprechstunde auswählen“ | Klasse `Sprechstunde` | Ereignis „Sprechstunde absagen“ |
+| Buchung | Use-Cases „Buchung stornieren“, „Buchung als iCal herunterladen“ | Aktion „Buchung eintragen“ | Klasse `Buchung` | Zustand `gebucht`, Ereignisse „buchen“, „stornieren“ |
+| Warteliste | Use-Case „Auf Warteliste setzen“ («extend») | Aktionen „Warteliste anbieten“, „Studentin auf die Warteliste setzen“ | — | — |
+| Anmeldung / Hochschulkonto | Akteur „Anmeldedienst“, Notiz Vorbedingung | Aktion „Mit Hochschulkonto anmelden“, Verzweigung „Schon angemeldet?“ | Attribute `kennung`, `name` der Klasse `Person` | — |
+| Benachrichtigung | Use-Cases „Lehrperson benachrichtigen“, „Gebuchte Studierende benachrichtigen“ («include») | Aktion „Lehrperson benachrichtigen“ | — | — |
+| iCal-Datei | Use-Case „Buchung als iCal herunterladen“ | Aktion „Bestätigung mit iCal-Datei … schicken“ | — | — |
+| Sekretariat | Akteur „Sekretariat“ | — | Klasse `Sekretariat` | — |
 
 ### Wo passt es nicht zusammen?
 
-- …
+- **Warteliste ohne Daten:** Use-Case- und Aktivitätsdiagramm setzen Studierende auf eine Warteliste, im Klassendiagramm gibt es dafür keine Klasse und keine Assoziation. Wo die Warteliste gespeichert wird, sagt kein Modell.
+- **Zustand ohne Ort im Datenmodell:** `Zeitfenster` hat im Klassendiagramm keine Attribute. „Gebucht“ lässt sich noch aus der Buchung (0..1) ableiten, „gesperrt“, „abgesagt“, „wahrgenommen“ und „verfallen“ nicht. Ebenso fehlt ein Beginn des Zeitfensters, obwohl das Zustandsdiagramm „Beginn erreicht“ und „Beginn − 2 h“ braucht; das Klassendiagramm kennt nur `Sprechstunde.beginn`.
+- **Sperren und Freigeben fehlen als Use-Cases:** Das Zustandsdiagramm hat die Übergänge „sperren“ und „freigeben“ durch Lehrende, im Use-Case-Diagramm gibt es keinen Use-Case dafür (Beschreibung 1 nennt ihn nicht).
+- **Stornofrist nur an einer Stelle:** Die Zwei-Stunden-Grenze steht nur im Zustandsdiagramm, der Use-Case „Buchung stornieren“ weiß nichts davon.
+- **Unterschiedliche Namen für dieselbe Rolle:** Akteur „Lehrende“ ↔ Klasse `Lehrperson`; Akteur „Studierende“ ↔ Bahn „Studentin“ ↔ Klasse `Studierende` bzw. `Student`.
+- **Anmeldung unterschiedlich modelliert:** Im Use-Case-Diagramm Vorbedingung mit Anmeldedienst als Akteur, im Aktivitätsdiagramm eine Aktion der Studentin ohne Anmeldedienst.
+- **Absagen:** Im Use-Case-Diagramm sagt die Lehrperson eine Sprechstunde ab, im Zustandsdiagramm wird dadurch jedes Zeitfenster `abgesagt`; im Klassendiagramm hat die Sprechstunde kein Merkmal „abgesagt“.
 
 ### Aus „Zeitfenster“ wird „Termin“
 
-**Stellen:** … in … Dateien
+**Stellen:** 15 in 5 Dateien (`usecase.puml` 1, `aktivitaet.puml` 7, `klassen.md` 3, `klassen-regeln.md` 3, `zustand.md` 1), dazu viele Stellen in dieser Datei, in `fall.md` und in den Fotos (dort müsste ich neu zeichnen). Man muss jede Stelle einzeln finden, auch zusammengesetzte Wörter wie „Zeitfensters“; in einem Modellierungswerkzeug wäre es eine Umbenennung des einen Elements.
