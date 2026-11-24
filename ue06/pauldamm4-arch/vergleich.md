@@ -20,8 +20,7 @@
 
 **Die Änderung um die Warteliste:** …
 
-<!-- Schritt 7: Hat der Agent nur ergänzt, was verlangt war? Ist die neue
-     Verzweigung richtig eingefügt? -->
+- Ja der Agent hat nur das geändert, was ich verlangt habe und er hat es auch an die richtige Stelle gesetzt.
 
 ## Aufgabe 3 — Klassendiagramm
 

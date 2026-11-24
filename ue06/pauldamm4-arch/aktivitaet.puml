@@ -15,6 +15,17 @@ endif
 repeat
   |Terminplaner|
   :Freie Zeitfenster der Sprechstunde anzeigen;
+  if (Kein Zeitfenster mehr frei?) then (ja)
+    :Warteliste anbieten;
+    |Studentin|
+    if (Warteliste annehmen?) then (ja)
+      |Terminplaner|
+      :Auf die Warteliste setzen;
+    else (nein)
+    endif
+    stop
+  else (nein)
+  endif
   |Studentin|
   :Zeitfenster auswählen;
   :Anliegen eintragen;
