@@ -15,10 +15,12 @@ Agent: Claude Code, jede Aufgabe in einer neuen Sitzung.
 
 ## Aufgabe 2 — Aktivitätsdiagramm
 
-<!-- Schritt 4: Was stimmte am Diagramm des Agenten nicht, und was haben
-     Sie verbessert? -->
-
-- …
+- **Bahnen, Start und Ende:** beide Bahnen da, jede Aktion in der richtigen Bahn, ein Startknoten, ein Endknoten.
+- **Verzweigung und Zusammenführung:** „Schon angemeldet?“ wird nach „Mit Hochschulkonto anmelden“ wieder zusammengeführt (Raute vor „Freie Zeitfenster anzeigen“). Die Schleife hat ihren eigenen Zusammenführungsknoten.
+- **Rückweg „inzwischen vergeben“:** führt richtig zurück vor „Freie Zeitfenster der Sprechstunde anzeigen“, nicht etwa zu „Zeitfenster auswählen“. Das stimmt mit meiner Zeichnung überein.
+- **„Zugleich“:** als Gabelung mit Vereinigung gezeichnet, drei parallele Aktionen. Richtig.
+- **Fehler:** Nach der Vereinigung stand noch eine Aktion „Buchung abgeschlossen“. Das ist keine Tätigkeit, sondern das Ergebnis; „sind alle drei erledigt, ist die Buchung abgeschlossen“ heißt: Vereinigung, dann Endknoten. Diese Aktion habe ich selbst im Text gelöscht.
+- **Kleinigkeit:** Die Bedingungen an den Kanten stehen ohne eckige Klammern („nein“, „ja“). In der UML wären es Guards wie `[vergeben]`; PlantUML zeichnet sie so, das habe ich gelassen.
 
 **Die Änderung um die Warteliste:** …
 
