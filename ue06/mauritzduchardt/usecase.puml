@@ -1,0 +1,51 @@
+@startuml
+title Use-Case-Diagramm: Terminplaner für die THM
+left to right direction
+
+actor "Lehrende" as Lehrende
+actor "Studierende" as Studierende
+actor "Sekretariat" as Sekretariat
+actor "Anmeldedienst\ndes Rechenzentrums" as Anmeldedienst <<System>>
+
+rectangle "Terminplaner" {
+  usecase "Sprechstunde anlegen" as UC_Anlegen
+  usecase "Sprechstunde absagen" as UC_Absagen
+  usecase "Zeitfenster buchen" as UC_Buchen
+  usecase "Buchung stornieren" as UC_Stornieren
+  usecase "Auf Warteliste setzen" as UC_Warteliste
+  usecase "Buchung als iCal\nherunterladen" as UC_iCal
+  usecase "Gebuchte Studierende\nbenachrichtigen" as UC_NotifyStud
+  usecase "Lehrperson\nbenachrichtigen" as UC_NotifyLehr
+}
+
+Lehrende --> UC_Anlegen
+Lehrende --> UC_Absagen
+Sekretariat --> UC_Anlegen
+Studierende --> UC_Buchen
+Studierende --> UC_Stornieren
+Studierende --> UC_iCal
+
+UC_Absagen ..> UC_NotifyStud : <<include>>
+UC_Stornieren ..> UC_NotifyLehr : <<include>>
+UC_Warteliste .up.> UC_Buchen : <<extend>>\n[Sprechstunde ausgebucht]
+
+' Korrektur (Mauritz): Anmelden ist kein eigener Use-Case, sondern Vorbedingung.
+' Der Anmeldedienst ist sekundärer Akteur der vier Use-Cases mit Anmeldung.
+UC_Anlegen -- Anmeldedienst
+UC_Absagen -- Anmeldedienst
+UC_Buchen -- Anmeldedienst
+UC_Stornieren -- Anmeldedienst
+
+note bottom of UC_Buchen
+  Vorbedingung für Anlegen, Absagen,
+  Buchen und Stornieren: angemeldet
+  mit dem Hochschulkonto (geprüft
+  vom Anmeldedienst)
+end note
+
+note right of UC_Anlegen
+  Sekretariate legen Sprechstunden
+  nur für die von ihnen betreuten
+  Lehrenden an.
+end note
+@enduml
