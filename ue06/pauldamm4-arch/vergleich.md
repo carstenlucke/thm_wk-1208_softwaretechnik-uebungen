@@ -7,22 +7,16 @@
 
 ## Aufgabe 1 — Use-Case-Diagramm
 
-<!-- Schritt 5: Was hat der Agent anders gemacht als Sie? Achten Sie auf
-     Erfundenes und Fehlendes, Use-Case oder Schritt, «include» und
-     «extend», den Anmeldedienst. -->
-
-- …
+- Der Agent hat gemacht, dass Studierende einen ICal-Datei machen können aber in der Beschreibung steht, dass jede Buchung sich als iCal-Datei herunterladen lässt.
+- Sonst ist es aber relativ genau gleich außer, dass er noch bei Anlegen zu Hochschulkonto anmelden eine <<Include>> gemacht hat
 
 **Meine Korrektur in `usecase.puml`:** …
 
-<!-- Schritt 6: was Sie selbst im Text geändert haben und warum. -->
+- Ich habe in Zeile 46 die Richtung geändert der <<extend>> , da es für mich so mehr Sinn gemacht hat
 
 ## Aufgabe 2 — Aktivitätsdiagramm
 
-<!-- Schritt 4: Was stimmte am Diagramm des Agenten nicht, und was haben
-     Sie verbessert? -->
-
-- …
+- Der KI-Agent hat es genauso dargestellt, wie es auch bei mir in dem Diagramm war
 
 **Die Änderung um die Warteliste:** …
 

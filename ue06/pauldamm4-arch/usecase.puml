@@ -43,7 +43,7 @@ Sekretariat -- UC_Anlegen
 Anmeldedienst -- UC_Pruefen
 
 ' --- Beziehungen zwischen den Use Cases ----------------------------------
-UC_Warteliste ..> UC_Buchen : <<extend>>\nSprechstunde ausgebucht
+UC_Buchen ..> UC_Warteliste : <<extend>>\nSprechstunde ausgebucht
 
 UC_Buchen ..> UC_Anmelden : <<include>>
 UC_Stornieren ..> UC_Anmelden : <<include>>

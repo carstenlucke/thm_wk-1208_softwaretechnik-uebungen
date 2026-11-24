@@ -1,0 +1,36 @@
+@startuml aktivitaet-zeitfenster-buchen
+' Aufgabe 2 — Aktivitätsdiagramm des Terminplaners
+' Grundlage: ue06/fall.md, Beschreibung 2 — Ein Zeitfenster buchen
+
+title Aktivitätsdiagramm — Ein Zeitfenster buchen
+
+|Studentin|
+start
+:Sprechstunde auswählen;
+if (Bereits angemeldet?) then (nein)
+  :Mit dem Hochschulkonto anmelden;
+else (ja)
+endif
+
+repeat
+  |Terminplaner|
+  :Freie Zeitfenster der Sprechstunde anzeigen;
+  |Studentin|
+  :Zeitfenster auswählen;
+  :Anliegen eintragen;
+  |Terminplaner|
+  :Prüfen, ob das Zeitfenster noch frei ist;
+repeat while (Zeitfenster inzwischen vergeben?) is (ja) not (nein)
+
+:Buchung eintragen;
+fork
+  :Bestätigung mit iCal-Datei an die Studentin senden;
+fork again
+  :Lehrperson benachrichtigen;
+fork again
+  :Zeitfenster als gebucht vermerken;
+end fork
+:Buchung abgeschlossen;
+stop
+
+@enduml
