@@ -1,0 +1,58 @@
+@startuml usecase-terminplaner
+' Aufgabe 1 — Use-Case-Diagramm des Terminplaners
+' Grundlage: ue06/fall.md, Beschreibung 1 — Was der Terminplaner leistet
+
+title Use-Case-Diagramm — Terminplaner der THM
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Studierende" as Studierende
+actor "Lehrende" as Lehrende
+actor "Sekretariat" as Sekretariat
+
+actor "Anmeldedienst\ndes Rechenzentrums" as Anmeldedienst
+
+rectangle "Terminplaner" {
+
+  usecase "Sprechstunde anlegen" as UC_Anlegen
+  usecase "Sprechstunde absagen" as UC_Absagen
+
+  usecase "Zeitfenster buchen" as UC_Buchen
+  usecase "Auf die Warteliste\nsetzen lassen" as UC_Warteliste
+  usecase "Buchung stornieren" as UC_Stornieren
+  usecase "Buchung als iCal-Datei\nherunterladen" as UC_ICal
+
+  usecase "Anmelden" as UC_Anmelden
+  usecase "Anmeldung prüfen" as UC_Pruefen
+
+  usecase "Gebuchte\nbenachrichtigen" as UC_Benachrichtigen
+  usecase "Lehrperson\nbenachrichtigen" as UC_BenachrichtigenLehrperson
+}
+
+' --- Akteure und ihre Use Cases -------------------------------------------
+Studierende -- UC_Buchen
+Studierende -- UC_Stornieren
+Studierende -- UC_ICal
+
+Lehrende -- UC_Anlegen
+Lehrende -- UC_Absagen
+
+Sekretariat -- UC_Anlegen
+
+Anmeldedienst -- UC_Pruefen
+
+' --- Beziehungen zwischen den Use Cases ----------------------------------
+UC_Warteliste ..> UC_Buchen : <<extend>>\nSprechstunde ausgebucht
+
+UC_Buchen ..> UC_Anmelden : <<include>>
+UC_Stornieren ..> UC_Anmelden : <<include>>
+UC_Anlegen ..> UC_Anmelden : <<include>>
+UC_Absagen ..> UC_Anmelden : <<include>>
+
+UC_Anmelden ..> UC_Pruefen : <<include>>
+
+UC_Absagen ..> UC_Benachrichtigen : <<include>>
+UC_Stornieren ..> UC_BenachrichtigenLehrperson : <<include>>
+
+@enduml
