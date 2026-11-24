@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+actor Studierende as S
+actor Lehrperson as L
+actor Sekretariat as K
+actor "Anmeldedienst des Rechenzentrums" as R
+rectangle "THM-Terminplaner" {
+  usecase "Zeitfenster buchen" as B
+  usecase "Buchung stornieren" as C
+  usecase "Auf Warteliste setzen lassen" as W
+  usecase "Sprechstunde anlegen" as A
+  usecase "Sprechstunde absagen" as D
+  usecase "Buchung als iCal herunterladen" as I
+  usecase "Mit Hochschulkonto anmelden" as H
+}
+S -- B
+S -- C
+S -- W
+S -- I
+L -- A
+L -- D
+K -- A
+R -- H
+B ..> H : <<include>>
+C ..> H : <<include>>
+A ..> H : <<include>>
+D ..> H : <<include>>
+W ..> B : <<extend>>\n[Sprechstunde ausgebucht]
+note right of A
+  Das System erzeugt 15-Minuten-Zeitfenster.
+  Sekretariate legen nur für betreute Lehrende an.
+end note
+note right of C
+  Das System benachrichtigt die Lehrperson.
+end note
+note right of D
+  Das System benachrichtigt alle mit Buchung.
+end note
+note bottom of H
+  Der Anmeldedienst prüft die Anmeldung.
+  Eine gültige Sitzung kann weiterverwendet werden.
+end note
+@enduml

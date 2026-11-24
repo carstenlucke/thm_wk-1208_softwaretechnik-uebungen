@@ -1,0 +1,40 @@
+@startuml
+|Studentin|
+start
+:Sprechstunde auswählen;
+if (Bereits angemeldet?) then (ja)
+else (nein)
+  :Mit Hochschulkonto anmelden;
+endif
+|Terminplaner|
+:Freie Zeitfenster anzeigen;
+while (Freie Zeitfenster vorhanden?) is (ja)
+  |Studentin|
+  :Zeitfenster auswählen;
+  :Anliegen eintragen;
+  |Terminplaner|
+  :In einer atomaren Operation Verfügbarkeit prüfen\nund bei Erfolg die Buchung eintragen;
+  if (Buchung eingetragen?) then (ja)
+    fork
+      |Terminplaner|
+      :Studentin Bestätigung mit iCal-Datei schicken;
+    fork again
+      |Terminplaner|
+      :Lehrperson benachrichtigen;
+    fork again
+      |Terminplaner|
+      :Zeitfenster als gebucht vermerken;
+    end fork
+    stop
+  else (inzwischen vergeben)
+    :Freie Zeitfenster erneut anzeigen;
+  endif
+endwhile (nein)
+|Studentin|
+if (Auf Warteliste setzen lassen?) then (ja)
+  |Terminplaner|
+  :Studentin auf Warteliste setzen;
+else (nein)
+endif
+stop
+@enduml
