@@ -24,25 +24,51 @@
 
 ## Aufgabe 3 — Klassendiagramm
 
-<!-- Schritte 4 und 7: Zahl der Verstöße je Art, ohne und mit Ihren
-     Regeln. -->
-
 | Verstoß | ohne Regeln | mit Regeln |
 |---|---|---|
-| künstliche Schlüssel | … | … |
-| technische statt fachlicher Datentypen | … | … |
-| Erfundenes (Attribute, Klassen, Operationen) | … | … |
-| fehlende oder abweichende Multiplizitäten | … | … |
-| Assoziation statt Komposition | … | … |
+| künstliche Schlüssel | keine | keine |
+| technische statt fachlicher Datentypen | Ja - String, Date, Time, DateTime | keine|
+| Erfundenes (Attribute, Klassen, Operationen) | keine | keine |
+| fehlende oder abweichende Multiplizitäten | Ja - Sekretariat/Lehrende | keine |
+| Assoziation statt Komposition | nein – Komposition bei Sprechstunde/Zeitfenster vorhanden | keine |
 
 **Was die Regeln behoben haben und was nicht:** …
 
 ### Meine Regeln für Datenmodelle
 
-<!-- Schritt 5: knapp und eindeutig, als Liste. Der Agent liest diesen
-     Abschnitt in Schritt 6. -->
+1. Verwende nur Klassen, Attribute und Beziehungen, die aus der
 
-- …
+   Beschreibung hervorgehen.
+
+2. Erfinde keine künstlichen Schlüssel wie `id`, wenn diese nicht in der
+
+   Beschreibung genannt werden.
+
+3. Verwende fachliche Datentypen und keine technischen
+
+   Implementierungsdatentypen wie `String`, `int`, `Date` oder `DateTime`.
+
+4. Verwende keine Operationen, Methoden oder technischen Funktionen,
+
+   sofern diese nicht ausdrücklich in der Beschreibung gefordert werden.
+
+5. Übernimm die Multiplizitäten genau aus der Beschreibung. Begriffe wie
+
+   „beliebig viele“, „mehrere“, „mindestens ein“ und „höchstens einer“
+
+   müssen korrekt in Multiplizitäten umgesetzt werden.
+
+6. Verwende Generalisierung, wenn mehrere Klassen gemeinsame Eigenschaften
+
+   besitzen.
+
+7. Verwende Komposition, wenn ein Teil zu genau einem Ganzen gehört und
+
+   mit diesem Ganzen gelöscht wird.
+
+8. Ergänze keine Informationen, die nicht aus der Beschreibung
+
+   abgeleitet werden können.
 
 ## Aufgabe 4 — Zustandsdiagramm
 
