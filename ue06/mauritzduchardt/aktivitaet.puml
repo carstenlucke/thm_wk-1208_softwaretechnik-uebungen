@@ -1,0 +1,50 @@
+@startuml aktivitaet
+title Ein Zeitfenster buchen
+
+|Studentin|
+start
+:Sprechstunde auswählen;
+if (Schon angemeldet?) then (nein)
+  :Mit Hochschulkonto anmelden;
+else (ja)
+endif
+
+|Terminplaner|
+repeat
+  :Freie Zeitfenster der Sprechstunde anzeigen;
+
+  if (Noch ein Zeitfenster frei?) then (nein)
+    :Warteliste anbieten;
+
+    |Studentin|
+    if (Warteliste annehmen?) then (ja)
+      |Terminplaner|
+      :Studentin auf die Warteliste setzen;
+      stop
+    else (nein)
+      |Studentin|
+      stop
+    endif
+  else (ja)
+  endif
+
+  |Studentin|
+  :Zeitfenster auswählen;
+  :Anliegen eintragen;
+
+  |Terminplaner|
+  :Prüfen, ob das Zeitfenster noch frei ist;
+repeat while (Zeitfenster noch frei?) is (nein, inzwischen vergeben) not (ja)
+
+:Buchung eintragen;
+
+fork
+  :Bestätigung mit iCal-Datei an die Studentin schicken;
+fork again
+  :Lehrperson benachrichtigen;
+fork again
+  :Zeitfenster als gebucht vermerken;
+end fork
+
+stop
+@enduml
