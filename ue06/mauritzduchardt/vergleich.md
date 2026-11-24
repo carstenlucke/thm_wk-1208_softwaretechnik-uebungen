@@ -26,25 +26,34 @@ Agent: Claude Code, jede Aufgabe in einer neuen Sitzung.
 
 ## Aufgabe 3 — Klassendiagramm
 
-<!-- Schritte 4 und 7: Zahl der Verstöße je Art, ohne und mit Ihren
-     Regeln. -->
-
 | Verstoß | ohne Regeln | mit Regeln |
 |---|---|---|
-| künstliche Schlüssel | … | … |
-| technische statt fachlicher Datentypen | … | … |
-| Erfundenes (Attribute, Klassen, Operationen) | … | … |
-| fehlende oder abweichende Multiplizitäten | … | … |
-| Assoziation statt Komposition | … | … |
+| künstliche Schlüssel | 0 | 0 |
+| technische statt fachlicher Datentypen | 12 (keine technischen Typen, aber alle 12 Attribute ganz ohne Typ) | 0 |
+| Erfundenes (Attribute, Klassen, Operationen) | 0 | 0 |
+| fehlende oder abweichende Multiplizitäten | 0 | 0 |
+| Assoziation statt Komposition | 0 | 0 |
 
-**Was die Regeln behoben haben und was nicht:** …
+Weitere Beobachtungen ohne Regeln:
+
+- Alle fünf Assoziationen sind gerichtet (`-->`, `<--`), also mit Navigationspfeilen. Navigierbarkeit ist eine Entwurfsentscheidung und gehört nicht ins Datenmodell.
+- Die Assoziation Zeitfenster–Buchung heißt „hat“; im Text steht kein Verb dafür („für jedes Zeitfenster gibt es höchstens eine Buchung“). Kein echter Fehler.
+- Besser als erwartet: keine `id`, keine Operationen, Komposition und Generalisierung richtig, alle Multiplizitäten wie im Text. Der Hauptmangel waren die fehlenden Datentypen.
+
+**Was die Regeln behoben haben und was nicht:** Behoben: Jedes Attribut hat jetzt einen fachlichen Typ (`Kennung`, `Uhrzeit`, `Zeitpunkt`, `Raum` …), alle Assoziationen sind ungerichtet und beschriftet. Neu entstanden ist ein Fehler durch eine unklare Regel: „Klassen im Singular“ hat der Agent so gelesen, dass aus „Studierende“ die Klasse `Student` wird. „Studierende“ ist aber auch im Singular richtig („die/der Studierende“) und steht so im Text. Die Regel ist also unklar, der Agent hat sie nicht übergangen. Besser: „Übernimm die Klassennamen wörtlich aus der Beschreibung, im Singular.“ Ob `ort : Ort` oder `ort : Raum` richtig ist, lässt der Text offen.
 
 ### Meine Regeln für Datenmodelle
 
-<!-- Schritt 5: knapp und eindeutig, als Liste. Der Agent liest diesen
-     Abschnitt in Schritt 6. -->
-
-- …
+- Übernimm nur Klassen, Attribute und Beziehungen, die die Beschreibung nennt. Ergänze nichts, auch wenn es naheliegt.
+- Schreib keine Operationen; ein Datenmodell enthält nur Daten.
+- Führe keine künstlichen Schlüssel ein (`id`, `nr`, `uuid`), wenn die Beschreibung sie nicht nennt.
+- Gib jedem Attribut einen fachlichen Datentyp in der Form `name : Typ`. Benenne den Typ mit einem Wort der Fachsprache, großgeschrieben (z. B. `Kennung`, `Name`, `Titel`, `Datum`, `Uhrzeit`, `Zeitpunkt`, `Ort`, `Raum`, `Text`). Verwende nie technische Typen wie `String`, `int`, `Date`, `boolean`.
+- Lass Sichtbarkeiten (`+`, `-`) weg.
+- Schreib an beide Enden jeder Assoziation eine Multiplizität, genau nach dem Text: „genau ein“ = `1`, „höchstens ein“ = `0..1`, „mindestens ein“ = `1..*`, „mehrere“ = `1..*`, „beliebig viele“ = `*`.
+- Zeichne Assoziationen ungerichtet (`--`), ohne Navigationspfeile, und beschrifte jede mit dem Verb aus der Beschreibung.
+- Zeichne eine Komposition (`*--`, Raute beim Ganzen), wenn ein Teil zu genau einem Ganzen gehört und mit ihm gelöscht wird; sonst eine einfache Assoziation. Verwende keine Aggregation.
+- Fasse gemeinsame Attribute mehrerer Klassen in einer abstrakten Oberklasse zusammen, wenn der Text sie als Arten eines Allgemeineren nennt („zusätzlich“), und zeichne eine Generalisierung (`<|--`).
+- Benenne Klassen mit einem Substantiv im Singular.
 
 ## Aufgabe 4 — Zustandsdiagramm
 
