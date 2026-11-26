@@ -16,6 +16,8 @@ sagt, was dort einzureichen ist.
 | [`ue02/`](ue02/) | Das Projektmodell am Fall |
 | [`ue03/`](ue03/) | Anforderungen an den Terminplaner |
 | [`ue04/`](ue04/) | Einen Coding Agent einrichten |
+| [`ue05/`](ue05/) | Skills und Werkzeuge für Agenten — ohne Einreichung |
+| [`ue06/`](ue06/) | Modellieren von Hand und mit dem Agenten |
 
 ## So reichen Sie etwas ein
 
