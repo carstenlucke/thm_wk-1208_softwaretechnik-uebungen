@@ -1,0 +1,42 @@
+@startuml
+title Zeitfenster buchen
+
+skinparam ConditionEndStyle diamond
+
+|Studentin|
+start
+:Sprechstunde auswählen;
+
+if (schon angemeldet?) then (nein)
+  :Mit Hochschulkonto anmelden;
+else (ja)
+endif
+
+|Terminplaner|
+label frei_anzeigen
+:Freie Zeitfenster der Sprechstunde anzeigen;
+
+|Studentin|
+:Zeitfenster auswählen;
+:Anliegen eintragen;
+
+|Terminplaner|
+:Prüfen, ob das Zeitfenster noch frei ist;
+
+if (inzwischen vergeben?) then (ja)
+  goto frei_anzeigen
+else (nein)
+  :Buchung eintragen;
+
+  fork
+    :Bestätigung mit iCal-Datei an die Studentin senden;
+  fork again
+    :Lehrperson benachrichtigen;
+  fork again
+    :Zeitfenster als gebucht vermerken;
+  end fork
+
+  :Buchung abgeschlossen;
+  stop
+endif
+@enduml
