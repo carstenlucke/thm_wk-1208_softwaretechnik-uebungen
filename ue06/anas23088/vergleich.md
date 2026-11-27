@@ -49,12 +49,9 @@
 
 ## Aufgabe 4 — Zustandsdiagramm
 
-<!-- Schritt 5: jede Abweichung, welche der Agent gemeldet hat, mit Ihrem
-     Urteil (berechtigt / nicht berechtigt) und einem Satz Begründung. -->
-
 | Abweichung laut Agent | Urteil | Begründung |
 |---|---|---|
-| … | … | … |
+| Fehlende Endknoten bei abgesagt, wahrgenommen und verfallen | nicht berechtigt | Die Zustände besitzen keine ausgehenden Übergänge und können sich somit nicht mehr ändern, wie in der Beschreibung gefordert. |
 
 ## Ein System, vier Sichten
 
