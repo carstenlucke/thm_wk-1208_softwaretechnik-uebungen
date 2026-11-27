@@ -16,6 +16,19 @@ endif
 label frei_anzeigen
 :Freie Zeitfenster der Sprechstunde anzeigen;
 
+if (kein Zeitfenster mehr frei?) then (ja)
+  :Warteliste der Studentin anbieten;
+
+  |Studentin|
+  if (Warteliste annehmen?) then (ja)
+    |Terminplaner|
+    :Studentin auf die Warteliste setzen;
+  else (nein)
+  endif
+  stop
+else (nein)
+endif
+
 |Studentin|
 :Zeitfenster auswählen;
 :Anliegen eintragen;

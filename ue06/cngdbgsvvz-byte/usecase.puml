@@ -1,0 +1,45 @@
+﻿@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Studierende" as Studierende
+actor "Lehrende" as Lehrende
+actor "Sekretariat" as Sekretariat
+actor "Anmeldedienst des\nRechenzentrums" as HRZ
+
+rectangle "Terminplaner" {
+  usecase "Sprechstunde anlegen" as UC_Anlegen
+  usecase "Zeitfenster buchen" as UC_Buchen
+  usecase "Auf Warteliste setzen" as UC_Warteliste
+  usecase "Buchung stornieren" as UC_Stornieren
+  usecase "Sprechstunde absagen" as UC_Absagen
+  usecase "iCal-Datei herunterladen" as UC_iCal
+  usecase "Mit Hochschulkonto anmelden" as UC_Anmelden
+  usecase "Gebuchte Personen benachrichtigen" as UC_BenachrichtigenGebuchte
+  usecase "Lehrperson benachrichtigen" as UC_BenachrichtigenLehrperson
+}
+
+Lehrende --> UC_Anlegen
+Sekretariat --> UC_Anlegen
+Studierende --> UC_Buchen
+Studierende --> UC_Stornieren
+Studierende --> UC_iCal
+Lehrende --> UC_Absagen
+
+UC_Buchen ..> UC_Anmelden : <<include>>
+UC_Stornieren ..> UC_Anmelden : <<include>>
+UC_Anlegen ..> UC_Anmelden : <<include>>
+UC_Absagen ..> UC_Anmelden : <<include>>
+
+UC_Anmelden --> HRZ
+
+UC_Warteliste ..> UC_Buchen : <<extend>>
+  note on link
+    Bedingung: Sprechstunde ist ausgebucht
+  end note
+
+UC_Absagen ..> UC_BenachrichtigenGebuchte : <<include>>
+UC_Stornieren ..> UC_BenachrichtigenLehrperson : <<include>>
+
+@enduml
+
