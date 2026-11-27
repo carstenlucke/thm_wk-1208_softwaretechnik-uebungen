@@ -55,17 +55,34 @@
 
 ## Ein System, vier Sichten
 
-<!-- Vor der nächsten Vorlesung. -->
-
 ### Was kommt mehrfach vor?
 
 | Element | Use-Case | Aktivität | Klassen | Zustand |
 |---|---|---|---|---|
-| … | … | … | … | … |
+| Studierende | Studierende(r) als Akteur | Studentin als Swimlane | Studierende als Klasse | – |
+| Lehrperson | Lehrende(r) als Akteur | Lehrperson benachrichtigen als Aktion | Lehrperson als Klasse | – |
+| Sekretariat | Sekretariat als Akteur | – | Sekretariat als Klasse | – |
+| Sprechstunde | Sprechstunde anlegen und absagen als Use-Cases | Sprechstunde auswählen als Aktion | Sprechstunde als Klasse | Sprechstunde absagen als Ereignis |
+| Zeitfenster | Zeitfenster buchen als Use-Case | Zeitfenster auswählen und prüfen als Aktionen und Bedingungen | Zeitfenster als Klasse | Modelliertes Objekt mit verschiedenen Zuständen |
+| Buchung | Buchung stornieren als Use-Case | Buchung eintragen als Aktion | Buchung als Klasse | buchen und stornieren als Ereignisse |
+| Warteliste | Auf Warteliste setzen als Use-Case | Warteliste anbieten und auf Warteliste setzen als Aktionen | – | – |
 
-<!-- Je Zelle: unter welchem Namen und in welcher Form das Element dort
-     vorkommt (Akteur, Use-Case, Aktion, Klasse, Zustand …), oder „—“. -->
+### Passt es zusammen?
 
+- Die Studierenden werden in den Diagrammen unterschiedlich bezeichnet: Studierende(r), Studentin und Studierende.
+- Die Lehrperson heißt im Use-Case-Diagramm Lehrende(r), im Klassendiagramm dagegen Lehrperson.
+- Die Warteliste kommt im Use-Case- und Aktivitätsdiagramm vor, fehlt aber im Klassendiagramm.
+- Die Klasse Zeitfenster besitzt kein Zustandsattribut, obwohl im Zustandsdiagramm verschiedene Zustände dargestellt werden.
+- Im Aktivitätsdiagramm wird die Lehrperson beim Buchen benachrichtigt. Im Use-Case-Diagramm ist diese Benachrichtigung nur mit dem Stornieren verbunden.
+
+### Eine Umbenennung
+
+Wenn Zeitfenster in Termin umbenannt werden soll, müssen insgesamt 13 Stellen in 3 Dateien geändert werden:
+
+- usecase.puml: 2 Stellen
+- aktivitaet.puml: 8 Stellen
+- klassen.md: 3 Stellen
+- zustand.md: 0 Stellen
 ### Wo passt es nicht zusammen?
 
 - …
