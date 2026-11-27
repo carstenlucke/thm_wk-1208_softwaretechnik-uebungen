@@ -1,0 +1,51 @@
+@startuml
+title Aktivitätsdiagramm — Ein Zeitfenster buchen (Beschreibung 2)
+
+|Studentin|
+start
+:Sprechstunde auswählen;
+
+if (schon angemeldet?) then (nein)
+  :Mit Hochschulkonto anmelden;
+endif
+
+|Terminplaner|
+:Freie Zeitfenster anzeigen;
+
+if (kein Zeitfenster mehr frei?) then (ja)
+  :Warteliste anbieten;
+  |Studentin|
+  if (Warteliste annehmen?) then (ja)
+    |Terminplaner|
+    :Auf Warteliste setzen;
+    stop
+  else (nein)
+    stop
+  endif
+else (nein)
+  |Studentin|
+  :Zeitfenster auswählen;
+  :Anliegen eintragen;
+
+  |Terminplaner|
+  while (Zeitfenster noch frei?) is (nein)
+    :Freie Zeitfenster erneut anzeigen;
+    |Studentin|
+    :Anderes Zeitfenster auswählen;
+    :Anliegen eintragen;
+    |Terminplaner|
+  endwhile (ja)
+
+  :Buchung eintragen;
+
+  fork
+    :Bestätigung mit iCal-Datei an Studentin senden;
+  fork again
+    :Lehrperson benachrichtigen;
+  fork again
+    :Zeitfenster als gebucht vermerken;
+  end fork
+
+  stop
+endif
+@enduml

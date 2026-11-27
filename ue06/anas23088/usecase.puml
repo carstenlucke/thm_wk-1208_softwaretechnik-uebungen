@@ -1,0 +1,51 @@
+@startuml
+title Use-Case-Diagramm — Terminplaner für die THM (Beschreibung 1)
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Studierende(r)" as STUD
+actor "Lehrende(r)" as LEHR
+actor "Sekretariat" as SEK
+actor "Anmeldedienst\ndes Rechenzentrums" as AD
+
+rectangle "Terminplaner" {
+  usecase "Sprechstunde anlegen" as UC_Anlegen
+  usecase "Zeitfenster buchen\n(Erweiterungspunkt: ausgebucht)" as UC_Buchen
+  usecase "Auf Warteliste setzen" as UC_Warteliste
+  usecase "Buchung stornieren" as UC_Stornieren
+  usecase "Sprechstunde absagen" as UC_Absagen
+  usecase "Gebuchte Studierende benachrichtigen" as UC_BenachrichtigeStud
+  usecase "Lehrperson benachrichtigen" as UC_BenachrichtigeLehr
+  usecase "Buchung als iCal-Datei herunterladen" as UC_ICal
+}
+
+STUD --> UC_Buchen
+STUD --> UC_Stornieren
+STUD --> UC_ICal
+LEHR --> UC_Anlegen
+AD -- UC_Buchen
+AD -- UC_Stornieren
+AD -- UC_Anlegen
+AD -- UC_Absagen
+LEHR --> UC_Absagen
+SEK --> UC_Anlegen
+
+UC_Warteliste ..> UC_Buchen : <<extend>> [ausgebucht]
+UC_Stornieren ..> UC_BenachrichtigeLehr : <<include>>
+UC_Absagen ..> UC_BenachrichtigeStud : <<include>>
+
+note right of UC_Anlegen
+  Datum, Beginn, Ende und Ort;
+  Unterteilung in 15-Minuten-Zeitfenster.
+  Das Sekretariat legt für die betreuten
+  Lehrenden an.
+end note
+
+note left of AD
+  Vorbedingung für Buchen, Stornieren,
+  Anlegen und Absagen: Anmeldung mit
+  Hochschulkonto; geprüft durch diesen
+  Anmeldedienst.
+end note
+@enduml
