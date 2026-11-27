@@ -12,28 +12,40 @@ endif
 |Terminplaner|
 :Freie Zeitfenster anzeigen;
 
-|Studentin|
-:Zeitfenster auswählen;
-:Anliegen eintragen;
-
-|Terminplaner|
-while (Zeitfenster noch frei?) is (nein)
-  :Freie Zeitfenster erneut anzeigen;
+if (kein Zeitfenster mehr frei?) then (ja)
+  :Warteliste anbieten;
   |Studentin|
-  :Anderes Zeitfenster auswählen;
+  if (Warteliste annehmen?) then (ja)
+    |Terminplaner|
+    :Auf Warteliste setzen;
+    stop
+  else (nein)
+    stop
+  endif
+else (nein)
+  |Studentin|
+  :Zeitfenster auswählen;
   :Anliegen eintragen;
+
   |Terminplaner|
-endwhile (ja)
+  while (Zeitfenster noch frei?) is (nein)
+    :Freie Zeitfenster erneut anzeigen;
+    |Studentin|
+    :Anderes Zeitfenster auswählen;
+    :Anliegen eintragen;
+    |Terminplaner|
+  endwhile (ja)
 
-:Buchung eintragen;
+  :Buchung eintragen;
 
-fork
-  :Bestätigung mit iCal-Datei an Studentin senden;
-fork again
-  :Lehrperson benachrichtigen;
-fork again
-  :Zeitfenster als gebucht vermerken;
-end fork
+  fork
+    :Bestätigung mit iCal-Datei an Studentin senden;
+  fork again
+    :Lehrperson benachrichtigen;
+  fork again
+    :Zeitfenster als gebucht vermerken;
+  end fork
 
-stop
+  stop
+endif
 @enduml
